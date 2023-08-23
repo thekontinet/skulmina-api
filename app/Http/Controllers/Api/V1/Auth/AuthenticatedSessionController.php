@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group Authentication
+ */
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Handle an incoming authentication request.
+     * request auth token
+     * @unauthenticated
+     *
+     * @bodyParam email string required valid email. Example: test@example.com
+     * @bodyParam password string required secured password. Example: password
+     * @return JsonResponse
      */
     public function store(LoginRequest $request): JsonResponse
     {
@@ -27,7 +35,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Destroy an authenticated session.
+     * destroy auth token.
      */
     public function destroy(Request $request): Response
     {

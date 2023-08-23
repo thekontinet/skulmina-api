@@ -11,6 +11,13 @@ use Illuminate\Http\Response;
 
 class AuthenticateController extends Controller
 {
+    /**
+     * Login
+     *
+     * @bodyParam email string required valid email. Example: admin@email.com
+     * @bodyParam password string required. Example: password
+     * @return JsonResponse
+     */
     public function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();

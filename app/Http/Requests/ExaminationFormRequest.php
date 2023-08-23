@@ -22,7 +22,6 @@ class ExaminationFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        // dd($this->route()->getActionMethod());
         if($this->isMethod('put')){
             return [
                 'title' => ['sometimes', 'string', 'max:255'],

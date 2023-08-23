@@ -4,36 +4,19 @@ namespace Tests\Feature\Api;
 
 use App\Enums\RoleEnum;
 use App\Models\Examination;
-use App\Models\Role;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExaminationTest extends TestCase
+class ExaminationControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $user;
-
-    public function setUp() :void
-    {
-        parent::setUp();
-        foreach (RoleEnum::cases() as $case) {
-            Role::create(['name' => $case->value]);
-        }
-
-        $this->user = User::factory()->create();
-        $this->actingAs($this->user);
-    }
-
     public function test_can_get_all_examinations()
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
         $examinations = Examination::factory(2)->create([
             'user_id' => $this->user->id
         ]);
-
-        $this->actingAs($this->user);
 
         $response = $this->get(route('examinations.index'));
 
@@ -43,14 +26,12 @@ class ExaminationTest extends TestCase
 
     public function test_student_can_get_all_examinations_available_for_them()
     {
-        $this->user->assignRole(RoleEnum::STUDENT->value);
+        $this->loginAs(RoleEnum::STUDENT);
         $examinations = Examination::factory(2)->create([
             'user_id' => $this->user->id
         ]);
 
-        $this->user->reserveSeatFor($examinations->first());
-
-        $this->actingAs($this->user);
+        $this->user->reserveSeatFor($examinations[0]);
 
         $response = $this->get(route('examinations.index'));
 
@@ -62,7 +43,7 @@ class ExaminationTest extends TestCase
 
     public function test_can_create_new_examinations(): void
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
 
         $response = $this->post(
             route('examinations.store'),
@@ -75,7 +56,7 @@ class ExaminationTest extends TestCase
 
     public function test_cannot_create_new_examinations_for_other_teachers(): void
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
         $data = Examination::factory()->make(['user_id' => 2])->toArray();
 
         $response = $this->post(
@@ -91,7 +72,7 @@ class ExaminationTest extends TestCase
 
     public function test_students_cannot_create_new_examinations(): void
     {
-        $this->user->assignRole(RoleEnum::STUDENT->value);
+        $this->loginAs(RoleEnum::STUDENT);
 
         $response = $this->post(
             route('examinations.store'),
@@ -104,7 +85,7 @@ class ExaminationTest extends TestCase
 
     public function test_can_update_examinations(): void
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
 
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
@@ -112,8 +93,6 @@ class ExaminationTest extends TestCase
         $newExamination = (array) Examination::factory()->make([
             'user_id' => $this->user->id
         ])->toArray();
-
-        $this->actingAs($this->user);
         $response = $this->put(
             route('examinations.update', $examination),
             $newExamination
@@ -125,12 +104,10 @@ class ExaminationTest extends TestCase
 
     public function test_that_author_cannot_update_another_authors_examinations(): void
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
 
         $examination = Examination::factory()->create();
         $newExamination = (array) Examination::factory()->make()->toArray();
-
-        $this->actingAs($this->user);
 
         $response = $this->put(
             route('examinations.update', $examination),
@@ -142,10 +119,8 @@ class ExaminationTest extends TestCase
 
     public function test_can_get_examination_data()
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create();
-
-        $this->actingAs($this->user);
 
         $response = $this->get(route('examinations.show', $examination) );
 
@@ -156,10 +131,8 @@ class ExaminationTest extends TestCase
     public function test_that_exam_data_is_available_for_seated_students()
     {
         $examination = Examination::factory()->create();
-        $this->user->assignRole(RoleEnum::ADMIN->value);
+        $this->loginAs(RoleEnum::ADMIN);
         $this->user->reserveSeatFor($examination);
-
-        $this->actingAs($this->user);
 
         $response = $this->get(route('examinations.show', $examination));
         $response->assertSuccessful();
@@ -167,10 +140,8 @@ class ExaminationTest extends TestCase
 
     public function test_that_exam_data_is_unavailable_for_non_seated_students()
     {
-        $this->user->assignRole(RoleEnum::STUDENT->value);
+        $this->loginAs(RoleEnum::STUDENT);
         $examination = Examination::factory()->create();
-
-        $this->actingAs($this->user);
 
         $response = $this->get(route('examinations.show', $examination) );
         $response->assertForbidden();
@@ -178,12 +149,10 @@ class ExaminationTest extends TestCase
 
     public function test_can_delete_examination()
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
-
-        $this->actingAs($this->user);
         $response = $this->delete(route('examinations.destroy', $examination));
 
         $response->assertSuccessful();
@@ -192,10 +161,8 @@ class ExaminationTest extends TestCase
 
     public function test_that_author_cannot_delete_other_authors_examination()
     {
-        $this->user->assignRole(RoleEnum::TEACHER->value);
+        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create();
-
-        $this->actingAs($this->user);
 
         $response = $this->delete(route('examinations.destroy', $examination));
         $response->assertForbidden();

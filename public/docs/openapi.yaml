@@ -1,0 +1,448 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000/api/v1'
+paths:
+  /api/v1/register:
+    post:
+      summary: 'create new user'
+      operationId: createNewUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'user full name.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'valid email.'
+                  example: user@email.com
+                password:
+                  type: string
+                  description: 'secured password.'
+                  example: password
+              required:
+                - name
+                - email
+                - password
+  /api/v1/login:
+    post:
+      summary: 'request auth token'
+      operationId: requestAuthToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'valid email.'
+                  example: test@example.com
+                password:
+                  type: string
+                  description: 'secured password.'
+                  example: password
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/user:
+    get:
+      summary: 'get authenticated user data'
+      operationId: getAuthenticatedUserData
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Authentication
+  /api/v1/logout:
+    post:
+      summary: 'destroy auth token.'
+      operationId: destroyAuthToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Authentication
+  /api/v1/examinations:
+    get:
+      summary: 'Get all examinations'
+      operationId: getAllExaminations
+      description: "Get all examinations based on authenticated user role\n<aside class='info'>\nThe examination retrieval is determined by the authenticated user's role:\n<strong>Student:</strong> Retrieve all examinations assigned to students. <br>\n<strong>Teacher:</strong> Retrieve all examinations authored by teachers.\n</aside>"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Examinations
+    post:
+      summary: 'Create examination'
+      operationId: createExamination
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: nfrxeqhvuapdydyllfs
+                description:
+                  type: string
+                  description: 'Must not be greater than 5000 characters.'
+                  example: 'Distinctio ratione dolorem qui.'
+                time_limit:
+                  type: integer
+                  description: 'Must be at least 10.'
+                  example: 54
+                start_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-08-23T10:35:30'
+                end_time:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
+                  example: '2091-06-16'
+              required:
+                - title
+                - description
+                - time_limit
+                - start_time
+                - end_time
+  '/api/v1/examinations/{id}':
+    get:
+      summary: 'Show single examination'
+      operationId: showSingleExamination
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Examinations
+    put:
+      summary: 'Update an examinations'
+      operationId: updateAnExaminations
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: hxqinktrbqg
+                description:
+                  type: string
+                  description: 'Must not be greater than 5000 characters.'
+                  example: 'Vel quidem totam eos consequatur ad.'
+                time_limit:
+                  type: integer
+                  description: 'Must be at least 10.'
+                  example: 53
+                start_time:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-08-23T10:35:30'
+                end_time:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
+                  example: '2028-07-31'
+    delete:
+      summary: 'Destroy examinations'
+      operationId: destroyExaminations
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the examination.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination_id}/questions':
+    get:
+      summary: 'get all question'
+      operationId: getAllQuestion
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Examinations
+    post:
+      summary: 'add new question'
+      operationId: addNewQuestion
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: ''
+                  example: illo
+                options:
+                  type: array
+                  description: ''
+                  example:
+                    - quia
+                  items:
+                    type: string
+              required:
+                - description
+                - options
+    parameters:
+      -
+        in: path
+        name: examination_id
+        description: 'The ID of the examination.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination_id}/questions/{id}':
+    put:
+      summary: 'update question'
+      operationId: updateQuestion
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: ''
+                  example: et
+                options:
+                  type: array
+                  description: ''
+                  example:
+                    - quisquam
+                  items:
+                    type: string
+              required:
+                - description
+                - options
+    delete:
+      summary: 'delete question'
+      operationId: deleteQuestion
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+    parameters:
+      -
+        in: path
+        name: examination_id
+        description: 'The ID of the examination.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id
+        description: 'The ID of the question.'
+        example: 7
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Examinations
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

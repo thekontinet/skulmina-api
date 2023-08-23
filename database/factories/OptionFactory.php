@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class OptionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'question_id' => Question::factory(),
+            'value' => fake()->unique()->word(),
+            'is_correct' => fake()->boolean()
         ];
     }
 }
