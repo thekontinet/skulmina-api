@@ -21,7 +21,8 @@ class ExamResource extends JsonResource
             'description' => $this->description,
             'time_limit' => $this->time_limit,
             'start_time' => $this->start_time,
-            'end_time' => $this->end_time
+            'end_time' => $this->end_time,
+            'questions' => QuestionResource::collection($this->questions),
         ];
     }
 }

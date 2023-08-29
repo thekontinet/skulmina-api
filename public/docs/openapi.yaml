@@ -118,6 +118,78 @@ paths:
       responses: {  }
       tags:
         - Authentication
+  '/api/v1/examinations/{examination_id}/assignments':
+    post:
+      summary: 'Assign students to exam'
+      operationId: assignStudentsToExam
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - aperiam
+                  items:
+                    type: string
+              required:
+                - student_ids
+    delete:
+      summary: 'Assign Student to exam'
+      operationId: assignStudentToExam
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - ut
+                  items:
+                    type: string
+              required:
+                - student_ids
+    parameters:
+      -
+        in: path
+        name: examination_id
+        description: 'The ID of the examination.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/v1/examinations:
     get:
       summary: 'Get all examinations'
@@ -171,23 +243,23 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: nfrxeqhvuapdydyllfs
+                  example: nkfhuljlwhgvkuyyofz
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Distinctio ratione dolorem qui.'
+                  example: 'Sint dolorem ratione provident.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 54
+                  example: 57
                 start_time:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-23T10:35:30'
+                  example: '2023-08-29T07:44:01'
                 end_time:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2091-06-16'
+                  example: '2056-08-22'
               required:
                 - title
                 - description
@@ -247,23 +319,23 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: hxqinktrbqg
+                  example: bscuvsjgmrbdhuc
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Vel quidem totam eos consequatur ad.'
+                  example: 'Incidunt doloribus quae qui ex ut tempora vero.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 53
+                  example: 83
                 start_time:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-23T10:35:30'
+                  example: '2023-08-29T07:44:01'
                 end_time:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2028-07-31'
+                  example: '2121-10-04'
     delete:
       summary: 'Destroy examinations'
       operationId: destroyExaminations
@@ -341,12 +413,12 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: illo
+                  example: sit
                 options:
                   type: array
                   description: ''
                   example:
-                    - quia
+                    - tempora
                   items:
                     type: string
               required:
@@ -387,12 +459,12 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: et
+                  example: nam
                 options:
                   type: array
                   description: ''
                   example:
-                    - quisquam
+                    - ut
                   items:
                     type: string
               required:
@@ -426,13 +498,82 @@ paths:
         in: path
         name: id
         description: 'The ID of the question.'
-        example: 7
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination_id}/start':
+    post:
+      summary: 'Start examination'
+      operationId: startExamination
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+    parameters:
+      -
+        in: path
+        name: examination_id
+        description: 'The ID of the examination.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination_id}/submit':
+    post:
+      summary: 'Handles the submission.'
+      operationId: handlesTheSubmission
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Examinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                answers:
+                  type: array
+                  description: ''
+                  example:
+                    - laudantium
+                  items:
+                    type: string
+              required:
+                - answers
+    parameters:
+      -
+        in: path
+        name: examination_id
+        description: 'The ID of the examination.'
+        example: 1
         required: true
         schema:
           type: integer
 tags:
   -
     name: Authentication
+    description: ''
+  -
+    name: Endpoints
     description: ''
   -
     name: Examinations

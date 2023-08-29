@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "04feb9d5-22b6-43c6-ac01-7c40513e0572",
+        "_postman_id": "ddd8379f-315e-4f8f-a247-fa649841087e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -114,7 +114,7 @@
                                 },
                                 {
                                     "key": "access-control-allow-origin",
-                                    "value": "http:\/\/127.0.0.1:8000"
+                                    "value": "http:\/\/localhost:3000"
                                 },
                                 {
                                     "key": "access-control-allow-credentials",
@@ -148,6 +148,84 @@
                             }
                         ],
                         "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Assign students to exam",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination_id\/assignments",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/assignments",
+                            "variable": [
+                                {
+                                    "id": "examination_id",
+                                    "key": "examination_id",
+                                    "value": "1",
+                                    "description": "The ID of the examination."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"student_ids\":[\"aperiam\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Assign Student to exam",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination_id\/assignments",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/assignments",
+                            "variable": [
+                                {
+                                    "id": "examination_id",
+                                    "key": "examination_id",
+                                    "value": "1",
+                                    "description": "The ID of the examination."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"student_ids\":[\"ut\"]}"
+                        },
                         "description": ""
                     },
                     "response": []
@@ -194,7 +272,7 @@
                                 },
                                 {
                                     "key": "access-control-allow-origin",
-                                    "value": "http:\/\/127.0.0.1:8000"
+                                    "value": "http:\/\/localhost:3000"
                                 },
                                 {
                                     "key": "access-control-allow-credentials",
@@ -229,7 +307,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"nfrxeqhvuapdydyllfs\",\"description\":\"Distinctio ratione dolorem qui.\",\"time_limit\":54,\"start_time\":\"2023-08-23T10:35:30\",\"end_time\":\"2091-06-16\"}"
+                            "raw": "{\"title\":\"nkfhuljlwhgvkuyyofz\",\"description\":\"Sint dolorem ratione provident.\",\"time_limit\":57,\"start_time\":\"2023-08-29T07:44:01\",\"end_time\":\"2056-08-22\"}"
                         },
                         "description": ""
                     },
@@ -279,7 +357,7 @@
                                 },
                                 {
                                     "key": "access-control-allow-origin",
-                                    "value": "http:\/\/127.0.0.1:8000"
+                                    "value": "http:\/\/localhost:3000"
                                 },
                                 {
                                     "key": "access-control-allow-credentials",
@@ -322,7 +400,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"hxqinktrbqg\",\"description\":\"Vel quidem totam eos consequatur ad.\",\"time_limit\":53,\"start_time\":\"2023-08-23T10:35:30\",\"end_time\":\"2028-07-31\"}"
+                            "raw": "{\"title\":\"bscuvsjgmrbdhuc\",\"description\":\"Incidunt doloribus quae qui ex ut tempora vero.\",\"time_limit\":83,\"start_time\":\"2023-08-29T07:44:01\",\"end_time\":\"2121-10-04\"}"
                         },
                         "description": ""
                     },
@@ -409,7 +487,7 @@
                                         },
                                         {
                                             "key": "access-control-allow-origin",
-                                            "value": "http:\/\/127.0.0.1:8000"
+                                            "value": "http:\/\/localhost:3000"
                                         },
                                         {
                                             "key": "access-control-allow-credentials",
@@ -452,7 +530,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"illo\",\"options\":[\"quia\"]}"
+                                    "raw": "{\"description\":\"sit\",\"options\":[\"tempora\"]}"
                                 },
                                 "description": ""
                             },
@@ -476,7 +554,7 @@
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "7",
+                                            "value": "1",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -494,7 +572,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"et\",\"options\":[\"quisquam\"]}"
+                                    "raw": "{\"description\":\"nam\",\"options\":[\"ut\"]}"
                                 },
                                 "description": ""
                             },
@@ -540,6 +618,75 @@
                             "response": []
                         }
                     ]
+                },
+                {
+                    "name": "Start examination",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination_id\/start",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/start",
+                            "variable": [
+                                {
+                                    "id": "examination_id",
+                                    "key": "examination_id",
+                                    "value": "1",
+                                    "description": "The ID of the examination."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Handles the submission.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination_id\/submit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/submit",
+                            "variable": [
+                                {
+                                    "id": "examination_id",
+                                    "key": "examination_id",
+                                    "value": "1",
+                                    "description": "The ID of the examination."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"answers\":[\"laudantium\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
                 }
             ]
         }

@@ -138,7 +138,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          access-control-allow-origin: 'http://127.0.0.1:8000'
+          access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
         custom: []

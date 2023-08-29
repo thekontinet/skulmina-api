@@ -20,7 +20,7 @@ class QuestionPolicy
         if(!$examination) return false;
 
         if($user->hasRole(RoleEnum::STUDENT->value)){
-            return $user->hasReservedSeatFor($examination);
+            return $user->isInvitedTo($examination);
         }
 
         return $examination->user_id === $user->id;
@@ -32,7 +32,7 @@ class QuestionPolicy
     public function view(User $user, question $question): bool
     {
        if(!$user->hasRole(RoleEnum::STUDENT->value)) return true;
-       return $user->hasReservedSeatFor($question->examination);
+       return $user->isInvitedTo($question->examination);
     }
 
     /**

@@ -16,6 +16,7 @@ class QuestionResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'examination_id' => $this->examination_id,
             'type' => $this->type,
             'description' => $this->description,
             'option' => OptionResource::collection($this->options)

@@ -1,0 +1,107 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/examinations/{examination_id}/assignments'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Assign students to exam'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      examination_id:
+        name: examination_id
+        description: 'The ID of the examination.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      examination_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      student_ids:
+        name: student_ids
+        description: ''
+        required: true
+        example:
+          - aperiam
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      student_ids:
+        - aperiam
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/examinations/{examination_id}/assignments'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Assign Student to exam'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      examination_id:
+        name: examination_id
+        description: 'The ID of the examination.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      examination_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      student_ids:
+        name: student_ids
+        description: ''
+        required: true
+        example:
+          - ut
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      student_ids:
+        - ut
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []

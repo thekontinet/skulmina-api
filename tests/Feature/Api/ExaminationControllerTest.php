@@ -31,7 +31,7 @@ class ExaminationControllerTest extends TestCase
             'user_id' => $this->user->id
         ]);
 
-        $this->user->reserveSeatFor($examinations[0]);
+        $this->user->inviteTo($examinations[0]);
 
         $response = $this->get(route('examinations.index'));
 
@@ -132,7 +132,7 @@ class ExaminationControllerTest extends TestCase
     {
         $examination = Examination::factory()->create();
         $this->loginAs(RoleEnum::ADMIN);
-        $this->user->reserveSeatFor($examination);
+        $this->user->inviteTo($examination);
 
         $response = $this->get(route('examinations.show', $examination));
         $response->assertSuccessful();

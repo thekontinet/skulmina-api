@@ -85,6 +85,19 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-examinations--examination_id--assignments">
+                                <a href="#endpoints-POSTapi-v1-examinations--examination_id--assignments">Assign students to exam</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-examinations--examination_id--assignments">
+                                <a href="#endpoints-DELETEapi-v1-examinations--examination_id--assignments">Assign Student to exam</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-examinations" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="examinations">
                     <a href="#examinations">Examinations</a>
@@ -104,6 +117,12 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-DELETEapi-v1-examinations--id-">
                                 <a href="#examinations-DELETEapi-v1-examinations--id-">Destroy examinations</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--start">
+                                <a href="#examinations-POSTapi-v1-examinations--examination_id--start">Start examination</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--submit">
+                                <a href="#examinations-POSTapi-v1-examinations--examination_id--submit">Handles the submission.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-manage-questions">
                                 <a href="#examinations-manage-questions">Manage Questions</a>
@@ -133,7 +152,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 23, 2023</li>
+        <li>Last updated: August 29, 2023</li>
     </ul>
 </div>
 
@@ -538,7 +557,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: http://127.0.0.1:8000
+access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
@@ -759,6 +778,346 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-POSTapi-v1-examinations--examination_id--assignments">Assign students to exam</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-examinations--examination_id--assignments">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/assignments',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'student_ids' =&gt; [
+                'aperiam',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/assignments"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "student_ids": [
+        "aperiam"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-examinations--examination_id--assignments">
+</span>
+<span id="execution-results-POSTapi-v1-examinations--examination_id--assignments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-examinations--examination_id--assignments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--assignments"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-examinations--examination_id--assignments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--assignments">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-examinations--examination_id--assignments" data-method="POST"
+      data-path="api/v1/examinations/{examination_id}/assignments"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--assignments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-examinations--examination_id--assignments"
+                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--assignments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--assignments"
+                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--assignments');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--assignments"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/examinations/{examination_id}/assignments</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the examination. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>student_ids</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="student_ids[0]"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="student_ids[1]"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-v1-examinations--examination_id--assignments">Assign Student to exam</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-examinations--examination_id--assignments">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/assignments',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'student_ids' =&gt; [
+                'ut',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/assignments"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "student_ids": [
+        "ut"
+    ]
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-examinations--examination_id--assignments">
+</span>
+<span id="execution-results-DELETEapi-v1-examinations--examination_id--assignments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-examinations--examination_id--assignments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-examinations--examination_id--assignments"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-examinations--examination_id--assignments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-examinations--examination_id--assignments">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-examinations--examination_id--assignments" data-method="DELETE"
+      data-path="api/v1/examinations/{examination_id}/assignments"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-examinations--examination_id--assignments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-examinations--examination_id--assignments"
+                    onclick="tryItOut('DELETEapi-v1-examinations--examination_id--assignments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-examinations--examination_id--assignments"
+                    onclick="cancelTryOut('DELETEapi-v1-examinations--examination_id--assignments');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-examinations--examination_id--assignments"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/examinations/{examination_id}/assignments</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="examination_id"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the examination. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>student_ids</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="student_ids[0]"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="student_ids[1]"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
                 <h1 id="examinations">Examinations</h1>
 
     
@@ -824,7 +1183,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: http://127.0.0.1:8000
+access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
@@ -938,11 +1297,11 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'nfrxeqhvuapdydyllfs',
-            'description' =&gt; 'Distinctio ratione dolorem qui.',
-            'time_limit' =&gt; 54,
-            'start_time' =&gt; '2023-08-23T10:35:30',
-            'end_time' =&gt; '2091-06-16',
+            'title' =&gt; 'nkfhuljlwhgvkuyyofz',
+            'description' =&gt; 'Sint dolorem ratione provident.',
+            'time_limit' =&gt; 57,
+            'start_time' =&gt; '2023-08-29T07:44:01',
+            'end_time' =&gt; '2056-08-22',
         ],
     ]
 );
@@ -962,11 +1321,11 @@ const headers = {
 };
 
 let body = {
-    "title": "nfrxeqhvuapdydyllfs",
-    "description": "Distinctio ratione dolorem qui.",
-    "time_limit": 54,
-    "start_time": "2023-08-23T10:35:30",
-    "end_time": "2091-06-16"
+    "title": "nkfhuljlwhgvkuyyofz",
+    "description": "Sint dolorem ratione provident.",
+    "time_limit": 57,
+    "start_time": "2023-08-29T07:44:01",
+    "end_time": "2056-08-22"
 };
 
 fetch(url, {
@@ -1066,10 +1425,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-examinations"
-               value="nfrxeqhvuapdydyllfs"
+               value="nkfhuljlwhgvkuyyofz"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>nfrxeqhvuapdydyllfs</code></p>
+<p>Must not be greater than 255 characters. Example: <code>nkfhuljlwhgvkuyyofz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1077,10 +1436,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-examinations"
-               value="Distinctio ratione dolorem qui."
+               value="Sint dolorem ratione provident."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Distinctio ratione dolorem qui.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Sint dolorem ratione provident.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
@@ -1088,10 +1447,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="POSTapi-v1-examinations"
-               value="54"
+               value="57"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>54</code></p>
+<p>Must be at least 10. Example: <code>57</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1099,10 +1458,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="POSTapi-v1-examinations"
-               value="2023-08-23T10:35:30"
+               value="2023-08-29T07:44:01"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-08-23T10:35:30</code></p>
+<p>Must be a valid date. Example: <code>2023-08-29T07:44:01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
@@ -1110,10 +1469,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_time"                data-endpoint="POSTapi-v1-examinations"
-               value="2091-06-16"
+               value="2056-08-22"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2091-06-16</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2056-08-22</code></p>
         </div>
         </form>
 
@@ -1173,7 +1532,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: http://127.0.0.1:8000
+access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
@@ -1299,11 +1658,11 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'hxqinktrbqg',
-            'description' =&gt; 'Vel quidem totam eos consequatur ad.',
-            'time_limit' =&gt; 53,
-            'start_time' =&gt; '2023-08-23T10:35:30',
-            'end_time' =&gt; '2028-07-31',
+            'title' =&gt; 'bscuvsjgmrbdhuc',
+            'description' =&gt; 'Incidunt doloribus quae qui ex ut tempora vero.',
+            'time_limit' =&gt; 83,
+            'start_time' =&gt; '2023-08-29T07:44:01',
+            'end_time' =&gt; '2121-10-04',
         ],
     ]
 );
@@ -1323,11 +1682,11 @@ const headers = {
 };
 
 let body = {
-    "title": "hxqinktrbqg",
-    "description": "Vel quidem totam eos consequatur ad.",
-    "time_limit": 53,
-    "start_time": "2023-08-23T10:35:30",
-    "end_time": "2028-07-31"
+    "title": "bscuvsjgmrbdhuc",
+    "description": "Incidunt doloribus quae qui ex ut tempora vero.",
+    "time_limit": 83,
+    "start_time": "2023-08-29T07:44:01",
+    "end_time": "2121-10-04"
 };
 
 fetch(url, {
@@ -1443,10 +1802,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="hxqinktrbqg"
+               value="bscuvsjgmrbdhuc"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>hxqinktrbqg</code></p>
+<p>Must not be greater than 255 characters. Example: <code>bscuvsjgmrbdhuc</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1454,10 +1813,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="Vel quidem totam eos consequatur ad."
+               value="Incidunt doloribus quae qui ex ut tempora vero."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Vel quidem totam eos consequatur ad.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Incidunt doloribus quae qui ex ut tempora vero.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
@@ -1465,10 +1824,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="53"
+               value="83"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>53</code></p>
+<p>Must be at least 10. Example: <code>83</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1476,10 +1835,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="2023-08-23T10:35:30"
+               value="2023-08-29T07:44:01"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-08-23T10:35:30</code></p>
+<p>Must be a valid date. Example: <code>2023-08-29T07:44:01</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
@@ -1487,10 +1846,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="end_time"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="2028-07-31"
+               value="2121-10-04"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2028-07-31</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2121-10-04</code></p>
         </div>
         </form>
 
@@ -1636,6 +1995,316 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--start">Start examination</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-examinations--examination_id--start">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/start',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/start"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-examinations--examination_id--start">
+</span>
+<span id="execution-results-POSTapi-v1-examinations--examination_id--start" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-examinations--examination_id--start"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--start"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-examinations--examination_id--start" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--start">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-examinations--examination_id--start" data-method="POST"
+      data-path="api/v1/examinations/{examination_id}/start"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--start', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-examinations--examination_id--start"
+                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--start');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--start"
+                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--start');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--start"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/examinations/{examination_id}/start</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--start"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the examination. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--submit">Handles the submission.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-examinations--examination_id--submit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/submit',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'answers' =&gt; [
+                'laudantium',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/submit"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "answers": [
+        "laudantium"
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-examinations--examination_id--submit">
+</span>
+<span id="execution-results-POSTapi-v1-examinations--examination_id--submit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-examinations--examination_id--submit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--submit"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-examinations--examination_id--submit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--submit">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-examinations--examination_id--submit" data-method="POST"
+      data-path="api/v1/examinations/{examination_id}/submit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--submit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-examinations--examination_id--submit"
+                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--submit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--submit"
+                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--submit');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--submit"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/examinations/{examination_id}/submit</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the examination. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="answers[0]"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="answers[1]"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
                                 <h2 id="examinations-manage-questions">Manage Questions</h2>
                                                     <h2 id="examinations-GETapi-v1-examinations--examination_id--questions">get all question</h2>
 
@@ -1693,7 +2362,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-access-control-allow-origin: http://127.0.0.1:8000
+access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
@@ -1819,9 +2488,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'description' =&gt; 'illo',
+            'description' =&gt; 'sit',
             'options' =&gt; [
-                'quia',
+                'tempora',
             ],
         ],
     ]
@@ -1842,9 +2511,9 @@ const headers = {
 };
 
 let body = {
-    "description": "illo",
+    "description": "sit",
     "options": [
-        "quia"
+        "tempora"
     ]
 };
 
@@ -1957,10 +2626,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
-               value="illo"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>illo</code></p>
+<p>Example: <code>sit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -1977,10 +2646,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="options.0.value"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
-               value="debitis"
+               value="doloribus"
                data-component="body">
     <br>
-<p>Example: <code>debitis</code></p>
+<p>Example: <code>doloribus</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correct</code></b>&nbsp;&nbsp;
@@ -2022,7 +2691,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/questions/7',
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/1/questions/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2030,9 +2699,9 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'description' =&gt; 'et',
+            'description' =&gt; 'nam',
             'options' =&gt; [
-                'quisquam',
+                'ut',
             ],
         ],
     ]
@@ -2043,7 +2712,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/questions/7"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/1/questions/1"
 );
 
 const headers = {
@@ -2053,9 +2722,9 @@ const headers = {
 };
 
 let body = {
-    "description": "et",
+    "description": "nam",
     "options": [
-        "quisquam"
+        "ut"
     ]
 };
 
@@ -2171,10 +2840,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="7"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the question. Example: <code>7</code></p>
+<p>The ID of the question. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2183,10 +2852,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="et"
+               value="nam"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>nam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -2203,10 +2872,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="options.0.value"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="cum"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Example: <code>omnis</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>correct</code></b>&nbsp;&nbsp;
