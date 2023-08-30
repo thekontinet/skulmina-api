@@ -4,7 +4,7 @@ namespace App\Models\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-interface canBeAttended
+interface CanBeAttended
 {
     public function seats(): MorphMany;
 }

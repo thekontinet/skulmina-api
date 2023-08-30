@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Contracts\canBeAttended;
+use App\Models\Contracts\CanBeAttended;
 use App\Models\Scopes\UserExamScope;
 use App\Models\Traits\Attendable;
 use App\Models\Traits\HasManySeats;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Examination extends Model implements canBeAttended
+class Examination extends Model implements CanBeAttended
 {
     use HasFactory, Attendable;
 
