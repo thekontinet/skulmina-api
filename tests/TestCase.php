@@ -11,7 +11,7 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
 
-    protected User $user;
+    protected User | null $user;
 
     public function setUp() :void
     {
@@ -19,18 +19,22 @@ abstract class TestCase extends BaseTestCase
         foreach (RoleEnum::cases() as $case) {
             Role::create(['name' => $case->value]);
         }
+        $this->login();
     }
 
     public function login()
     {
         $this->user = User::factory()->create();
         $this->actingAs($this->user);
+        return $this;
     }
 
     public function loginAs(RoleEnum $role)
     {
-        $this->user = User::factory()->create();
-        $this->actingAs($this->user);
-        $this->user->assignRole($role->value);
+        /** @var User */
+        $user = $this->user ?? User::factory()->create();
+        $this->actingAs($user);
+        $user->assignRole($role->value);
+        return $this;
     }
 }

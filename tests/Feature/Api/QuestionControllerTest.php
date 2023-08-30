@@ -19,10 +19,12 @@ class QuestionControllerTest extends TestCase
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
+        $questions = Question::factory(10)->create();
 
         $response = $this->get(route('questions.index', $examination));
 
         $response->assertSuccessful();
+        $response->assertSeeInOrder($questions->pluck('title')->toArray());
     }
 
     public function test_student_cannot_get_exam_questions()
@@ -32,46 +34,34 @@ class QuestionControllerTest extends TestCase
 
         $response = $this->get(route('questions.index', $examination));
 
-        $response->assertForbidden();
+        $response->assertStatus(404);
     }
 
     public function test_can_add_new_question_to_examination()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
         $data = Question::factory()->make()->toArray();
-        $data['options'] = [
-            ['value' => 'test value 1', 'correct' => false],
-            ['value' => 'test value 2', 'correct' => false],
-            ['value' => 'test value 3', 'correct' => true]
-        ];
 
-        $response = $this->post(route('questions.store', $examination), $data);
+        $this->loginAs(RoleEnum::TEACHER)->post(route('questions.store', $examination), $data)
+            ->assertSuccessful();
 
-        $response->assertSuccessful();
         $this->assertTrue($examination->questions()->exists());
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 1', 'is_correct' => false]);
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 2', 'is_correct' => false]);
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 3', 'is_correct' => true]);
     }
 
     public function test_cannot_add_question_if_not_examination_author()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create();
         $data = Question::factory()->make()->toArray();
 
-        $response = $this->post(route('questions.store', $examination), $data);
-
-        $response->assertForbidden();
+        $this->loginAs(RoleEnum::TEACHER)->post(route('questions.store', $examination), $data)
+            ->assertStatus(404);
         $this->assertFalse($examination->questions()->exists());
     }
 
     public function test_can_update_question()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
@@ -79,19 +69,10 @@ class QuestionControllerTest extends TestCase
         $data = [
             'description' => 'New test question'
         ];
-        $options = [
-            ['value' => 'test value 1', 'correct' => false],
-            ['value' => 'test value 2', 'correct' => false],
-            ['value' => 'test value 3', 'correct' => true]
-        ];
 
-        $response = $this->put(route('questions.update',[$examination, $question]), [...$data, 'options' => $options]);
-
-        $response->assertSuccessful();
+        $this->loginAs(RoleEnum::TEACHER)->put(route('questions.update',[$examination, $question]), $data)
+            ->assertSuccessful();
         $this->assertDatabaseHas(Question::class, $data);
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 1', 'is_correct' => false]);
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 2', 'is_correct' => false]);
-        $this->assertDatabaseHas(Option::class,  ['value' => 'test value 3', 'is_correct' => true]);
     }
 
     public function test_cannot_update_question_if_not_examination_author()
@@ -103,23 +84,20 @@ class QuestionControllerTest extends TestCase
             'description' => 'New test question'
         ];
 
-        $response = $this->put(route('questions.update',[$examination, $question]), $data);
-
-        $response->assertForbidden();
+        $this->loginAs(RoleEnum::TEACHER)->put(route('questions.update',[$examination, $question]), $data)
+            ->assertStatus(404);
         $this->assertDatabaseMissing(Question::class, $data);
     }
 
     public function test_can_delete_question()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
         $question = $examination->questions()->create(Question::factory()->make()->toArray());
 
-        $response = $this->delete(route('questions.destroy',[$examination, $question]));
-
-        $response->assertSuccessful();
+        $this->loginAs(RoleEnum::TEACHER)->delete(route('questions.destroy',[$examination, $question]))
+            ->assertSuccessful();
         $this->assertDatabaseEmpty(Question::class);
     }
 
@@ -129,8 +107,7 @@ class QuestionControllerTest extends TestCase
         $examination = Examination::factory()->create();
         $question = $examination->questions()->create(Question::factory()->make()->toArray());
 
-        $response = $this->delete(route('questions.destroy',[$examination, $question]));
-
-        $response->assertForbidden();
+        $this->loginAs(RoleEnum::TEACHER)->delete(route('questions.destroy',[$examination, $question]))
+            ->assertStatus(404);
     }
 }

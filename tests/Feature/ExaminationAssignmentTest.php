@@ -44,7 +44,7 @@ class ExaminationAssignmentTest extends TestCase
             'student_ids' => [$student->id]
         ]);
 
-        $response->assertStatus(403);
+        $response->assertStatus(404);
         $this->assertDatabaseMissing(Seat::class, ['user_id' => $student->id]);
     }
 
@@ -80,7 +80,7 @@ class ExaminationAssignmentTest extends TestCase
             'student_ids' => [$student->id]
         ]);
 
-        $response->assertStatus(403);
+        $response->assertStatus(404);
         $this->assertDatabaseHas(Seat::class, ['user_id' => $student->id]);
     }
 }

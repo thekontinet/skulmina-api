@@ -4,6 +4,114 @@ endpoints:
   -
     httpMethods:
       - POST
+    uri: 'api/v1/questions/{question_id}/options'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add option to question'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      question_id:
+        name: question_id
+        description: 'The ID of the question.'
+        required: true
+        example: 5
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      question_id: 5
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      value:
+        name: value
+        description: ''
+        required: true
+        example: officiis
+        type: string
+        custom: []
+      is_correct:
+        name: is_correct
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        custom: []
+    cleanBodyParameters:
+      value: officiis
+      is_correct: true
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/questions/{question_id}/options/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Options'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      question_id:
+        name: question_id
+        description: 'The ID of the question.'
+        required: true
+        example: 20
+        type: integer
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the option.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      question_id: 20
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
     uri: 'api/v1/examinations/{examination_id}/assignments'
     metadata:
       groupName: Endpoints
@@ -23,11 +131,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -36,12 +144,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - aperiam
+          - debitis
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       student_ids:
-        - aperiam
+        - debitis
     fileParameters: []
     responses: []
     responseFields: []
@@ -75,11 +183,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 8
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -88,12 +196,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - ut
+          - facere
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       student_ids:
-        - ut
+        - facere
     fileParameters: []
     responses: []
     responseFields: []

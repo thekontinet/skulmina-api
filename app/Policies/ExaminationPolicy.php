@@ -22,8 +22,7 @@ class ExaminationPolicy
      */
     public function view(User $user, Examination $examination): bool
     {
-        if(!$user->hasRole(RoleEnum::STUDENT->value)) return true;
-        return $user->isInvitedTo($examination);
+        return $user->id === $examination->user_id || $user->isInvitedTo($examination);
     }
 
     /**
@@ -39,8 +38,7 @@ class ExaminationPolicy
      */
     public function update(User $user, Examination $examination): bool
     {
-        return !$user->hasRole(RoleEnum::STUDENT->value) &&
-                $examination->user_id == $user->id;
+        return $examination->user_id == $user->id;
     }
 
     /**
@@ -48,8 +46,7 @@ class ExaminationPolicy
      */
     public function delete(User $user, Examination $examination): bool
     {
-        return !$user->hasRole(RoleEnum::STUDENT->value) &&
-        $examination->user_id == $user->id;
+        return $examination->user_id == $user->id;
     }
 
     /**
@@ -57,7 +54,6 @@ class ExaminationPolicy
      */
     public function submit(User $user, Examination $examination): Response
     {
-        if(!$user->hasRole(RoleEnum::STUDENT->value)) return Response::deny();
         if(!$examination->hasInvitationFor($user)) return Response::deny('Not permitted to take this examination');
         if($examination->isSubmittedBy($user)) return Response::deny('You already attempt this examination');
         return Response::allow();

@@ -118,6 +118,82 @@ paths:
       responses: {  }
       tags:
         - Authentication
+  '/api/v1/questions/{question_id}/options':
+    post:
+      summary: 'Add option to question'
+      operationId: addOptionToQuestion
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: ''
+                  example: officiis
+                is_correct:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - value
+                - is_correct
+    parameters:
+      -
+        in: path
+        name: question_id
+        description: 'The ID of the question.'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  '/api/v1/questions/{question_id}/options/{id}':
+    delete:
+      summary: 'Delete Options'
+      operationId: deleteOptions
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: question_id
+        description: 'The ID of the question.'
+        example: 20
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id
+        description: 'The ID of the option.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   '/api/v1/examinations/{examination_id}/assignments':
     post:
       summary: 'Assign students to exam'
@@ -145,7 +221,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - aperiam
+                    - debitis
                   items:
                     type: string
               required:
@@ -176,7 +252,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - ut
+                    - facere
                   items:
                     type: string
               required:
@@ -186,7 +262,7 @@ paths:
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 1
+        example: 2
         required: true
         schema:
           type: integer
@@ -243,23 +319,23 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: nkfhuljlwhgvkuyyofz
+                  example: aewzgotd
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Sint dolorem ratione provident.'
+                  example: 'Maiores error asperiores ut iste.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 57
+                  example: 32
                 start_time:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-29T07:44:01'
+                  example: '2023-08-30T08:01:18'
                 end_time:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2056-08-22'
+                  example: '2051-03-11'
               required:
                 - title
                 - description
@@ -319,23 +395,23 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: bscuvsjgmrbdhuc
+                  example: rlwjwlbxkmwnwjgnjmp
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Incidunt doloribus quae qui ex ut tempora vero.'
+                  example: 'Quos et iusto officiis voluptates dolorem id.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 83
+                  example: 68
                 start_time:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-29T07:44:01'
+                  example: '2023-08-30T08:01:18'
                 end_time:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2121-10-04'
+                  example: '2044-03-23'
     delete:
       summary: 'Destroy examinations'
       operationId: destroyExaminations
@@ -356,7 +432,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the examination.'
-        example: 1
+        example: 2
         required: true
         schema:
           type: integer
@@ -413,23 +489,15 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: sit
-                options:
-                  type: array
-                  description: ''
-                  example:
-                    - tempora
-                  items:
-                    type: string
+                  example: et
               required:
                 - description
-                - options
     parameters:
       -
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 1
+        example: 15
         required: true
         schema:
           type: integer
@@ -459,17 +527,9 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: nam
-                options:
-                  type: array
-                  description: ''
-                  example:
-                    - ut
-                  items:
-                    type: string
+                  example: voluptas
               required:
                 - description
-                - options
     delete:
       summary: 'delete question'
       operationId: deleteQuestion
@@ -490,7 +550,7 @@ paths:
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 1
+        example: 16
         required: true
         schema:
           type: integer
@@ -498,7 +558,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the question.'
-        example: 1
+        example: 12
         required: true
         schema:
           type: integer
@@ -523,7 +583,7 @@ paths:
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 1
+        example: 19
         required: true
         schema:
           type: integer
@@ -554,7 +614,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - laudantium
+                    - soluta
                   items:
                     type: string
               required:
@@ -564,7 +624,7 @@ paths:
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 1
+        example: 9
         required: true
         schema:
           type: integer

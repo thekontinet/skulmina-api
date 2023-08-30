@@ -13,159 +13,129 @@ class ExaminationControllerTest extends TestCase
 
     public function test_can_get_all_examinations()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examinations = Examination::factory(2)->create([
             'user_id' => $this->user->id
         ]);
 
-        $response = $this->get(route('examinations.index'));
-
-        $response->assertSuccessful();
-        $response->assertSeeInOrder($examinations->pluck('title')->toArray());
+        $this->loginAs(RoleEnum::TEACHER)->get(route('examinations.index'))
+            ->assertSuccessful()
+            ->assertSeeInOrder($examinations->pluck('title')->toArray());
     }
 
-    public function test_student_can_get_all_examinations_available_for_them()
+    public function test_can_only_see_invited_exams_if_role_is_student()
     {
-        $this->loginAs(RoleEnum::STUDENT);
-        $examinations = Examination::factory(2)->create([
-            'user_id' => $this->user->id
-        ]);
-
+        $examinations = Examination::factory(2)->create();
         $this->user->inviteTo($examinations[0]);
 
-        $response = $this->get(route('examinations.index'));
-
-        $response->assertSuccessful();
-        $response->assertSee($examinations->first()->title);
-        $response->assertDontSee($examinations->last()->title);
+        $this->loginAs(RoleEnum::STUDENT)->get(route('examinations.index'))
+            ->assertSuccessful()
+            ->assertSee($examinations->first()->title)
+            ->assertDontSee($examinations->last()->title);
     }
 
 
-    public function test_can_create_new_examinations(): void
+    public function test_can_create_new_examinations_if_role_is_teacher(): void
     {
-        $this->loginAs(RoleEnum::TEACHER);
-
-        $response = $this->post(
+        $this->loginAs(RoleEnum::TEACHER)->post(
             route('examinations.store'),
             Examination::factory()->make()->toArray()
-        );
+        )->assertCreated();
 
-        $response->assertCreated();
-        $this->assertDatabaseCount(Examination::class, 1);
+        $this->assertDatabaseHas(Examination::class, [
+            'user_id' => $this->user->id
+        ]);
     }
 
-    public function test_cannot_create_new_examinations_for_other_teachers(): void
+    public function test_cannot_create_new_examination_if_role_is_student(): void
     {
-        $this->loginAs(RoleEnum::TEACHER);
-        $data = Examination::factory()->make(['user_id' => 2])->toArray();
-
-        $response = $this->post(
-            route('examinations.store'),
-            $data
-        );
-
-        $response->assertCreated();
-        $this->assertDatabaseCount(Examination::class, 1);
-        $this->assertDatabaseMissing(Examination::class, ['user_id' => 2]);
-        $this->assertDatabaseHas(Examination::class, ['user_id' => auth()->id()]);
-    }
-
-    public function test_students_cannot_create_new_examinations(): void
-    {
-        $this->loginAs(RoleEnum::STUDENT);
-
-        $response = $this->post(
+        $this->loginAs(RoleEnum::STUDENT)->post(
             route('examinations.store'),
             Examination::factory()->make()->toArray()
-        );
+        )->assertForbidden();
+    }
 
-        $response->assertForbidden();
-        $this->assertDatabaseEmpty(Examination::class);
+    public function test_cannot_create_new_examinations_for_other_creators(): void
+    {
+        $this->loginAs(RoleEnum::TEACHER)->post(
+            route('examinations.store'),
+            Examination::factory()->make([
+                'user_id' => 2
+            ])->toArray()
+        )->assertCreated();
+
+        $this->assertDatabaseCount(Examination::class, 1)
+        ->assertDatabaseHas(Examination::class, ['user_id' => $this->user->id]);
     }
 
     public function test_can_update_examinations(): void
     {
-        $this->loginAs(RoleEnum::TEACHER);
-
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
-        $newExamination = (array) Examination::factory()->make([
-            'user_id' => $this->user->id
-        ])->toArray();
-        $response = $this->put(
-            route('examinations.update', $examination),
-            $newExamination
-        );
+        $newExamination = Examination::factory()->make();
 
-        $response->assertSuccessful();
-        $this->assertDatabaseHas(Examination::class, $newExamination);
+        $this->loginAs(RoleEnum::TEACHER)->put(
+            route('examinations.update', $examination),
+            $newExamination->toArray()
+        )->assertSuccessful();
+
+        $this->assertDatabaseHas(
+            Examination::class,
+            collect($newExamination)->except(['user_id'])->toArray()
+        );
     }
 
-    public function test_that_author_cannot_update_another_authors_examinations(): void
+    public function test_cannot_update_examination_if_not_creator(): void
     {
-        $this->loginAs(RoleEnum::TEACHER);
-
         $examination = Examination::factory()->create();
         $newExamination = (array) Examination::factory()->make()->toArray();
 
-        $response = $this->put(
+        $this->loginAs(RoleEnum::TEACHER)->put(
             route('examinations.update', $examination),
             $newExamination
-        );
-
-        $response->assertForbidden();
+        )->assertNotFound();
     }
 
-    public function test_can_get_examination_data()
+    public function test_can_show_single_examination()
     {
-        $this->loginAs(RoleEnum::TEACHER);
-        $examination = Examination::factory()->create();
-
-        $response = $this->get(route('examinations.show', $examination) );
-
-        $response->assertSuccessful();
-        $response->assertJsonFragment($examination->pluck('title')->toArray());
-    }
-
-    public function test_that_exam_data_is_available_for_seated_students()
-    {
-        $examination = Examination::factory()->create();
-        $this->loginAs(RoleEnum::ADMIN);
-        $this->user->inviteTo($examination);
-
-        $response = $this->get(route('examinations.show', $examination));
-        $response->assertSuccessful();
-    }
-
-    public function test_that_exam_data_is_unavailable_for_non_seated_students()
-    {
-        $this->loginAs(RoleEnum::STUDENT);
-        $examination = Examination::factory()->create();
-
-        $response = $this->get(route('examinations.show', $examination) );
-        $response->assertForbidden();
-    }
-
-    public function test_can_delete_examination()
-    {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create([
             'user_id' => $this->user->id
         ]);
-        $response = $this->delete(route('examinations.destroy', $examination));
 
-        $response->assertSuccessful();
+        $this->loginAs(RoleEnum::TEACHER)->get(route('examinations.show', $examination))
+                ->assertSuccessful()
+                ->assertJsonFragment($examination->pluck('title')->toArray());
+    }
+
+    public function test_can_show_single_examination_to_student_only_if_invited()
+    {
+        $examination = Examination::factory(2)->create();
+        $this->loginAs(RoleEnum::STUDENT);
+        $this->user->inviteTo($examination->first());
+
+        $this->get(route('examinations.show', $examination->first()))
+            ->assertSuccessful();
+
+        $this->get(route('examinations.show', $examination->last()))
+            ->assertNotFound();
+    }
+
+    public function test_can_delete_examination_if_creator()
+    {
+        $examination = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
+
+        $this->loginAs(RoleEnum::TEACHER)->delete(route('examinations.destroy', $examination))
+            ->assertSuccessful();
         $this->assertDatabaseMissing(Examination::class, $examination->toArray());
     }
 
-    public function test_that_author_cannot_delete_other_authors_examination()
+    public function test_cannot_delete_exam_if_not_creator()
     {
-        $this->loginAs(RoleEnum::TEACHER);
         $examination = Examination::factory()->create();
 
-        $response = $this->delete(route('examinations.destroy', $examination));
-        $response->assertForbidden();
-        $this->assertDatabaseHas(Examination::class, (array) $examination->only(['title']));
+        $this->loginAs(RoleEnum::TEACHER)->delete(route('examinations.destroy', $examination))
+            ->assertNotFound();
     }
 }

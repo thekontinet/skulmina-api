@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "ddd8379f-315e-4f8f-a247-fa649841087e",
+        "_postman_id": "a49af09d-6895-463c-a0ce-ca858d01ef3a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -159,6 +159,81 @@
             "description": "",
             "item": [
                 {
+                    "name": "Add option to question",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/questions\/:question_id\/options",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/questions\/:question_id\/options",
+                            "variable": [
+                                {
+                                    "id": "question_id",
+                                    "key": "question_id",
+                                    "value": "5",
+                                    "description": "The ID of the question."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"value\":\"officiis\",\"is_correct\":true}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Options",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/questions\/:question_id\/options\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/questions\/:question_id\/options\/:id",
+                            "variable": [
+                                {
+                                    "id": "question_id",
+                                    "key": "question_id",
+                                    "value": "20",
+                                    "description": "The ID of the question."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the option."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
                     "name": "Assign students to exam",
                     "request": {
                         "url": {
@@ -170,7 +245,7 @@
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "1",
+                                    "value": "2",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -188,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"student_ids\":[\"aperiam\"]}"
+                            "raw": "{\"student_ids\":[\"debitis\"]}"
                         },
                         "description": ""
                     },
@@ -206,7 +281,7 @@
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "1",
+                                    "value": "8",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -224,7 +299,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"student_ids\":[\"ut\"]}"
+                            "raw": "{\"student_ids\":[\"facere\"]}"
                         },
                         "description": ""
                     },
@@ -307,7 +382,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"nkfhuljlwhgvkuyyofz\",\"description\":\"Sint dolorem ratione provident.\",\"time_limit\":57,\"start_time\":\"2023-08-29T07:44:01\",\"end_time\":\"2056-08-22\"}"
+                            "raw": "{\"title\":\"aewzgotd\",\"description\":\"Maiores error asperiores ut iste.\",\"time_limit\":32,\"start_time\":\"2023-08-30T08:01:18\",\"end_time\":\"2051-03-11\"}"
                         },
                         "description": ""
                     },
@@ -325,7 +400,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "2",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -382,7 +457,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "7",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -400,7 +475,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"bscuvsjgmrbdhuc\",\"description\":\"Incidunt doloribus quae qui ex ut tempora vero.\",\"time_limit\":83,\"start_time\":\"2023-08-29T07:44:01\",\"end_time\":\"2121-10-04\"}"
+                            "raw": "{\"title\":\"rlwjwlbxkmwnwjgnjmp\",\"description\":\"Quos et iusto officiis voluptates dolorem id.\",\"time_limit\":68,\"start_time\":\"2023-08-30T08:01:18\",\"end_time\":\"2044-03-23\"}"
                         },
                         "description": ""
                     },
@@ -418,7 +493,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "8",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -455,7 +530,7 @@
                                         {
                                             "id": "examination_id",
                                             "key": "examination_id",
-                                            "value": "1",
+                                            "value": "15",
                                             "description": "The ID of the examination."
                                         }
                                     ]
@@ -512,7 +587,7 @@
                                         {
                                             "id": "examination_id",
                                             "key": "examination_id",
-                                            "value": "1",
+                                            "value": "12",
                                             "description": "The ID of the examination."
                                         }
                                     ]
@@ -530,7 +605,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"sit\",\"options\":[\"tempora\"]}"
+                                    "raw": "{\"description\":\"et\"}"
                                 },
                                 "description": ""
                             },
@@ -548,13 +623,13 @@
                                         {
                                             "id": "examination_id",
                                             "key": "examination_id",
-                                            "value": "1",
+                                            "value": "16",
                                             "description": "The ID of the examination."
                                         },
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "1",
+                                            "value": "12",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -572,7 +647,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"nam\",\"options\":[\"ut\"]}"
+                                    "raw": "{\"description\":\"voluptas\"}"
                                 },
                                 "description": ""
                             },
@@ -590,13 +665,13 @@
                                         {
                                             "id": "examination_id",
                                             "key": "examination_id",
-                                            "value": "1",
+                                            "value": "4",
                                             "description": "The ID of the examination."
                                         },
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "1",
+                                            "value": "11",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -631,7 +706,7 @@
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "1",
+                                    "value": "19",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -664,7 +739,7 @@
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "1",
+                                    "value": "9",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -682,7 +757,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"answers\":[\"laudantium\"]}"
+                            "raw": "{\"answers\":[\"soluta\"]}"
                         },
                         "description": ""
                     },

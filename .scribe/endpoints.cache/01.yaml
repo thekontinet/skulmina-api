@@ -79,43 +79,43 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: nkfhuljlwhgvkuyyofz
+        example: aewzgotd
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 5000 characters.'
         required: true
-        example: 'Sint dolorem ratione provident.'
+        example: 'Maiores error asperiores ut iste.'
         type: string
         custom: []
       time_limit:
         name: time_limit
         description: 'Must be at least 10.'
         required: true
-        example: 57
+        example: 32
         type: integer
         custom: []
       start_time:
         name: start_time
         description: 'Must be a valid date.'
         required: true
-        example: '2023-08-29T07:44:01'
+        example: '2023-08-30T08:01:18'
         type: string
         custom: []
       end_time:
         name: end_time
         description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
         required: true
-        example: '2056-08-22'
+        example: '2051-03-11'
         type: string
         custom: []
     cleanBodyParameters:
-      title: nkfhuljlwhgvkuyyofz
-      description: 'Sint dolorem ratione provident.'
-      time_limit: 57
-      start_time: '2023-08-29T07:44:01'
-      end_time: '2056-08-22'
+      title: aewzgotd
+      description: 'Maiores error asperiores ut iste.'
+      time_limit: 32
+      start_time: '2023-08-30T08:01:18'
+      end_time: '2051-03-11'
     fileParameters: []
     responses: []
     responseFields: []
@@ -149,11 +149,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -202,11 +202,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 7
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 7
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -214,43 +214,43 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: bscuvsjgmrbdhuc
+        example: rlwjwlbxkmwnwjgnjmp
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 5000 characters.'
         required: false
-        example: 'Incidunt doloribus quae qui ex ut tempora vero.'
+        example: 'Quos et iusto officiis voluptates dolorem id.'
         type: string
         custom: []
       time_limit:
         name: time_limit
         description: 'Must be at least 10.'
         required: false
-        example: 83
+        example: 68
         type: integer
         custom: []
       start_time:
         name: start_time
         description: 'Must be a valid date.'
         required: false
-        example: '2023-08-29T07:44:01'
+        example: '2023-08-30T08:01:18'
         type: string
         custom: []
       end_time:
         name: end_time
         description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
         required: false
-        example: '2121-10-04'
+        example: '2044-03-23'
         type: string
         custom: []
     cleanBodyParameters:
-      title: bscuvsjgmrbdhuc
-      description: 'Incidunt doloribus quae qui ex ut tempora vero.'
-      time_limit: 83
-      start_time: '2023-08-29T07:44:01'
-      end_time: '2121-10-04'
+      title: rlwjwlbxkmwnwjgnjmp
+      description: 'Quos et iusto officiis voluptates dolorem id.'
+      time_limit: 68
+      start_time: '2023-08-30T08:01:18'
+      end_time: '2044-03-23'
     fileParameters: []
     responses: []
     responseFields: []
@@ -284,11 +284,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 8
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -326,11 +326,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 15
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -378,11 +378,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -390,35 +390,11 @@ endpoints:
         name: description
         description: ''
         required: true
-        example: sit
+        example: et
         type: string
-        custom: []
-      options:
-        name: options
-        description: ''
-        required: true
-        example:
-          - tempora
-        type: 'string[]'
-        custom: []
-      'options[].value':
-        name: 'options[].value'
-        description: ''
-        required: true
-        example: doloribus
-        type: string
-        custom: []
-      'options[].correct':
-        name: 'options[].correct'
-        description: ''
-        required: true
-        example: false
-        type: boolean
         custom: []
     cleanBodyParameters:
-      description: sit
-      options:
-        - tempora
+      description: et
     fileParameters: []
     responses: []
     responseFields: []
@@ -453,19 +429,19 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 16
         type: integer
         custom: []
       id:
         name: id
         description: 'The ID of the question.'
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
-      id: 1
+      examination_id: 16
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -473,35 +449,11 @@ endpoints:
         name: description
         description: ''
         required: true
-        example: nam
+        example: voluptas
         type: string
-        custom: []
-      options:
-        name: options
-        description: ''
-        required: true
-        example:
-          - ut
-        type: 'string[]'
-        custom: []
-      'options[].value':
-        name: 'options[].value'
-        description: ''
-        required: true
-        example: omnis
-        type: string
-        custom: []
-      'options[].correct':
-        name: 'options[].correct'
-        description: ''
-        required: true
-        example: false
-        type: boolean
         custom: []
     cleanBodyParameters:
-      description: nam
-      options:
-        - ut
+      description: voluptas
     fileParameters: []
     responses: []
     responseFields: []
@@ -535,19 +487,19 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 4
         type: integer
         custom: []
       id:
         name: id
         description: 'The ID of the question.'
         required: true
-        example: 1
+        example: 11
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
-      id: 1
+      examination_id: 4
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -585,11 +537,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 19
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -627,11 +579,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 1
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 1
+      examination_id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -640,12 +592,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - laudantium
+          - soluta
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       answers:
-        - laudantium
+        - soluta
     fileParameters: []
     responses: []
     responseFields: []

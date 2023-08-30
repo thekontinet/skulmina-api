@@ -35,18 +35,7 @@ class ExaminationController extends Controller
      */
     public function index(): JsonResource
     {
-        /** @var User */
-        $user = auth()->user();
-
-        if($user->hasRole(RoleEnum::STUDENT->value)){
-            $examinations = Examination::whereHas('seats', function($query) use ($user){
-                $query->where('user_id', $user->id);
-            })->paginate();
-        }
-        else{
-            $examinations = Examination::whereUserId($user->id)->paginate();
-        }
-
+        $examinations = Examination::paginate();
         return ExamResource::collection($examinations);
     }
 

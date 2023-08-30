@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Examination;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
+            'examination_id' => Examination::factory(),
             'type' => 'multiple',
             'description' => fake()->sentence()
         ];

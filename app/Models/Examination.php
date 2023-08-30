@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Contracts\canBeAttended;
+use App\Models\Scopes\UserExamScope;
 use App\Models\Traits\Attendable;
 use App\Models\Traits\HasManySeats;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +20,12 @@ class Examination extends Model implements canBeAttended
         'start_time' => 'datetime:Y-m-d h:i:s',
         'end_time' => 'datetime:Y-m-d h:i:s'
     ];
+
+    protected static function boot(): void
+    {
+        parent::boot();
+        static::addGlobalScope(new UserExamScope);
+    }
 
     public function hasInvitationFor(User $user): bool
     {
