@@ -10,10 +10,10 @@ use App\Http\Controllers\ExaminationAssignmentController;
 use App\Http\Controllers\QuestionOptionController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
 
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
     Route::get('/user', UserController::class);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::apiResource('examinations', ExaminationController::class);
