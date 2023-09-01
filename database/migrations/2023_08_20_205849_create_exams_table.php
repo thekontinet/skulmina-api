@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->bigInteger('time_limit');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

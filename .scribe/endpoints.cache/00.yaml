@@ -6,71 +6,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/register
-    metadata:
-      groupName: Authentication
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'create new user'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'user full name.'
-        required: true
-        example: 'John Doe'
-        type: string
-        custom: []
-      email:
-        name: email
-        description: 'valid email.'
-        required: true
-        example: user@email.com
-        type: string
-        custom: []
-      password:
-        name: password
-        description: 'secured password.'
-        required: true
-        example: password
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: 'John Doe'
-      email: user@email.com
-      password: password
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
     uri: api/v1/login
     metadata:
       groupName: Authentication
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'request auth token'
+      title: 'Request auth token'
       description: ''
       authenticated: false
       custom: []
@@ -116,7 +58,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'get authenticated user data'
+      title: 'Get authenticated user.'
       description: ''
       authenticated: true
       custom: []
@@ -160,7 +102,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'destroy auth token.'
+      title: 'Destroy auth token.'
       description: ''
       authenticated: true
       custom: []

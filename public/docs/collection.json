@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "a49af09d-6895-463c-a0ce-ca858d01ef3a",
+        "_postman_id": "5db4332f-a503-4e22-b507-b3f5b7b5d502",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,35 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "create new user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/register",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/register"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"John Doe\",\"email\":\"user@email.com\",\"password\":\"password\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "request auth token",
+                    "name": "Request auth token",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -79,7 +51,7 @@
                     "response": []
                 },
                 {
-                    "name": "get authenticated user data",
+                    "name": "Get authenticated user.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -128,7 +100,7 @@
                     ]
                 },
                 {
-                    "name": "destroy auth token.",
+                    "name": "Destroy auth token.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -148,159 +120,6 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
-                    },
-                    "response": []
-                }
-            ]
-        },
-        {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "Add option to question",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/questions\/:question_id\/options",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/questions\/:question_id\/options",
-                            "variable": [
-                                {
-                                    "id": "question_id",
-                                    "key": "question_id",
-                                    "value": "5",
-                                    "description": "The ID of the question."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"value\":\"officiis\",\"is_correct\":true}"
-                        },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Delete Options",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/questions\/:question_id\/options\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/questions\/:question_id\/options\/:id",
-                            "variable": [
-                                {
-                                    "id": "question_id",
-                                    "key": "question_id",
-                                    "value": "20",
-                                    "description": "The ID of the question."
-                                },
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the option."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Assign students to exam",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/examinations\/:examination_id\/assignments",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/assignments",
-                            "variable": [
-                                {
-                                    "id": "examination_id",
-                                    "key": "examination_id",
-                                    "value": "2",
-                                    "description": "The ID of the examination."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"student_ids\":[\"debitis\"]}"
-                        },
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Assign Student to exam",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/examinations\/:examination_id\/assignments",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/assignments",
-                            "variable": [
-                                {
-                                    "id": "examination_id",
-                                    "key": "examination_id",
-                                    "value": "8",
-                                    "description": "The ID of the examination."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"student_ids\":[\"facere\"]}"
-                        },
                         "description": ""
                     },
                     "response": []
@@ -332,7 +151,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "Get all examinations based on authenticated user role\n<aside class='info'>\nThe examination retrieval is determined by the authenticated user's role:\n<strong>Student:<\/strong> Retrieve all examinations assigned to students. <br>\n<strong>Teacher:<\/strong> Retrieve all examinations authored by teachers.\n<\/aside>"
+                        "description": ""
                     },
                     "response": [
                         {
@@ -382,9 +201,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"aewzgotd\",\"description\":\"Maiores error asperiores ut iste.\",\"time_limit\":32,\"start_time\":\"2023-08-30T08:01:18\",\"end_time\":\"2051-03-11\"}"
+                            "raw": "{\"title\":\"xdgf\",\"description\":\"Ratione magni libero quia sequi ipsum quidem voluptatibus.\",\"time_limit\":57,\"published_at\":\"2023-09-01T03:46:29\",\"question_ids\":[\"est\"]}"
                         },
-                        "description": ""
+                        "description": "Allows teachers to create examinations"
                     },
                     "response": []
                 },
@@ -400,7 +219,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "20",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -417,7 +236,7 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "Allows teachers get single examinations"
                     },
                     "response": [
                         {
@@ -446,7 +265,7 @@
                     ]
                 },
                 {
-                    "name": "Update an examinations",
+                    "name": "Update an examination",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -457,7 +276,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "19",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -475,14 +294,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"rlwjwlbxkmwnwjgnjmp\",\"description\":\"Quos et iusto officiis voluptates dolorem id.\",\"time_limit\":68,\"start_time\":\"2023-08-30T08:01:18\",\"end_time\":\"2044-03-23\"}"
+                            "raw": "{\"title\":\"rnocnkxrrzcntljvxbgy\",\"description\":\"Iure dolore vero accusantium eligendi.\",\"time_limit\":31,\"published_at\":\"2023-09-01T03:46:29\",\"question_ids\":[\"cum\"]}"
                         },
-                        "description": ""
+                        "description": "Allows teachers update their examinations and questions"
                     },
                     "response": []
                 },
                 {
-                    "name": "Destroy examinations",
+                    "name": "Delete an examination",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -493,7 +312,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "12",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -510,7 +329,7 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "Allows teachers delete their examinations"
                     },
                     "response": []
                 },
@@ -523,17 +342,9 @@
                             "request": {
                                 "url": {
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/v1\/examinations\/:examination_id\/questions",
+                                    "path": "api\/v1\/questions",
                                     "query": [],
-                                    "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/questions",
-                                    "variable": [
-                                        {
-                                            "id": "examination_id",
-                                            "key": "examination_id",
-                                            "value": "15",
-                                            "description": "The ID of the examination."
-                                        }
-                                    ]
+                                    "raw": "{{baseUrl}}\/api\/v1\/questions"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -580,17 +391,9 @@
                             "request": {
                                 "url": {
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/v1\/examinations\/:examination_id\/questions",
+                                    "path": "api\/v1\/questions",
                                     "query": [],
-                                    "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/questions",
-                                    "variable": [
-                                        {
-                                            "id": "examination_id",
-                                            "key": "examination_id",
-                                            "value": "12",
-                                            "description": "The ID of the examination."
-                                        }
-                                    ]
+                                    "raw": "{{baseUrl}}\/api\/v1\/questions"
                                 },
                                 "method": "POST",
                                 "header": [
@@ -605,7 +408,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"et\"}"
+                                    "raw": "{\"description\":\"nesciunt\",\"options\":[],\"answers\":[]}"
                                 },
                                 "description": ""
                             },
@@ -616,20 +419,14 @@
                             "request": {
                                 "url": {
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/v1\/examinations\/:examination_id\/questions\/:id",
+                                    "path": "api\/v1\/questions\/:id",
                                     "query": [],
-                                    "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/questions\/:id",
+                                    "raw": "{{baseUrl}}\/api\/v1\/questions\/:id",
                                     "variable": [
-                                        {
-                                            "id": "examination_id",
-                                            "key": "examination_id",
-                                            "value": "16",
-                                            "description": "The ID of the examination."
-                                        },
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "12",
+                                            "value": "1",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -647,7 +444,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"voluptas\"}"
+                                    "raw": "{\"description\":\"consequatur\",\"options\":[],\"answers\":[]}"
                                 },
                                 "description": ""
                             },
@@ -658,20 +455,14 @@
                             "request": {
                                 "url": {
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/v1\/examinations\/:examination_id\/questions\/:id",
+                                    "path": "api\/v1\/questions\/:id",
                                     "query": [],
-                                    "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/questions\/:id",
+                                    "raw": "{{baseUrl}}\/api\/v1\/questions\/:id",
                                     "variable": [
-                                        {
-                                            "id": "examination_id",
-                                            "key": "examination_id",
-                                            "value": "4",
-                                            "description": "The ID of the examination."
-                                        },
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "11",
+                                            "value": "1",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -695,51 +486,18 @@
                     ]
                 },
                 {
-                    "name": "Start examination",
+                    "name": "Enroll student to exam",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/examinations\/:examination_id\/start",
+                            "path": "api\/v1\/examinations\/:examination_id\/enroll",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/start",
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/enroll",
                             "variable": [
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "19",
-                                    "description": "The ID of the examination."
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handles the submission.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/examinations\/:examination_id\/submit",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination_id\/submit",
-                            "variable": [
-                                {
-                                    "id": "examination_id",
-                                    "key": "examination_id",
-                                    "value": "9",
+                                    "value": "7",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -757,8 +515,318 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"answers\":[\"soluta\"]}"
+                            "raw": "{\"student_ids\":[\"laboriosam\"]}"
                         },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get all student exams",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/students\/:user_id\/exams",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/students\/:user_id\/exams",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieve random questions",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination\/questions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination\/questions",
+                            "variable": [
+                                {
+                                    "id": "examination",
+                                    "key": "examination",
+                                    "value": "8",
+                                    "description": "The examination."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Handles the submission.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/examinations\/:examination\/submit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations\/:examination\/submit",
+                            "variable": [
+                                {
+                                    "id": "examination",
+                                    "key": "examination",
+                                    "value": "18",
+                                    "description": "The examination."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"answers\":[\"magnam\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Manage User",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create new user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"John Doe\",\"email\":\"user@email.com\",\"role\":\"student\",\"password\":\"password\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get single user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update user record",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"tqqghntodihfn\",\"email\":\"cristian92@example.com\",\"role\":\"teacher\",\"password\":\"totam\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete existing user record",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
                         "description": ""
                     },
                     "response": []

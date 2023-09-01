@@ -18,8 +18,6 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            'examination_id' => Examination::factory(),
-            'type' => 'multiple',
             'description' => fake()->sentence()
         ];
     }

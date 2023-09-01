@@ -7,48 +7,9 @@ servers:
   -
     url: 'http://127.0.0.1:8000/api/v1'
 paths:
-  /api/v1/register:
-    post:
-      summary: 'create new user'
-      operationId: createNewUser
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_TOKEN}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Authentication
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: 'user full name.'
-                  example: 'John Doe'
-                email:
-                  type: string
-                  description: 'valid email.'
-                  example: user@email.com
-                password:
-                  type: string
-                  description: 'secured password.'
-                  example: password
-              required:
-                - name
-                - email
-                - password
   /api/v1/login:
     post:
-      summary: 'request auth token'
+      summary: 'Request auth token'
       operationId: requestAuthToken
       description: ''
       parameters: []
@@ -76,8 +37,8 @@ paths:
       security: []
   /api/v1/user:
     get:
-      summary: 'get authenticated user data'
-      operationId: getAuthenticatedUserData
+      summary: 'Get authenticated user.'
+      operationId: getAuthenticatedUser
       description: ''
       parameters:
         -
@@ -104,7 +65,7 @@ paths:
         - Authentication
   /api/v1/logout:
     post:
-      summary: 'destroy auth token.'
+      summary: 'Destroy auth token.'
       operationId: destroyAuthToken
       description: ''
       parameters:
@@ -118,159 +79,11 @@ paths:
       responses: {  }
       tags:
         - Authentication
-  '/api/v1/questions/{question_id}/options':
-    post:
-      summary: 'Add option to question'
-      operationId: addOptionToQuestion
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_TOKEN}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                value:
-                  type: string
-                  description: ''
-                  example: officiis
-                is_correct:
-                  type: boolean
-                  description: ''
-                  example: true
-              required:
-                - value
-                - is_correct
-    parameters:
-      -
-        in: path
-        name: question_id
-        description: 'The ID of the question.'
-        example: 5
-        required: true
-        schema:
-          type: integer
-  '/api/v1/questions/{question_id}/options/{id}':
-    delete:
-      summary: 'Delete Options'
-      operationId: deleteOptions
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_TOKEN}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-    parameters:
-      -
-        in: path
-        name: question_id
-        description: 'The ID of the question.'
-        example: 20
-        required: true
-        schema:
-          type: integer
-      -
-        in: path
-        name: id
-        description: 'The ID of the option.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/v1/examinations/{examination_id}/assignments':
-    post:
-      summary: 'Assign students to exam'
-      operationId: assignStudentsToExam
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_TOKEN}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                student_ids:
-                  type: array
-                  description: ''
-                  example:
-                    - debitis
-                  items:
-                    type: string
-              required:
-                - student_ids
-    delete:
-      summary: 'Assign Student to exam'
-      operationId: assignStudentToExam
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_TOKEN}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                student_ids:
-                  type: array
-                  description: ''
-                  example:
-                    - facere
-                  items:
-                    type: string
-              required:
-                - student_ids
-    parameters:
-      -
-        in: path
-        name: examination_id
-        description: 'The ID of the examination.'
-        example: 2
-        required: true
-        schema:
-          type: integer
   /api/v1/examinations:
     get:
       summary: 'Get all examinations'
       operationId: getAllExaminations
-      description: "Get all examinations based on authenticated user role\n<aside class='info'>\nThe examination retrieval is determined by the authenticated user's role:\n<strong>Student:</strong> Retrieve all examinations assigned to students. <br>\n<strong>Teacher:</strong> Retrieve all examinations authored by teachers.\n</aside>"
+      description: ''
       parameters:
         -
           in: header
@@ -297,7 +110,7 @@ paths:
     post:
       summary: 'Create examination'
       operationId: createExamination
-      description: ''
+      description: 'Allows teachers to create examinations'
       parameters:
         -
           in: header
@@ -319,34 +132,37 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: aewzgotd
+                  example: xdgf
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Maiores error asperiores ut iste.'
+                  example: 'Ratione magni libero quia sequi ipsum quidem voluptatibus.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 32
-                start_time:
+                  example: 57
+                published_at:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-30T08:01:18'
-                end_time:
-                  type: string
-                  description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2051-03-11'
+                  example: '2023-09-01T03:46:29'
+                question_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - est
+                  items:
+                    type: string
               required:
                 - title
                 - description
                 - time_limit
-                - start_time
-                - end_time
+                - published_at
+                - question_ids
   '/api/v1/examinations/{id}':
     get:
       summary: 'Show single examination'
       operationId: showSingleExamination
-      description: ''
+      description: 'Allows teachers get single examinations'
       parameters:
         -
           in: header
@@ -371,9 +187,9 @@ paths:
       tags:
         - Examinations
     put:
-      summary: 'Update an examinations'
-      operationId: updateAnExaminations
-      description: ''
+      summary: 'Update an examination'
+      operationId: updateAnExamination
+      description: 'Allows teachers update their examinations and questions'
       parameters:
         -
           in: header
@@ -386,7 +202,7 @@ paths:
       tags:
         - Examinations
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
@@ -395,27 +211,36 @@ paths:
                 title:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: rlwjwlbxkmwnwjgnjmp
+                  example: rnocnkxrrzcntljvxbgy
                 description:
                   type: string
                   description: 'Must not be greater than 5000 characters.'
-                  example: 'Quos et iusto officiis voluptates dolorem id.'
+                  example: 'Iure dolore vero accusantium eligendi.'
                 time_limit:
                   type: integer
                   description: 'Must be at least 10.'
-                  example: 68
-                start_time:
+                  example: 31
+                published_at:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2023-08-30T08:01:18'
-                end_time:
-                  type: string
-                  description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-                  example: '2044-03-23'
+                  example: '2023-09-01T03:46:29'
+                question_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - cum
+                  items:
+                    type: string
+              required:
+                - title
+                - description
+                - time_limit
+                - published_at
+                - question_ids
     delete:
-      summary: 'Destroy examinations'
-      operationId: destroyExaminations
-      description: ''
+      summary: 'Delete an examination'
+      operationId: deleteAnExamination
+      description: 'Allows teachers delete their examinations'
       parameters:
         -
           in: header
@@ -432,11 +257,11 @@ paths:
         in: path
         name: id
         description: 'The ID of the examination.'
-        example: 2
+        example: 20
         required: true
         schema:
           type: integer
-  '/api/v1/examinations/{examination_id}/questions':
+  /api/v1/questions:
     get:
       summary: 'get all question'
       operationId: getAllQuestion
@@ -489,19 +314,22 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: et
+                  example: nesciunt
+                options:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
+                answers:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
               required:
                 - description
-    parameters:
-      -
-        in: path
-        name: examination_id
-        description: 'The ID of the examination.'
-        example: 15
-        required: true
-        schema:
-          type: integer
-  '/api/v1/examinations/{examination_id}/questions/{id}':
+                - options
+                - answers
+  '/api/v1/questions/{id}':
     put:
       summary: 'update question'
       operationId: updateQuestion
@@ -527,9 +355,21 @@ paths:
                 description:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: consequatur
+                options:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
+                answers:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
               required:
                 - description
+                - options
+                - answers
     delete:
       summary: 'delete question'
       operationId: deleteQuestion
@@ -548,24 +388,16 @@ paths:
     parameters:
       -
         in: path
-        name: examination_id
-        description: 'The ID of the examination.'
-        example: 16
-        required: true
-        schema:
-          type: integer
-      -
-        in: path
         name: id
         description: 'The ID of the question.'
-        example: 12
+        example: 1
         required: true
         schema:
           type: integer
-  '/api/v1/examinations/{examination_id}/start':
+  '/api/v1/examinations/{examination_id}/enroll':
     post:
-      summary: 'Start examination'
-      operationId: startExamination
+      summary: 'Enroll student to exam'
+      operationId: enrollStudentToExam
       description: ''
       parameters:
         -
@@ -578,16 +410,106 @@ paths:
       responses: {  }
       tags:
         - Examinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_ids:
+                  type: array
+                  description: ''
+                  example:
+                    - laboriosam
+                  items:
+                    type: string
+              required:
+                - student_ids
     parameters:
       -
         in: path
         name: examination_id
         description: 'The ID of the examination.'
-        example: 19
+        example: 7
         required: true
         schema:
           type: integer
-  '/api/v1/examinations/{examination_id}/submit':
+  '/api/v1/students/{user_id}/exams':
+    get:
+      summary: 'Get all student exams'
+      operationId: getAllStudentExams
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Examinations
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination}/questions':
+    get:
+      summary: 'Retrieve random questions'
+      operationId: retrieveRandomQuestions
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Examinations
+    parameters:
+      -
+        in: path
+        name: examination
+        description: 'The examination.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+  '/api/v1/examinations/{examination}/submit':
     post:
       summary: 'Handles the submission.'
       operationId: handlesTheSubmission
@@ -614,7 +536,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - soluta
+                    - magnam
                   items:
                     type: string
               required:
@@ -622,9 +544,148 @@ paths:
     parameters:
       -
         in: path
-        name: examination_id
-        description: 'The ID of the examination.'
-        example: 9
+        name: examination
+        description: 'The examination.'
+        example: 18
+        required: true
+        schema:
+          type: integer
+  /api/v1/users:
+    post:
+      summary: 'Create new user'
+      operationId: createNewUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Manage User'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'user full name.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'valid email.'
+                  example: user@email.com
+                role:
+                  type: string
+                  description: 'should be on of student or teacher.'
+                  example: student
+                password:
+                  type: string
+                  description: 'secured password.'
+                  example: password
+              required:
+                - name
+                - email
+                - role
+                - password
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Get single user'
+      operationId: getSingleUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Manage User'
+    put:
+      summary: 'Update user record'
+      operationId: updateUserRecord
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Manage User'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: tqqghntodihfn
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: cristian92@example.com
+                role:
+                  type: string
+                  description: 'Must be one of <code>teacher</code> or <code>student</code>.'
+                  example: teacher
+                password:
+                  type: string
+                  description: ''
+                  example: totam
+              required:
+                - name
+                - email
+                - role
+                - password
+    delete:
+      summary: 'Delete existing user record'
+      operationId: deleteExistingUserRecord
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_TOKEN}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Manage User'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
         required: true
         schema:
           type: integer
@@ -633,10 +694,10 @@ tags:
     name: Authentication
     description: ''
   -
-    name: Endpoints
+    name: Examinations
     description: ''
   -
-    name: Examinations
+    name: 'Manage User'
     description: ''
 components:
   securitySchemes:

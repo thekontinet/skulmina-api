@@ -71,36 +71,14 @@
                     <a href="#authentication">Authentication</a>
                 </li>
                                     <ul id="tocify-subheader-authentication" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-register">
-                                <a href="#authentication-POSTapi-v1-register">create new user</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-login">
-                                <a href="#authentication-POSTapi-v1-login">request auth token</a>
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-login">
+                                <a href="#authentication-POSTapi-v1-login">Request auth token</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-GETapi-v1-user">
-                                <a href="#authentication-GETapi-v1-user">get authenticated user data</a>
+                                <a href="#authentication-GETapi-v1-user">Get authenticated user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-logout">
-                                <a href="#authentication-POSTapi-v1-logout">destroy auth token.</a>
-                            </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
-                </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-questions--question_id--options">
-                                <a href="#endpoints-POSTapi-v1-questions--question_id--options">Add option to question</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-questions--question_id--options--id-">
-                                <a href="#endpoints-DELETEapi-v1-questions--question_id--options--id-">Delete Options</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-examinations--examination_id--assignments">
-                                <a href="#endpoints-POSTapi-v1-examinations--examination_id--assignments">Assign students to exam</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-examinations--examination_id--assignments">
-                                <a href="#endpoints-DELETEapi-v1-examinations--examination_id--assignments">Assign Student to exam</a>
+                                <a href="#authentication-POSTapi-v1-logout">Destroy auth token.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -119,34 +97,59 @@
                                 <a href="#examinations-GETapi-v1-examinations--id-">Show single examination</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-PUTapi-v1-examinations--id-">
-                                <a href="#examinations-PUTapi-v1-examinations--id-">Update an examinations</a>
+                                <a href="#examinations-PUTapi-v1-examinations--id-">Update an examination</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-DELETEapi-v1-examinations--id-">
-                                <a href="#examinations-DELETEapi-v1-examinations--id-">Destroy examinations</a>
+                                <a href="#examinations-DELETEapi-v1-examinations--id-">Delete an examination</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--start">
-                                <a href="#examinations-POSTapi-v1-examinations--examination_id--start">Start examination</a>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--enroll">
+                                <a href="#examinations-POSTapi-v1-examinations--examination_id--enroll">Enroll student to exam</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--submit">
-                                <a href="#examinations-POSTapi-v1-examinations--examination_id--submit">Handles the submission.</a>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-GETapi-v1-students--user_id--exams">
+                                <a href="#examinations-GETapi-v1-students--user_id--exams">Get all student exams</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-GETapi-v1-examinations--examination--questions">
+                                <a href="#examinations-GETapi-v1-examinations--examination--questions">Retrieve random questions</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination--submit">
+                                <a href="#examinations-POSTapi-v1-examinations--examination--submit">Handles the submission.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-manage-questions">
                                 <a href="#examinations-manage-questions">Manage Questions</a>
                             </li>
                                                             <ul id="tocify-subheader-examinations-manage-questions" class="tocify-subheader">
-                                                                            <li class="tocify-item level-3" data-unique="examinations-GETapi-v1-examinations--examination_id--questions">
-                                            <a href="#examinations-GETapi-v1-examinations--examination_id--questions">get all question</a>
+                                                                            <li class="tocify-item level-3" data-unique="examinations-GETapi-v1-questions">
+                                            <a href="#examinations-GETapi-v1-questions">get all question</a>
                                         </li>
-                                                                            <li class="tocify-item level-3" data-unique="examinations-POSTapi-v1-examinations--examination_id--questions">
-                                            <a href="#examinations-POSTapi-v1-examinations--examination_id--questions">add new question</a>
+                                                                            <li class="tocify-item level-3" data-unique="examinations-POSTapi-v1-questions">
+                                            <a href="#examinations-POSTapi-v1-questions">add new question</a>
                                         </li>
-                                                                            <li class="tocify-item level-3" data-unique="examinations-PUTapi-v1-examinations--examination_id--questions--id-">
-                                            <a href="#examinations-PUTapi-v1-examinations--examination_id--questions--id-">update question</a>
+                                                                            <li class="tocify-item level-3" data-unique="examinations-PUTapi-v1-questions--id-">
+                                            <a href="#examinations-PUTapi-v1-questions--id-">update question</a>
                                         </li>
-                                                                            <li class="tocify-item level-3" data-unique="examinations-DELETEapi-v1-examinations--examination_id--questions--id-">
-                                            <a href="#examinations-DELETEapi-v1-examinations--examination_id--questions--id-">delete question</a>
+                                                                            <li class="tocify-item level-3" data-unique="examinations-DELETEapi-v1-questions--id-">
+                                            <a href="#examinations-DELETEapi-v1-questions--id-">delete question</a>
                                         </li>
                                                                     </ul>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-manage-user" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="manage-user">
+                    <a href="#manage-user">Manage User</a>
+                </li>
+                                    <ul id="tocify-subheader-manage-user" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="manage-user-POSTapi-v1-users">
+                                <a href="#manage-user-POSTapi-v1-users">Create new user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="manage-user-GETapi-v1-users--id-">
+                                <a href="#manage-user-GETapi-v1-users--id-">Get single user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="manage-user-PUTapi-v1-users--id-">
+                                <a href="#manage-user-PUTapi-v1-users--id-">Update user record</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="manage-user-DELETEapi-v1-users--id-">
+                                <a href="#manage-user-DELETEapi-v1-users--id-">Delete existing user record</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -158,7 +161,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: August 30, 2023</li>
+        <li>Last updated: September 1, 2023</li>
     </ul>
 </div>
 
@@ -182,183 +185,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="authentication-POSTapi-v1-register">create new user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-register">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/register',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'John Doe',
-            'email' =&gt; 'user@email.com',
-            'password' =&gt; 'password',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/register"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "John Doe",
-    "email": "user@email.com",
-    "password": "password"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-register">
-</span>
-<span id="execution-results-POSTapi-v1-register" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-register"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-register"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-register" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-register">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-register" data-method="POST"
-      data-path="api/v1/register"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-register', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-register"
-                    onclick="tryItOut('POSTapi-v1-register');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-register"
-                    onclick="cancelTryOut('POSTapi-v1-register');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-register"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/register</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-register"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-register"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-register"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-v1-register"
-               value="John Doe"
-               data-component="body">
-    <br>
-<p>user full name. Example: <code>John Doe</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-v1-register"
-               value="user@email.com"
-               data-component="body">
-    <br>
-<p>valid email. Example: <code>user@email.com</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-v1-register"
-               value="password"
-               data-component="body">
-    <br>
-<p>secured password. Example: <code>password</code></p>
-        </div>
-        </form>
-
-                    <h2 id="authentication-POSTapi-v1-login">request auth token</h2>
+                                <h2 id="authentication-POSTapi-v1-login">Request auth token</h2>
 
 <p>
 </p>
@@ -507,7 +334,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="authentication-GETapi-v1-user">get authenticated user data</h2>
+                    <h2 id="authentication-GETapi-v1-user">Get authenticated user.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -654,7 +481,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="authentication-POSTapi-v1-logout">destroy auth token.</h2>
+                    <h2 id="authentication-POSTapi-v1-logout">Destroy auth token.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -784,684 +611,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                <h1 id="endpoints">Endpoints</h1>
-
-    
-
-                                <h2 id="endpoints-POSTapi-v1-questions--question_id--options">Add option to question</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-questions--question_id--options">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions/5/options',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'value' =&gt; 'officiis',
-            'is_correct' =&gt; true,
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions/5/options"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "value": "officiis",
-    "is_correct": true
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-questions--question_id--options">
-</span>
-<span id="execution-results-POSTapi-v1-questions--question_id--options" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-questions--question_id--options"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-questions--question_id--options"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-questions--question_id--options" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-questions--question_id--options">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-questions--question_id--options" data-method="POST"
-      data-path="api/v1/questions/{question_id}/options"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-questions--question_id--options', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-questions--question_id--options"
-                    onclick="tryItOut('POSTapi-v1-questions--question_id--options');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-questions--question_id--options"
-                    onclick="cancelTryOut('POSTapi-v1-questions--question_id--options');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-questions--question_id--options"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/questions/{question_id}/options</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-questions--question_id--options"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-questions--question_id--options"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-questions--question_id--options"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>question_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="question_id"                data-endpoint="POSTapi-v1-questions--question_id--options"
-               value="5"
-               data-component="url">
-    <br>
-<p>The ID of the question. Example: <code>5</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>value</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="value"                data-endpoint="POSTapi-v1-questions--question_id--options"
-               value="officiis"
-               data-component="body">
-    <br>
-<p>Example: <code>officiis</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>is_correct</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
- &nbsp;
-                <label data-endpoint="POSTapi-v1-questions--question_id--options" style="display: none">
-            <input type="radio" name="is_correct"
-                   value="true"
-                   data-endpoint="POSTapi-v1-questions--question_id--options"
-                   data-component="body"             >
-            <code>true</code>
-        </label>
-        <label data-endpoint="POSTapi-v1-questions--question_id--options" style="display: none">
-            <input type="radio" name="is_correct"
-                   value="false"
-                   data-endpoint="POSTapi-v1-questions--question_id--options"
-                   data-component="body"             >
-            <code>false</code>
-        </label>
-    <br>
-<p>Example: <code>true</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-DELETEapi-v1-questions--question_id--options--id-">Delete Options</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-questions--question_id--options--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions/20/options/1',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions/20/options/1"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-questions--question_id--options--id-">
-</span>
-<span id="execution-results-DELETEapi-v1-questions--question_id--options--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-questions--question_id--options--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-questions--question_id--options--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-questions--question_id--options--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-questions--question_id--options--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-questions--question_id--options--id-" data-method="DELETE"
-      data-path="api/v1/questions/{question_id}/options/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-questions--question_id--options--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-questions--question_id--options--id-"
-                    onclick="tryItOut('DELETEapi-v1-questions--question_id--options--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-questions--question_id--options--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-questions--question_id--options--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-questions--question_id--options--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/questions/{question_id}/options/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-questions--question_id--options--id-"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-questions--question_id--options--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-questions--question_id--options--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>question_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="question_id"                data-endpoint="DELETEapi-v1-questions--question_id--options--id-"
-               value="20"
-               data-component="url">
-    <br>
-<p>The ID of the question. Example: <code>20</code></p>
-            </div>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-v1-questions--question_id--options--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the option. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-POSTapi-v1-examinations--examination_id--assignments">Assign students to exam</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-examinations--examination_id--assignments">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/2/assignments',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'student_ids' =&gt; [
-                'debitis',
-            ],
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/2/assignments"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "student_ids": [
-        "debitis"
-    ]
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-examinations--examination_id--assignments">
-</span>
-<span id="execution-results-POSTapi-v1-examinations--examination_id--assignments" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-examinations--examination_id--assignments"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--assignments"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-examinations--examination_id--assignments" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--assignments">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-examinations--examination_id--assignments" data-method="POST"
-      data-path="api/v1/examinations/{examination_id}/assignments"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--assignments', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-examinations--examination_id--assignments"
-                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--assignments');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--assignments"
-                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--assignments');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--assignments"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/examinations/{examination_id}/assignments</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               value="2"
-               data-component="url">
-    <br>
-<p>The ID of the examination. Example: <code>2</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>student_ids</code></b>&nbsp;&nbsp;
-<small>string[]</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="student_ids[0]"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               data-component="body">
-        <input type="text" style="display: none"
-               name="student_ids[1]"                data-endpoint="POSTapi-v1-examinations--examination_id--assignments"
-               data-component="body">
-    <br>
-
-        </div>
-        </form>
-
-                    <h2 id="endpoints-DELETEapi-v1-examinations--examination_id--assignments">Assign Student to exam</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-examinations--examination_id--assignments">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/8/assignments',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'student_ids' =&gt; [
-                'facere',
-            ],
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/8/assignments"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "student_ids": [
-        "facere"
-    ]
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-examinations--examination_id--assignments">
-</span>
-<span id="execution-results-DELETEapi-v1-examinations--examination_id--assignments" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-examinations--examination_id--assignments"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-examinations--examination_id--assignments"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-examinations--examination_id--assignments" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-examinations--examination_id--assignments">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-examinations--examination_id--assignments" data-method="DELETE"
-      data-path="api/v1/examinations/{examination_id}/assignments"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-examinations--examination_id--assignments', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-examinations--examination_id--assignments"
-                    onclick="tryItOut('DELETEapi-v1-examinations--examination_id--assignments');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-examinations--examination_id--assignments"
-                    onclick="cancelTryOut('DELETEapi-v1-examinations--examination_id--assignments');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-examinations--examination_id--assignments"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/examinations/{examination_id}/assignments</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               value="8"
-               data-component="url">
-    <br>
-<p>The ID of the examination. Example: <code>8</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>student_ids</code></b>&nbsp;&nbsp;
-<small>string[]</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="student_ids[0]"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               data-component="body">
-        <input type="text" style="display: none"
-               name="student_ids[1]"                data-endpoint="DELETEapi-v1-examinations--examination_id--assignments"
-               data-component="body">
-    <br>
-
-        </div>
-        </form>
-
                 <h1 id="examinations">Examinations</h1>
 
     
@@ -1472,12 +621,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Get all examinations based on authenticated user role</p>
-<aside class='info'>
-The examination retrieval is determined by the authenticated user's role:
-<strong>Student:</strong> Retrieve all examinations assigned to students. <br>
-<strong>Teacher:</strong> Retrieve all examinations authored by teachers.
-</aside>
+
 
 <span id="example-requests-GETapi-v1-examinations">
 <blockquote>Example request:</blockquote>
@@ -1624,7 +768,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Allows teachers to create examinations</p>
 
 <span id="example-requests-POSTapi-v1-examinations">
 <blockquote>Example request:</blockquote>
@@ -1641,11 +785,13 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'aewzgotd',
-            'description' =&gt; 'Maiores error asperiores ut iste.',
-            'time_limit' =&gt; 32,
-            'start_time' =&gt; '2023-08-30T08:01:18',
-            'end_time' =&gt; '2051-03-11',
+            'title' =&gt; 'xdgf',
+            'description' =&gt; 'Ratione magni libero quia sequi ipsum quidem voluptatibus.',
+            'time_limit' =&gt; 57,
+            'published_at' =&gt; '2023-09-01T03:46:29',
+            'question_ids' =&gt; [
+                'est',
+            ],
         ],
     ]
 );
@@ -1665,11 +811,13 @@ const headers = {
 };
 
 let body = {
-    "title": "aewzgotd",
-    "description": "Maiores error asperiores ut iste.",
-    "time_limit": 32,
-    "start_time": "2023-08-30T08:01:18",
-    "end_time": "2051-03-11"
+    "title": "xdgf",
+    "description": "Ratione magni libero quia sequi ipsum quidem voluptatibus.",
+    "time_limit": 57,
+    "published_at": "2023-09-01T03:46:29",
+    "question_ids": [
+        "est"
+    ]
 };
 
 fetch(url, {
@@ -1769,10 +917,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-examinations"
-               value="aewzgotd"
+               value="xdgf"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>aewzgotd</code></p>
+<p>Must not be greater than 255 characters. Example: <code>xdgf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1780,10 +928,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-examinations"
-               value="Maiores error asperiores ut iste."
+               value="Ratione magni libero quia sequi ipsum quidem voluptatibus."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Maiores error asperiores ut iste.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Ratione magni libero quia sequi ipsum quidem voluptatibus.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
@@ -1791,32 +939,34 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="POSTapi-v1-examinations"
-               value="32"
+               value="57"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>32</code></p>
+<p>Must be at least 10. Example: <code>57</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="start_time"                data-endpoint="POSTapi-v1-examinations"
-               value="2023-08-30T08:01:18"
+                              name="published_at"                data-endpoint="POSTapi-v1-examinations"
+               value="2023-09-01T03:46:29"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-08-30T08:01:18</code></p>
+<p>Must be a valid date. Example: <code>2023-09-01T03:46:29</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+            <b style="line-height: 2;"><code>question_ids</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="end_time"                data-endpoint="POSTapi-v1-examinations"
-               value="2051-03-11"
+                              name="question_ids[0]"                data-endpoint="POSTapi-v1-examinations"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="question_ids[1]"                data-endpoint="POSTapi-v1-examinations"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2051-03-11</code></p>
+
         </div>
         </form>
 
@@ -1826,7 +976,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Allows teachers get single examinations</p>
 
 <span id="example-requests-GETapi-v1-examinations--id-">
 <blockquote>Example request:</blockquote>
@@ -1835,7 +985,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/2',
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/20',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1850,7 +1000,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/2"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/20"
 );
 
 const headers = {
@@ -1972,20 +1122,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-examinations--id-"
-               value="2"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>2</code></p>
+<p>The ID of the examination. Example: <code>20</code></p>
             </div>
                     </form>
 
-                    <h2 id="examinations-PUTapi-v1-examinations--id-">Update an examinations</h2>
+                    <h2 id="examinations-PUTapi-v1-examinations--id-">Update an examination</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Allows teachers update their examinations and questions</p>
 
 <span id="example-requests-PUTapi-v1-examinations--id-">
 <blockquote>Example request:</blockquote>
@@ -1994,7 +1144,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/7',
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/19',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2002,11 +1152,13 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'rlwjwlbxkmwnwjgnjmp',
-            'description' =&gt; 'Quos et iusto officiis voluptates dolorem id.',
-            'time_limit' =&gt; 68,
-            'start_time' =&gt; '2023-08-30T08:01:18',
-            'end_time' =&gt; '2044-03-23',
+            'title' =&gt; 'rnocnkxrrzcntljvxbgy',
+            'description' =&gt; 'Iure dolore vero accusantium eligendi.',
+            'time_limit' =&gt; 31,
+            'published_at' =&gt; '2023-09-01T03:46:29',
+            'question_ids' =&gt; [
+                'cum',
+            ],
         ],
     ]
 );
@@ -2016,7 +1168,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/7"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/19"
 );
 
 const headers = {
@@ -2026,11 +1178,13 @@ const headers = {
 };
 
 let body = {
-    "title": "rlwjwlbxkmwnwjgnjmp",
-    "description": "Quos et iusto officiis voluptates dolorem id.",
-    "time_limit": 68,
-    "start_time": "2023-08-30T08:01:18",
-    "end_time": "2044-03-23"
+    "title": "rnocnkxrrzcntljvxbgy",
+    "description": "Iure dolore vero accusantium eligendi.",
+    "time_limit": 31,
+    "published_at": "2023-09-01T03:46:29",
+    "question_ids": [
+        "cum"
+    ]
 };
 
 fetch(url, {
@@ -2134,76 +1288,78 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="7"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>7</code></p>
+<p>The ID of the examination. Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="rlwjwlbxkmwnwjgnjmp"
+               value="rnocnkxrrzcntljvxbgy"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>rlwjwlbxkmwnwjgnjmp</code></p>
+<p>Must not be greater than 255 characters. Example: <code>rnocnkxrrzcntljvxbgy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="Quos et iusto officiis voluptates dolorem id."
+               value="Iure dolore vero accusantium eligendi."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Quos et iusto officiis voluptates dolorem id.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Iure dolore vero accusantium eligendi.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="68"
+               value="31"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>68</code></p>
+<p>Must be at least 10. Example: <code>31</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="start_time"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="2023-08-30T08:01:18"
+                              name="published_at"                data-endpoint="PUTapi-v1-examinations--id-"
+               value="2023-09-01T03:46:29"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-08-30T08:01:18</code></p>
+<p>Must be a valid date. Example: <code>2023-09-01T03:46:29</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+            <b style="line-height: 2;"><code>question_ids</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="end_time"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="2044-03-23"
+                              name="question_ids[0]"                data-endpoint="PUTapi-v1-examinations--id-"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="question_ids[1]"                data-endpoint="PUTapi-v1-examinations--id-"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_time</code>. Example: <code>2044-03-23</code></p>
+
         </div>
         </form>
 
-                    <h2 id="examinations-DELETEapi-v1-examinations--id-">Destroy examinations</h2>
+                    <h2 id="examinations-DELETEapi-v1-examinations--id-">Delete an examination</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Allows teachers delete their examinations</p>
 
 <span id="example-requests-DELETEapi-v1-examinations--id-">
 <blockquote>Example request:</blockquote>
@@ -2212,7 +1368,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/8',
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/12',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2227,7 +1383,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/8"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/12"
 );
 
 const headers = {
@@ -2332,14 +1488,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-examinations--id-"
-               value="8"
+               value="12"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>8</code></p>
+<p>The ID of the examination. Example: <code>12</code></p>
             </div>
                     </form>
 
-                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--start">Start examination</h2>
+                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--enroll">Enroll student to exam</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2347,156 +1503,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-v1-examinations--examination_id--start">
+<span id="example-requests-POSTapi-v1-examinations--examination_id--enroll">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/19/start',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/19/start"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-examinations--examination_id--start">
-</span>
-<span id="execution-results-POSTapi-v1-examinations--examination_id--start" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-examinations--examination_id--start"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--start"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-examinations--examination_id--start" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--start">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-examinations--examination_id--start" data-method="POST"
-      data-path="api/v1/examinations/{examination_id}/start"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--start', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-examinations--examination_id--start"
-                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--start');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--start"
-                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--start');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--start"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/examinations/{examination_id}/start</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--start"
-               value="Bearer {YOUR_AUTH_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--start"
-               value="19"
-               data-component="url">
-    <br>
-<p>The ID of the examination. Example: <code>19</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--submit">Handles the submission.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-examinations--examination_id--submit">
-<blockquote>Example request:</blockquote>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/9/submit',
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/7/enroll',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2504,8 +1518,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'answers' =&gt; [
-                'soluta',
+            'student_ids' =&gt; [
+                'laboriosam',
             ],
         ],
     ]
@@ -2516,7 +1530,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/9/submit"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/7/enroll"
 );
 
 const headers = {
@@ -2526,8 +1540,8 @@ const headers = {
 };
 
 let body = {
-    "answers": [
-        "soluta"
+    "student_ids": [
+        "laboriosam"
     ]
 };
 
@@ -2539,45 +1553,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-v1-examinations--examination_id--submit">
+<span id="example-responses-POSTapi-v1-examinations--examination_id--enroll">
 </span>
-<span id="execution-results-POSTapi-v1-examinations--examination_id--submit" hidden>
+<span id="execution-results-POSTapi-v1-examinations--examination_id--enroll" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-examinations--examination_id--submit"></span>:
+                id="execution-response-status-POSTapi-v1-examinations--examination_id--enroll"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--submit"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--enroll"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-examinations--examination_id--submit" hidden>
+<span id="execution-error-POSTapi-v1-examinations--examination_id--enroll" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--submit">
+    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--enroll">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-v1-examinations--examination_id--submit" data-method="POST"
-      data-path="api/v1/examinations/{examination_id}/submit"
+<form id="form-POSTapi-v1-examinations--examination_id--enroll" data-method="POST"
+      data-path="api/v1/examinations/{examination_id}/enroll"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--submit', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--enroll', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-examinations--examination_id--submit"
-                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--submit');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-examinations--examination_id--enroll"
+                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--enroll');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--submit"
-                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--submit');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--enroll"
+                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--enroll');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--submit"
+                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--enroll"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -2585,7 +1599,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/examinations/{examination_id}/submit</code></b>
+            <b><code>api/v1/examinations/{examination_id}/enroll</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2593,7 +1607,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -2604,7 +1618,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
                value="application/json"
                data-component="header">
     <br>
@@ -2615,7 +1629,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
                value="application/json"
                data-component="header">
     <br>
@@ -2627,30 +1641,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
-               value="9"
+               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
+               value="7"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>9</code></p>
+<p>The ID of the examination. Example: <code>7</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>student_ids</code></b>&nbsp;&nbsp;
 <small>string[]</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="answers[0]"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+                              name="student_ids[0]"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
                data-component="body">
         <input type="text" style="display: none"
-               name="answers[1]"                data-endpoint="POSTapi-v1-examinations--examination_id--submit"
+               name="student_ids[1]"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
                data-component="body">
     <br>
 
         </div>
         </form>
 
-                                <h2 id="examinations-manage-questions">Manage Questions</h2>
-                                                    <h2 id="examinations-GETapi-v1-examinations--examination_id--questions">get all question</h2>
+                    <h2 id="examinations-GETapi-v1-students--user_id--exams">Get all student exams</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2658,14 +1671,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-v1-examinations--examination_id--questions">
+<span id="example-requests-GETapi-v1-students--user_id--exams">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/15/questions',
+    'http://127.0.0.1:8000/api/v1/api/v1/students/1/exams',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2680,7 +1693,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/15/questions"
+    "http://127.0.0.1:8000/api/v1/api/v1/students/1/exams"
 );
 
 const headers = {
@@ -2696,7 +1709,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-examinations--examination_id--questions">
+<span id="example-responses-GETapi-v1-students--user_id--exams">
             <blockquote>
             <p>Example response (401):</p>
         </blockquote>
@@ -2715,43 +1728,43 @@ access-control-allow-credentials: true
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-examinations--examination_id--questions" hidden>
+<span id="execution-results-GETapi-v1-students--user_id--exams" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-examinations--examination_id--questions"></span>:
+                id="execution-response-status-GETapi-v1-students--user_id--exams"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-examinations--examination_id--questions"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-students--user_id--exams"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-examinations--examination_id--questions" hidden>
+<span id="execution-error-GETapi-v1-students--user_id--exams" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-examinations--examination_id--questions">
+    <pre><code id="execution-error-message-GETapi-v1-students--user_id--exams">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-v1-examinations--examination_id--questions" data-method="GET"
-      data-path="api/v1/examinations/{examination_id}/questions"
+<form id="form-GETapi-v1-students--user_id--exams" data-method="GET"
+      data-path="api/v1/students/{user_id}/exams"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-examinations--examination_id--questions', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-students--user_id--exams', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-examinations--examination_id--questions"
-                    onclick="tryItOut('GETapi-v1-examinations--examination_id--questions');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-students--user_id--exams"
+                    onclick="tryItOut('GETapi-v1-students--user_id--exams');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-examinations--examination_id--questions"
-                    onclick="cancelTryOut('GETapi-v1-examinations--examination_id--questions');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-students--user_id--exams"
+                    onclick="cancelTryOut('GETapi-v1-students--user_id--exams');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-examinations--examination_id--questions"
+                    id="btn-executetryout-GETapi-v1-students--user_id--exams"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -2759,7 +1772,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/examinations/{examination_id}/questions</code></b>
+            <b><code>api/v1/students/{user_id}/exams</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2767,7 +1780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-examinations--examination_id--questions"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-students--user_id--exams"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -2778,7 +1791,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-examinations--examination_id--questions"
+                              name="Content-Type"                data-endpoint="GETapi-v1-students--user_id--exams"
                value="application/json"
                data-component="header">
     <br>
@@ -2789,7 +1802,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-examinations--examination_id--questions"
+                              name="Accept"                data-endpoint="GETapi-v1-students--user_id--exams"
                value="application/json"
                data-component="header">
     <br>
@@ -2797,19 +1810,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="GETapi-v1-examinations--examination_id--questions"
-               value="15"
+               step="any"               name="user_id"                data-endpoint="GETapi-v1-students--user_id--exams"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>15</code></p>
+<p>The ID of the user. Example: <code>1</code></p>
             </div>
                     </form>
 
-                    <h2 id="examinations-POSTapi-v1-examinations--examination_id--questions">add new question</h2>
+                    <h2 id="examinations-GETapi-v1-examinations--examination--questions">Retrieve random questions</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2817,22 +1830,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-v1-examinations--examination_id--questions">
+<span id="example-requests-GETapi-v1-examinations--examination--questions">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/12/questions',
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/8/questions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'description' =&gt; 'et',
         ],
     ]
 );
@@ -2842,7 +1852,171 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/12/questions"
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/8/questions"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-examinations--examination--questions">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: http://localhost:3000
+access-control-allow-credentials: true
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-examinations--examination--questions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-examinations--examination--questions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-examinations--examination--questions"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-examinations--examination--questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-examinations--examination--questions">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-examinations--examination--questions" data-method="GET"
+      data-path="api/v1/examinations/{examination}/questions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-examinations--examination--questions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-examinations--examination--questions"
+                    onclick="tryItOut('GETapi-v1-examinations--examination--questions');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-examinations--examination--questions"
+                    onclick="cancelTryOut('GETapi-v1-examinations--examination--questions');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-examinations--examination--questions"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/examinations/{examination}/questions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-examinations--examination--questions"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-examinations--examination--questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-examinations--examination--questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>examination</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="examination"                data-endpoint="GETapi-v1-examinations--examination--questions"
+               value="8"
+               data-component="url">
+    <br>
+<p>The examination. Example: <code>8</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="examinations-POSTapi-v1-examinations--examination--submit">Handles the submission.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-examinations--examination--submit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/examinations/18/submit',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'answers' =&gt; [
+                'magnam',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/examinations/18/submit"
 );
 
 const headers = {
@@ -2852,7 +2026,9 @@ const headers = {
 };
 
 let body = {
-    "description": "et"
+    "answers": [
+        "magnam"
+    ]
 };
 
 fetch(url, {
@@ -2863,45 +2039,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-v1-examinations--examination_id--questions">
+<span id="example-responses-POSTapi-v1-examinations--examination--submit">
 </span>
-<span id="execution-results-POSTapi-v1-examinations--examination_id--questions" hidden>
+<span id="execution-results-POSTapi-v1-examinations--examination--submit" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-examinations--examination_id--questions"></span>:
+                id="execution-response-status-POSTapi-v1-examinations--examination--submit"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination_id--questions"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-examinations--examination--submit"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-v1-examinations--examination_id--questions" hidden>
+<span id="execution-error-POSTapi-v1-examinations--examination--submit" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination_id--questions">
+    <pre><code id="execution-error-message-POSTapi-v1-examinations--examination--submit">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-v1-examinations--examination_id--questions" data-method="POST"
-      data-path="api/v1/examinations/{examination_id}/questions"
+<form id="form-POSTapi-v1-examinations--examination--submit" data-method="POST"
+      data-path="api/v1/examinations/{examination}/submit"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination_id--questions', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-examinations--examination--submit', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-examinations--examination_id--questions"
-                    onclick="tryItOut('POSTapi-v1-examinations--examination_id--questions');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-examinations--examination--submit"
+                    onclick="tryItOut('POSTapi-v1-examinations--examination--submit');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-examinations--examination_id--questions"
-                    onclick="cancelTryOut('POSTapi-v1-examinations--examination_id--questions');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-examinations--examination--submit"
+                    onclick="cancelTryOut('POSTapi-v1-examinations--examination--submit');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-examinations--examination_id--questions"
+                    id="btn-executetryout-POSTapi-v1-examinations--examination--submit"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -2909,7 +2085,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/v1/examinations/{examination_id}/questions</code></b>
+            <b><code>api/v1/examinations/{examination}/submit</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2917,7 +2093,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination_id--questions"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-examinations--examination--submit"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -2928,7 +2104,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-examinations--examination--submit"
                value="application/json"
                data-component="header">
     <br>
@@ -2939,7 +2115,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
+                              name="Accept"                data-endpoint="POSTapi-v1-examinations--examination--submit"
                value="application/json"
                data-component="header">
     <br>
@@ -2947,31 +2123,34 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>examination</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
-               value="12"
+               step="any"               name="examination"                data-endpoint="POSTapi-v1-examinations--examination--submit"
+               value="18"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>12</code></p>
+<p>The examination. Example: <code>18</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="description"                data-endpoint="POSTapi-v1-examinations--examination_id--questions"
-               value="et"
+                              name="answers[0]"                data-endpoint="POSTapi-v1-examinations--examination--submit"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="answers[1]"                data-endpoint="POSTapi-v1-examinations--examination--submit"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+
         </div>
         </form>
 
-                    <h2 id="examinations-PUTapi-v1-examinations--examination_id--questions--id-">update question</h2>
+                                <h2 id="examinations-manage-questions">Manage Questions</h2>
+                                                    <h2 id="examinations-GETapi-v1-questions">get all question</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2979,22 +2158,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-PUTapi-v1-examinations--examination_id--questions--id-">
+<span id="example-requests-GETapi-v1-questions">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/16/questions/12',
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/v1/api/v1/questions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'description' =&gt; 'voluptas',
         ],
     ]
 );
@@ -3004,7 +2180,159 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/16/questions/12"
+    "http://127.0.0.1:8000/api/v1/api/v1/questions"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-questions">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: http://localhost:3000
+access-control-allow-credentials: true
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-questions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-questions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-questions"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-questions">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-questions" data-method="GET"
+      data-path="api/v1/questions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-questions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-questions"
+                    onclick="tryItOut('GETapi-v1-questions');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-questions"
+                    onclick="cancelTryOut('GETapi-v1-questions');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-questions"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/questions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-questions"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="examinations-POSTapi-v1-questions">add new question</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-questions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/questions',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'description' =&gt; 'nesciunt',
+            'options' =&gt; [],
+            'answers' =&gt; [],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/questions"
 );
 
 const headers = {
@@ -3014,7 +2342,185 @@ const headers = {
 };
 
 let body = {
-    "description": "voluptas"
+    "description": "nesciunt",
+    "options": [],
+    "answers": []
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-questions">
+</span>
+<span id="execution-results-POSTapi-v1-questions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-questions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-questions"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-questions">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-questions" data-method="POST"
+      data-path="api/v1/questions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-questions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-questions"
+                    onclick="tryItOut('POSTapi-v1-questions');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-questions"
+                    onclick="cancelTryOut('POSTapi-v1-questions');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-questions"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/questions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-questions"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-questions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-v1-questions"
+               value="nesciunt"
+               data-component="body">
+    <br>
+<p>Example: <code>nesciunt</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>options</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="options"                data-endpoint="POSTapi-v1-questions"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="answers"                data-endpoint="POSTapi-v1-questions"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="examinations-PUTapi-v1-questions--id-">update question</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-questions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://127.0.0.1:8000/api/v1/api/v1/questions/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'description' =&gt; 'consequatur',
+            'options' =&gt; [],
+            'answers' =&gt; [],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/questions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "description": "consequatur",
+    "options": [],
+    "answers": []
 };
 
 fetch(url, {
@@ -3025,45 +2531,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-PUTapi-v1-examinations--examination_id--questions--id-">
+<span id="example-responses-PUTapi-v1-questions--id-">
 </span>
-<span id="execution-results-PUTapi-v1-examinations--examination_id--questions--id-" hidden>
+<span id="execution-results-PUTapi-v1-questions--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-examinations--examination_id--questions--id-"></span>:
+                id="execution-response-status-PUTapi-v1-questions--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-examinations--examination_id--questions--id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-questions--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-v1-examinations--examination_id--questions--id-" hidden>
+<span id="execution-error-PUTapi-v1-questions--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-examinations--examination_id--questions--id-">
+    <pre><code id="execution-error-message-PUTapi-v1-questions--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-v1-examinations--examination_id--questions--id-" data-method="PUT"
-      data-path="api/v1/examinations/{examination_id}/questions/{id}"
+<form id="form-PUTapi-v1-questions--id-" data-method="PUT"
+      data-path="api/v1/questions/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-examinations--examination_id--questions--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-questions--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-examinations--examination_id--questions--id-"
-                    onclick="tryItOut('PUTapi-v1-examinations--examination_id--questions--id-');">Try it out ⚡
+                    id="btn-tryout-PUTapi-v1-questions--id-"
+                    onclick="tryItOut('PUTapi-v1-questions--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-examinations--examination_id--questions--id-"
-                    onclick="cancelTryOut('PUTapi-v1-examinations--examination_id--questions--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-v1-questions--id-"
+                    onclick="cancelTryOut('PUTapi-v1-questions--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-examinations--examination_id--questions--id-"
+                    id="btn-executetryout-PUTapi-v1-questions--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -3071,11 +2577,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/examinations/{examination_id}/questions/{id}</code></b>
+            <b><code>api/v1/questions/{id}</code></b>
         </p>
             <p>
             <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/examinations/{examination_id}/questions/{id}</code></b>
+            <b><code>api/v1/questions/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -3083,7 +2589,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-questions--id-"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -3094,7 +2600,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-questions--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3105,7 +2611,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
+                              name="Accept"                data-endpoint="PUTapi-v1-questions--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3113,26 +2619,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="16"
-               data-component="url">
-    <br>
-<p>The ID of the examination. Example: <code>16</code></p>
-            </div>
-                    <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="12"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-questions--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the question. Example: <code>12</code></p>
+<p>The ID of the question. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3140,15 +2635,37 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="description"                data-endpoint="PUTapi-v1-examinations--examination_id--questions--id-"
-               value="voluptas"
+                              name="description"                data-endpoint="PUTapi-v1-questions--id-"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>options</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="options"                data-endpoint="PUTapi-v1-questions--id-"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="answers"                data-endpoint="PUTapi-v1-questions--id-"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
         </form>
 
-                    <h2 id="examinations-DELETEapi-v1-examinations--examination_id--questions--id-">delete question</h2>
+                    <h2 id="examinations-DELETEapi-v1-questions--id-">delete question</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3156,14 +2673,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-DELETEapi-v1-examinations--examination_id--questions--id-">
+<span id="example-requests-DELETEapi-v1-questions--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/4/questions/11',
+    'http://127.0.0.1:8000/api/v1/api/v1/questions/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -3178,7 +2695,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/4/questions/11"
+    "http://127.0.0.1:8000/api/v1/api/v1/questions/1"
 );
 
 const headers = {
@@ -3194,45 +2711,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-DELETEapi-v1-examinations--examination_id--questions--id-">
+<span id="example-responses-DELETEapi-v1-questions--id-">
 </span>
-<span id="execution-results-DELETEapi-v1-examinations--examination_id--questions--id-" hidden>
+<span id="execution-results-DELETEapi-v1-questions--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-examinations--examination_id--questions--id-"></span>:
+                id="execution-response-status-DELETEapi-v1-questions--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-examinations--examination_id--questions--id-"
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-questions--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-DELETEapi-v1-examinations--examination_id--questions--id-" hidden>
+<span id="execution-error-DELETEapi-v1-questions--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-examinations--examination_id--questions--id-">
+    <pre><code id="execution-error-message-DELETEapi-v1-questions--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-DELETEapi-v1-examinations--examination_id--questions--id-" data-method="DELETE"
-      data-path="api/v1/examinations/{examination_id}/questions/{id}"
+<form id="form-DELETEapi-v1-questions--id-" data-method="DELETE"
+      data-path="api/v1/questions/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-examinations--examination_id--questions--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-questions--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-examinations--examination_id--questions--id-"
-                    onclick="tryItOut('DELETEapi-v1-examinations--examination_id--questions--id-');">Try it out ⚡
+                    id="btn-tryout-DELETEapi-v1-questions--id-"
+                    onclick="tryItOut('DELETEapi-v1-questions--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-examinations--examination_id--questions--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-examinations--examination_id--questions--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-DELETEapi-v1-questions--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-questions--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-examinations--examination_id--questions--id-"
+                    id="btn-executetryout-DELETEapi-v1-questions--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -3240,7 +2757,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/examinations/{examination_id}/questions/{id}</code></b>
+            <b><code>api/v1/questions/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -3248,7 +2765,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-examinations--examination_id--questions--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-questions--id-"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -3259,7 +2776,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-examinations--examination_id--questions--id-"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-questions--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3270,7 +2787,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-examinations--examination_id--questions--id-"
+                              name="Accept"                data-endpoint="DELETEapi-v1-questions--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3278,26 +2795,714 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="examination_id"                data-endpoint="DELETEapi-v1-examinations--examination_id--questions--id-"
-               value="4"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-questions--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>4</code></p>
+<p>The ID of the question. Example: <code>1</code></p>
             </div>
+                    </form>
+
+                <h1 id="manage-user">Manage User</h1>
+
+    
+
+                                <h2 id="manage-user-POSTapi-v1-users">Create new user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/v1/api/v1/users',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'John Doe',
+            'email' =&gt; 'user@email.com',
+            'role' =&gt; 'student',
+            'password' =&gt; 'password',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/users"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "John Doe",
+    "email": "user@email.com",
+    "role": "student",
+    "password": "password"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-users">
+</span>
+<span id="execution-results-POSTapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-users" data-method="POST"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-users"
+                    onclick="tryItOut('POSTapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-users"
+                    onclick="cancelTryOut('POSTapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-users"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-users"
+               value="John Doe"
+               data-component="body">
+    <br>
+<p>user full name. Example: <code>John Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-users"
+               value="user@email.com"
+               data-component="body">
+    <br>
+<p>valid email. Example: <code>user@email.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="POSTapi-v1-users"
+               value="student"
+               data-component="body">
+    <br>
+<p>should be on of student or teacher. Example: <code>student</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v1-users"
+               value="password"
+               data-component="body">
+    <br>
+<p>secured password. Example: <code>password</code></p>
+        </div>
+        </form>
+
+                    <h2 id="manage-user-GETapi-v1-users--id-">Get single user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: http://localhost:3000
+access-control-allow-credentials: true
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users--id-" data-method="GET"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users--id-"
+                    onclick="tryItOut('GETapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users--id-"
+                    onclick="cancelTryOut('GETapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users--id-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-v1-examinations--examination_id--questions--id-"
-               value="11"
+               step="any"               name="id"                data-endpoint="GETapi-v1-users--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the question. Example: <code>11</code></p>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="manage-user-PUTapi-v1-users--id-">Update user record</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'tqqghntodihfn',
+            'email' =&gt; 'cristian92@example.com',
+            'role' =&gt; 'teacher',
+            'password' =&gt; 'totam',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "tqqghntodihfn",
+    "email": "cristian92@example.com",
+    "role": "teacher",
+    "password": "totam"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-users--id-">
+</span>
+<span id="execution-results-PUTapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-users--id-" data-method="PUT"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-users--id-"
+                    onclick="tryItOut('PUTapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-users--id-"
+                    onclick="cancelTryOut('PUTapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-users--id-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi-v1-users--id-"
+               value="tqqghntodihfn"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>tqqghntodihfn</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-v1-users--id-"
+               value="cristian92@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>cristian92@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="PUTapi-v1-users--id-"
+               value="teacher"
+               data-component="body">
+    <br>
+<p>Must be one of <code>teacher</code> or <code>student</code>. Example: <code>teacher</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="PUTapi-v1-users--id-"
+               value="totam"
+               data-component="body">
+    <br>
+<p>Example: <code>totam</code></p>
+        </div>
+        </form>
+
+                    <h2 id="manage-user-DELETEapi-v1-users--id-">Delete existing user record</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-users--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-users--id-" data-method="DELETE"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-users--id-"
+                    onclick="tryItOut('DELETEapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-users--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-users--id-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
             </div>
                     </form>
 

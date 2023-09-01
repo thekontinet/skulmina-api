@@ -11,7 +11,7 @@ class QuestionFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->route()->parameter('examination')->user_id === $this->user()->id;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class QuestionFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => ['required']
+            'description' => ['required'],
+            'options' => ['required', 'array'],
+            'answers' => ['required', 'array']
         ];
+    }
+
+    public function getFormattedOptions()
+    {
+        $optionsArr = [];
+
+        foreach($this->input('options') as $option){
+            $optionsArr[] = ['value' => $option, 'is_correct' => false];
+        }
+
+        foreach($this->input('answers') as $option){
+            $optionsArr[] = ['value' => $option, 'is_correct' => true];
+        }
+
+        return $optionsArr;
     }
 }

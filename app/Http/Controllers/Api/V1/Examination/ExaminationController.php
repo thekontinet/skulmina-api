@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V1\Examination;
 
 use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExaminationFormRequest;
 use App\Http\Resources\ExamResource;
 use App\Models\Examination;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Scopes\OwnerScope;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
@@ -19,17 +18,11 @@ class ExaminationController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Examination::class, 'examination');
+        Examination::addGlobalScope(new OwnerScope);
     }
 
     /**
      * Get all examinations
-     *
-     * Get all examinations based on authenticated user role
-     * <aside class='info'>
-     * The examination retrieval is determined by the authenticated user's role:
-     * <strong>Student:</strong> Retrieve all examinations assigned to students. <br>
-     * <strong>Teacher:</strong> Retrieve all examinations authored by teachers.
-     * </aside>
      *
      * @return JsonResource
      */
@@ -42,30 +35,50 @@ class ExaminationController extends Controller
     /**
      * Create examination
      *
+     * Allows teachers to create examinations
+     *
      * @return JsonResource
      */
     public function store(ExaminationFormRequest $request): JsonResource
     {
         $data = $request->validated();
         $data['user_id'] = auth()->id();
-        return new ExamResource(Examination::create($data));
+        unset($data['question_ids']);
+        $examination = Examination::create($data);
+
+        // Add questions to exam if questions was sent
+        if($request->input('question_ids')){
+            $examination->questions()->sync($request->input('question_ids'));
+        }
+
+        return new ExamResource($examination);
     }
 
     /**
-     * Update an examinations
+     * Update an examination
+     *
+     * Allows teachers update their examinations and questions
      *
      * @return JsonResource
      */
     public function update(ExaminationFormRequest $request, Examination $examination)
     {
         $data = $request->validated();
+        unset($data['question_ids']);
         $examination->update($data);
+
+        // Add questions to exam if questions was sent
+        if($request->input('question_ids')){
+            $examination->questions()->sync($request->input('question_ids'));
+        }
 
         return new ExamResource($examination);
     }
 
     /**
      * Show single examination
+     *
+     * Allows teachers get single examinations
      *
      * @return JsonResource
      */
@@ -75,7 +88,9 @@ class ExaminationController extends Controller
     }
 
     /**
-     * Destroy examinations
+     * Delete an examination
+     *
+     * Allows teachers delete their examinations
      *
      * @return JsonResource
      */

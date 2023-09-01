@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use App\Models\Scopes\UserExamQuestionScope;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Tags\HasTags;
 
 class Question extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTags;
 
     protected $guarded = [];
 
@@ -22,12 +23,12 @@ class Question extends Model
     protected static function booted(): void
     {
         parent::boot();
-        static::addGlobalScope(new UserExamQuestionScope);
+        // static::addGlobalScope(new UserExamQuestionScope);
     }
 
-    public function examination(): BelongsTo
+    public function examinations(): BelongsToMany
     {
-        return $this->belongsTo(Examination::class);
+        return $this->belongsToMany(Examination::class);
     }
 
     public function options(): HasMany

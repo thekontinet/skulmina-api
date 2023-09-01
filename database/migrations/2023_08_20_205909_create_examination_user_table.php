@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seats', function (Blueprint $table) {
+        Schema::create('examination_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->morphs('seatable');
-            $table->dateTime('start_at')->nullable();
-            $table->dateTime('end_at')->nullable();
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('examination_id')->constrained();
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seats');
+        Schema::dropIfExists('options');
     }
 };

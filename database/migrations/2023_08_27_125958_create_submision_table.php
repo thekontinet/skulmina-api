@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->string('type')->nullable();
-            $table->longText('description');
+            $table->foreignId('examination_id');
+            $table->foreignId('user_id');
+            $table->jsonb('answers')->default(json_encode([]));
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('submissions');
     }
 };

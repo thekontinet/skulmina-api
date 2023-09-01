@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * request auth token
+     * Request auth token
      * @unauthenticated
      *
      * @bodyParam email string required valid email. Example: test@example.com
@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * destroy auth token.
+     * Destroy auth token.
      */
     public function destroy(Request $request): Response
     {

@@ -22,8 +22,7 @@ class ExaminationFactory extends Factory
             'user_id' => User::factory(),
             'description' => fake()->sentence(),
             'time_limit' => fake()->numberBetween(60, 60 * 2),
-            'start_time' => now()->format('Y-m-d h:i:s'),
-            'end_time' => now()->addHours(100)->format('Y-m-d h:i:s')
+            'published_at' => now()->format('Y-m-d h:i:s'),
         ];
     }
 }

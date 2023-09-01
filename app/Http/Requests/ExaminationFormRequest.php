@@ -22,21 +22,13 @@ class ExaminationFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        if($this->isMethod('put')){
-            return [
-                'title' => ['sometimes', 'string', 'max:255'],
-                'description' => ['sometimes', 'string', 'max:5000'],
-                'time_limit' => ['sometimes', 'integer', 'min:10'],
-                'start_time' => ['sometimes', 'date'],
-                'end_time' => ['sometimes', 'date', 'after_or_equal:start_time'],
-            ];
-        }
         return [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:5000'],
             'time_limit' => ['required', 'integer', 'min:10'],
-            'start_time' => ['required', 'date'],
-            'end_time' => ['required', 'date', 'after_or_equal:start_time'],
+            'published_at' => ['required', 'date'],
+            'question_ids' => ['sometimes', 'array'],
+            'question_ids.*' => ['required', 'exists:questions,id'],
         ];
     }
 }

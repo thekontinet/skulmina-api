@@ -11,6 +11,6 @@ class Submission extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'meta_data' => 'object'
+        'answers' => 'array'
     ];
 }

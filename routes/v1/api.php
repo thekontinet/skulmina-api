@@ -1,26 +1,34 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Api\V1\Auth\RegisteredUserController;
-use App\Http\Controllers\Api\V1\QuestionController;
+use App\Http\Controllers\Api\V1\Examination\QuestionController;
+use App\Http\Controllers\Api\V1\Examination\ExaminationController;
+use App\Http\Controllers\Api\V1\Examination\ExaminationProcessController;
+use App\Http\Controllers\Api\V1\Examination\ExaminationEnrollmentController;
+use App\Http\Controllers\Api\V1\Examination\RandomQuestionController;
 use App\Http\Controllers\Api\V1\UserController;
-use App\Http\Controllers\Api\V1\ExaminationController;
-use App\Http\Controllers\Api\V1\ExaminationProcessController;
-use App\Http\Controllers\ExaminationAssignmentController;
-use App\Http\Controllers\QuestionOptionController;
+use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\StudentExaminationController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
-    Route::get('/user', UserController::class);
+    Route::get('/user', AuthUserController::class);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::apiResource('/users', UserController::class);
+
+
+    // Teachers Exam Route
     Route::apiResource('examinations', ExaminationController::class);
-    Route::apiResource('examinations/{examination}/questions', QuestionController::class);
-    Route::apiResource('questions/{question}/options', QuestionOptionController::class)->only(['store', 'destroy']);
-    Route::post('examinations/{examination}/assignments', [ExaminationAssignmentController::class, 'store'])->name('assignments.store');
-    Route::delete('examinations/{examination}/assignments', [ExaminationAssignmentController::class, 'destroy'])->name('assignments.destroy');
-    Route::post('examinations/{examination}/start', [ExaminationProcessController::class, 'start'])->name('exam.start');
-    Route::post('examinations/{examination}/submit', [ExaminationProcessController::class, 'submit'])->name('exam.submit');
+    Route::apiResource('questions', QuestionController::class);
+    Route::post('examinations/{examination}/enroll', ExaminationEnrollmentController::class)
+        ->name('exam.enroll');
+
+    // Students Exam Route
+    Route::get('students/{user}/exams', StudentExaminationController::class)->name('student.exams');
+    Route::get('examinations/{examination}/questions', RandomQuestionController::class)
+        ->name('questions.random');
+    Route::post('examinations/{examination}/submit', ExaminationProcessController::class)
+        ->name('exam.submit');
 });

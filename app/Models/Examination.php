@@ -2,17 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Contracts\CanBeAttended;
-use App\Models\Scopes\UserExamScope;
-use App\Models\Traits\Attendable;
-use App\Models\Traits\HasManySeats;
+use App\Models\Scopes\OwnerScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Examination extends Model implements CanBeAttended
+class Examination extends Model
 {
-    use HasFactory, Attendable;
+    use HasFactory;
 
     protected $guarded = [];
 
@@ -24,35 +21,12 @@ class Examination extends Model implements CanBeAttended
     protected static function boot(): void
     {
         parent::boot();
-        static::addGlobalScope(new UserExamScope);
+        // static::addGlobalScope(new OwnerScope);
     }
 
-    public function hasInvitationFor(User $user): bool
+    public function questions(): BelongsToMany
     {
-        return $this->seats()->where('user_id', $user->id)->exists();
-    }
-
-    public function attendedBy(User $user): bool
-    {
-        return $this->seats()
-            ->where('user_id', $user->id)
-            ->where('start_at', '<>', null)
-            ->exists();
-    }
-
-    public function isSubmittedBy(User $user)
-    {
-        return $this->submissions()->where('user_id', $user->id)->exists();
-    }
-
-    public function hasBeenAttemptedBy(User $user): bool
-    {
-        return $this->submissions()->where('user_id', $user->id)->exists();
-    }
-
-    public function questions(): HasMany
-    {
-        return $this->hasMany(Question::class);
+        return $this->belongsToMany(Question::class);
     }
 
     public function author()
@@ -63,5 +37,10 @@ class Examination extends Model implements CanBeAttended
     public function submissions()
     {
         return $this->hasMany(Submission::class);
+    }
+
+    public function students(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 }

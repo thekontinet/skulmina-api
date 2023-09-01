@@ -1,16 +1,16 @@
-name: Endpoints
+name: Examinations
 description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: 'api/v1/questions/{question_id}/options'
+      - GET
+    uri: api/v1/examinations
     metadata:
-      groupName: Endpoints
+      groupName: Examinations
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Add option to question'
+      title: 'Get all examinations'
       description: ''
       authenticated: true
       custom: []
@@ -18,36 +18,235 @@ endpoints:
       Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      question_id:
-        name: question_id
-        description: 'The ID of the question.'
-        required: true
-        example: 5
-        type: integer
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
         custom: []
-    cleanUrlParameters:
-      question_id: 5
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/examinations
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create examination'
+      description: 'Allows teachers to create examinations'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      value:
-        name: value
-        description: ''
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: officiis
+        example: xdgf
         type: string
         custom: []
-      is_correct:
-        name: is_correct
+      description:
+        name: description
+        description: 'Must not be greater than 5000 characters.'
+        required: true
+        example: 'Ratione magni libero quia sequi ipsum quidem voluptatibus.'
+        type: string
+        custom: []
+      time_limit:
+        name: time_limit
+        description: 'Must be at least 10.'
+        required: true
+        example: 57
+        type: integer
+        custom: []
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-09-01T03:46:29'
+        type: string
+        custom: []
+      question_ids:
+        name: question_ids
         description: ''
         required: true
-        example: true
-        type: boolean
+        example:
+          - est
+        type: 'string[]'
         custom: []
     cleanBodyParameters:
-      value: officiis
-      is_correct: true
+      title: xdgf
+      description: 'Ratione magni libero quia sequi ipsum quidem voluptatibus.'
+      time_limit: 57
+      published_at: '2023-09-01T03:46:29'
+      question_ids:
+        - est
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/examinations/{id}'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show single examination'
+      description: 'Allows teachers get single examinations'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the examination.'
+        required: true
+        example: 20
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 20
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/examinations/{id}'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an examination'
+      description: 'Allows teachers update their examinations and questions'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the examination.'
+        required: true
+        example: 19
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 19
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: rnocnkxrrzcntljvxbgy
+        type: string
+        custom: []
+      description:
+        name: description
+        description: 'Must not be greater than 5000 characters.'
+        required: true
+        example: 'Iure dolore vero accusantium eligendi.'
+        type: string
+        custom: []
+      time_limit:
+        name: time_limit
+        description: 'Must be at least 10.'
+        required: true
+        example: 31
+        type: integer
+        custom: []
+      published_at:
+        name: published_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-09-01T03:46:29'
+        type: string
+        custom: []
+      question_ids:
+        name: question_ids
+        description: ''
+        required: true
+        example:
+          - cum
+        type: 'string[]'
+        custom: []
+    cleanBodyParameters:
+      title: rnocnkxrrzcntljvxbgy
+      description: 'Iure dolore vero accusantium eligendi.'
+      time_limit: 31
+      published_at: '2023-09-01T03:46:29'
+      question_ids:
+        - cum
     fileParameters: []
     responses: []
     responseFields: []
@@ -62,13 +261,158 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/questions/{question_id}/options/{id}'
+    uri: 'api/v1/examinations/{id}'
     metadata:
-      groupName: Endpoints
+      groupName: Examinations
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete Options'
+      title: 'Delete an examination'
+      description: 'Allows teachers delete their examinations'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the examination.'
+        required: true
+        example: 12
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 12
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/questions
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: 'Manage Questions'
+      subgroupDescription: ''
+      title: 'get all question'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/questions
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: 'Manage Questions'
+      subgroupDescription: ''
+      title: 'add new question'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: ''
+        required: true
+        example: nesciunt
+        type: string
+        custom: []
+      options:
+        name: options
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+      answers:
+        name: answers
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+    cleanBodyParameters:
+      description: nesciunt
+      options: []
+      answers: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/questions/{id}'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: 'Manage Questions'
+      subgroupDescription: ''
+      title: 'update question'
       description: ''
       authenticated: true
       custom: []
@@ -77,22 +421,80 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      question_id:
-        name: question_id
-        description: 'The ID of the question.'
-        required: true
-        example: 20
-        type: integer
-        custom: []
       id:
         name: id
-        description: 'The ID of the option.'
+        description: 'The ID of the question.'
         required: true
         example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      question_id: 20
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      options:
+        name: options
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+      answers:
+        name: answers
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+    cleanBodyParameters:
+      description: consequatur
+      options: []
+      answers: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/questions/{id}'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: 'Manage Questions'
+      subgroupDescription: ''
+      title: 'delete question'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the question.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
       id: 1
     queryParameters: []
     cleanQueryParameters: []
@@ -112,13 +514,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/v1/examinations/{examination_id}/assignments'
+    uri: 'api/v1/examinations/{examination_id}/enroll'
     metadata:
-      groupName: Endpoints
+      groupName: Examinations
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Assign students to exam'
+      title: 'Enroll student to exam'
       description: ''
       authenticated: true
       custom: []
@@ -131,11 +533,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 2
+        example: 7
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 2
+      examination_id: 7
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -144,12 +546,12 @@ endpoints:
         description: ''
         required: true
         example:
-          - debitis
+          - laboriosam
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       student_ids:
-        - debitis
+        - laboriosam
     fileParameters: []
     responses: []
     responseFields: []
@@ -163,14 +565,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - DELETE
-    uri: 'api/v1/examinations/{examination_id}/assignments'
+      - GET
+    uri: 'api/v1/students/{user_id}/exams'
     metadata:
-      groupName: Endpoints
+      groupName: Examinations
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Assign Student to exam'
+      title: 'Get all student exams'
       description: ''
       authenticated: true
       custom: []
@@ -179,29 +581,133 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/examinations/{examination}/questions'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieve random questions'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      examination:
+        name: examination
+        description: 'The examination.'
         required: true
         example: 8
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 8
+      examination: 8
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/examinations/{examination}/submit'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handles the submission.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      examination:
+        name: examination
+        description: 'The examination.'
+        required: true
+        example: 18
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      examination: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      student_ids:
-        name: student_ids
+      answers:
+        name: answers
         description: ''
         required: true
         example:
-          - facere
+          - magnam
         type: 'string[]'
         custom: []
     cleanBodyParameters:
-      student_ids:
-        - facere
+      answers:
+        - magnam
     fileParameters: []
     responses: []
     responseFields: []

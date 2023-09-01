@@ -1,66 +1,16 @@
-name: Examinations
+name: 'Manage User'
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v1/examinations
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get all examinations'
-      description: |-
-        Get all examinations based on authenticated user role
-        <aside class='info'>
-        The examination retrieval is determined by the authenticated user's role:
-        <strong>Student:</strong> Retrieve all examinations assigned to students. <br>
-        <strong>Teacher:</strong> Retrieve all examinations authored by teachers.
-        </aside>
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - POST
-    uri: api/v1/examinations
+    uri: api/v1/users
     metadata:
-      groupName: Examinations
+      groupName: 'Manage User'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create examination'
+      title: 'Create new user'
       description: ''
       authenticated: true
       custom: []
@@ -73,47 +23,39 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      title:
-        name: title
-        description: 'Must not be greater than 255 characters.'
+      name:
+        name: name
+        description: 'user full name.'
         required: true
-        example: aewzgotd
+        example: 'John Doe'
         type: string
         custom: []
-      description:
-        name: description
-        description: 'Must not be greater than 5000 characters.'
+      email:
+        name: email
+        description: 'valid email.'
         required: true
-        example: 'Maiores error asperiores ut iste.'
+        example: user@email.com
         type: string
         custom: []
-      time_limit:
-        name: time_limit
-        description: 'Must be at least 10.'
+      role:
+        name: role
+        description: 'should be on of student or teacher.'
         required: true
-        example: 32
-        type: integer
-        custom: []
-      start_time:
-        name: start_time
-        description: 'Must be a valid date.'
-        required: true
-        example: '2023-08-30T08:01:18'
+        example: student
         type: string
         custom: []
-      end_time:
-        name: end_time
-        description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
+      password:
+        name: password
+        description: 'secured password.'
         required: true
-        example: '2051-03-11'
+        example: password
         type: string
         custom: []
     cleanBodyParameters:
-      title: aewzgotd
-      description: 'Maiores error asperiores ut iste.'
-      time_limit: 32
-      start_time: '2023-08-30T08:01:18'
-      end_time: '2051-03-11'
+      name: 'John Doe'
+      email: user@email.com
+      role: student
+      password: password
     fileParameters: []
     responses: []
     responseFields: []
@@ -128,13 +70,13 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/examinations/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Examinations
+      groupName: 'Manage User'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show single examination'
+      title: 'Get single user'
       description: ''
       authenticated: true
       custom: []
@@ -145,13 +87,13 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the examination.'
+        description: 'The ID of the user.'
         required: true
-        example: 2
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -181,13 +123,13 @@ endpoints:
     httpMethods:
       - PUT
       - PATCH
-    uri: 'api/v1/examinations/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Examinations
+      groupName: 'Manage User'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update an examinations'
+      title: 'Update user record'
       description: ''
       authenticated: true
       custom: []
@@ -198,57 +140,49 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the examination.'
+        description: 'The ID of the user.'
         required: true
-        example: 7
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      title:
-        name: title
+      name:
+        name: name
         description: 'Must not be greater than 255 characters.'
-        required: false
-        example: rlwjwlbxkmwnwjgnjmp
+        required: true
+        example: tqqghntodihfn
         type: string
         custom: []
-      description:
-        name: description
-        description: 'Must not be greater than 5000 characters.'
-        required: false
-        example: 'Quos et iusto officiis voluptates dolorem id.'
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: cristian92@example.com
         type: string
         custom: []
-      time_limit:
-        name: time_limit
-        description: 'Must be at least 10.'
-        required: false
-        example: 68
-        type: integer
-        custom: []
-      start_time:
-        name: start_time
-        description: 'Must be a valid date.'
-        required: false
-        example: '2023-08-30T08:01:18'
+      role:
+        name: role
+        description: 'Must be one of <code>teacher</code> or <code>student</code>.'
+        required: true
+        example: teacher
         type: string
         custom: []
-      end_time:
-        name: end_time
-        description: 'Must be a valid date. Must be a date after or equal to <code>start_time</code>.'
-        required: false
-        example: '2044-03-23'
+      password:
+        name: password
+        description: ''
+        required: true
+        example: totam
         type: string
         custom: []
     cleanBodyParameters:
-      title: rlwjwlbxkmwnwjgnjmp
-      description: 'Quos et iusto officiis voluptates dolorem id.'
-      time_limit: 68
-      start_time: '2023-08-30T08:01:18'
-      end_time: '2044-03-23'
+      name: tqqghntodihfn
+      email: cristian92@example.com
+      role: teacher
+      password: totam
     fileParameters: []
     responses: []
     responseFields: []
@@ -263,13 +197,13 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/examinations/{id}'
+    uri: 'api/v1/users/{id}'
     metadata:
-      groupName: Examinations
+      groupName: 'Manage User'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Destroy examinations'
+      title: 'Delete existing user record'
       description: ''
       authenticated: true
       custom: []
@@ -280,322 +214,17 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the examination.'
+        description: 'The ID of the user.'
         required: true
-        example: 8
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 8
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/examinations/{examination_id}/questions'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: 'Manage Questions'
-      subgroupDescription: ''
-      title: 'get all question'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 15
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: 'http://localhost:3000'
-          access-control-allow-credentials: 'true'
-        description: null
-        custom: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/examinations/{examination_id}/questions'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: 'Manage Questions'
-      subgroupDescription: ''
-      title: 'add new question'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 12
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 12
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      description:
-        name: description
-        description: ''
-        required: true
-        example: et
-        type: string
-        custom: []
-    cleanBodyParameters:
-      description: et
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/v1/examinations/{examination_id}/questions/{id}'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: 'Manage Questions'
-      subgroupDescription: ''
-      title: 'update question'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 16
-        type: integer
-        custom: []
-      id:
-        name: id
-        description: 'The ID of the question.'
-        required: true
-        example: 12
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 16
-      id: 12
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      description:
-        name: description
-        description: ''
-        required: true
-        example: voluptas
-        type: string
-        custom: []
-    cleanBodyParameters:
-      description: voluptas
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/examinations/{examination_id}/questions/{id}'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: 'Manage Questions'
-      subgroupDescription: ''
-      title: 'delete question'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 4
-        type: integer
-        custom: []
-      id:
-        name: id
-        description: 'The ID of the question.'
-        required: true
-        example: 11
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 4
-      id: 11
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/examinations/{examination_id}/start'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Start examination'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 19
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 19
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/examinations/{examination_id}/submit'
-    metadata:
-      groupName: Examinations
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Handles the submission.'
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      examination_id:
-        name: examination_id
-        description: 'The ID of the examination.'
-        required: true
-        example: 9
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      examination_id: 9
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      answers:
-        name: answers
-        description: ''
-        required: true
-        example:
-          - soluta
-        type: 'string[]'
-        custom: []
-    cleanBodyParameters:
-      answers:
-        - soluta
     fileParameters: []
     responses: []
     responseFields: []

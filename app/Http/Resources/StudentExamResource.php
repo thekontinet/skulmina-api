@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ExamResource extends JsonResource
+class StudentExamResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,8 +20,6 @@ class ExamResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'time_limit' => $this->time_limit,
-            'published_at' => $this->published_at,
-            'questions' => QuestionResource::collection($this->questions),
         ];
     }
 }
