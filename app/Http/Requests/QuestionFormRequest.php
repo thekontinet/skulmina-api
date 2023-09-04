@@ -23,6 +23,7 @@ class QuestionFormRequest extends FormRequest
     {
         return [
             'description' => ['required'],
+            'examination_id' => ['nullable', 'exists:examinations,id'],
             'options' => ['required', 'array'],
             'answers' => ['required', 'array']
         ];

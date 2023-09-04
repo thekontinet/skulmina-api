@@ -21,9 +21,21 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => RoleEnum::TEACHER->value]);
         Role::create(['name' => RoleEnum::STUDENT->value]);
 
-        \App\Models\User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com'
-        ])->assignRole(RoleEnum::ADMIN->value);
+        if(config('app.env') !== 'production'){
+            \App\Models\User::factory()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@example.com'
+            ])->assignRole(RoleEnum::ADMIN->value);
+
+            \App\Models\User::factory()->create([
+                'name' => 'Student User',
+                'email' => 'student@example.com'
+            ])->assignRole(RoleEnum::STUDENT->value);
+
+            \App\Models\User::factory()->create([
+                'name' => 'Teacher User',
+                'email' => 'teacher@example.com'
+            ])->assignRole(RoleEnum::TEACHER->value);
+        }
     }
 }

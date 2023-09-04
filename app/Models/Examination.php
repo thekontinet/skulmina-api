@@ -14,14 +14,13 @@ class Examination extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'start_time' => 'datetime:Y-m-d h:i:s',
-        'end_time' => 'datetime:Y-m-d h:i:s'
+        'published_at' => 'datetime',
     ];
 
     protected static function boot(): void
     {
         parent::boot();
-        // static::addGlobalScope(new OwnerScope);
+        static::addGlobalScope(new OwnerScope);
     }
 
     public function questions(): BelongsToMany

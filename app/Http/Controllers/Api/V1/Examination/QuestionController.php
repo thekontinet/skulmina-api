@@ -35,13 +35,17 @@ class QuestionController extends Controller
      */
     public function store(QuestionFormRequest $request): JsonResource
     {
-        $request->validated();
+        $request->validated(['description', 'answers', 'options']);
 
         $question = DB::transaction(function() use($request){
             $question = Question::create($request->only('description'));
             $question->options()->createMany($request->getFormattedOptions());
             return $question;
         });
+
+        if($request->input('examination_id')){
+            $question->examinations()->sync([$request->input('examination_id')]);
+        }
 
         return new QuestionResource($question);
     }

@@ -26,7 +26,7 @@ class ExaminationFormRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:5000'],
             'time_limit' => ['required', 'integer', 'min:10'],
-            'published_at' => ['required', 'date'],
+            'published_at' => ['nullable', 'date'],
             'question_ids' => ['sometimes', 'array'],
             'question_ids.*' => ['required', 'exists:questions,id'],
         ];

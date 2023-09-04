@@ -24,7 +24,7 @@ class StudentExaminationController extends Controller
             $user = $request->user();
         }
 
-        $exams = $user->examinations()->paginate();
+        $exams = $user->examinations()->withoutGlobalScope(OwnerScope::class)->paginate();
         return StudentExamResource::collection($exams);
     }
 }
