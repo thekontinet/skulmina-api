@@ -16,7 +16,11 @@ class QuestionControllerTest extends TestCase
     public function test_can_get_questions()
     {
         $this->loginAs(RoleEnum::TEACHER);
-        $questions = Question::factory(10)->create();
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
+        $questions = Question::factory(8)->create();
+        $exam->questions()->attach($questions);
 
         $response = $this->get(route('questions.index'));
 
@@ -26,7 +30,11 @@ class QuestionControllerTest extends TestCase
 
     public function test_can_add_new_question()
     {
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
         $data = ['description' => 'test question'];
+        $data['examination_id'] = $exam->id;
         $data['options'] = ['opt1', 'opt2'];
         $data['answers'] = ['opt3', 'opt4'];
 
@@ -40,7 +48,9 @@ class QuestionControllerTest extends TestCase
 
     public function test_can_add_new_question_with_examination()
     {
-        $exam = Examination::factory()->create();
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
         $data = ['description' => 'test question'];
         $data['examination_id'] = $exam->id;
         $data['options'] = ['opt1', 'opt2'];
@@ -54,7 +64,12 @@ class QuestionControllerTest extends TestCase
 
     public function test_can_update_existing_question()
     {
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
         $question = Question::factory()->create();
+        $question->examinations()->attach($exam);
+
         $data = ['description' => 'test question'];
         $data['options'] = ['opt1', 'opt2'];
         $data['answers'] = ['opt3', 'opt4'];
@@ -69,7 +84,11 @@ class QuestionControllerTest extends TestCase
 
     public function test_can_delete_question()
     {
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
         $question = Question::factory()->create();
+        $question->examinations()->attach($exam);
 
         $this->loginAs(RoleEnum::TEACHER)->delete(route('questions.destroy', $question))
             ->assertSuccessful();

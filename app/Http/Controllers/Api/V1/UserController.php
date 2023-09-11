@@ -25,6 +25,14 @@ class UserController extends Controller
     }
 
     /**
+     * List users
+     */
+    public function index()
+    {
+        return UserResource::collection(User::paginate());
+    }
+
+    /**
      * Create new user
      *
      * @bodyParam name string required user full name. Example: John Doe

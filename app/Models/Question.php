@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\UserExamQuestionScope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,7 +24,12 @@ class Question extends Model
     protected static function booted(): void
     {
         parent::boot();
-        // static::addGlobalScope(new UserExamQuestionScope);
+        static::addGlobalScope(function(Builder $query){
+            $user = auth()->user();
+            $query->whereHas('examinations', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            });
+        });
     }
 
     public function examinations(): BelongsToMany

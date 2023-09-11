@@ -96,6 +96,7 @@ class ExaminationController extends Controller
      */
     public function destroy(Examination $examination)
     {
+        $examination->questions()->detach();
         $examination->delete();
         return response()->noContent();
     }

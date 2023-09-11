@@ -15,7 +15,8 @@ class OptionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'value' => $this->value
+            'value' => $this->value,
+            'is_correct' => $this->is_correct
         ];
     }
 }

@@ -73,6 +73,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question): Response
     {
+        $question->examinations()->detach();
         $question->delete();
         return response()->noContent();
     }
