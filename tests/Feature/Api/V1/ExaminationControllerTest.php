@@ -23,6 +23,17 @@ class ExaminationControllerTest extends TestCase
             ->assertSeeInOrder($examinations->pluck('title')->toArray());
     }
 
+    public function test_can_show_examination()
+    {
+        $examination = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
+
+        $this->loginAs(RoleEnum::TEACHER)->get(route('examinations.show', $examination))
+            ->assertSuccessful()
+            ->assertSeeInOrder([$examination->title]);
+    }
+
     public function test_can_get_all_enrolled_examinations()
     {
         $examinations = Examination::factory(5)->create();

@@ -22,7 +22,7 @@ class ExaminationPolicy
      */
     public function view(User $user, Examination $examination): bool
     {
-        return $user->id === $examination->user_id;
+        return $user?->id == $examination->user_id;
     }
 
     /**
@@ -38,7 +38,7 @@ class ExaminationPolicy
      */
     public function update(User $user, Examination $examination): bool
     {
-        return $examination->user_id == $user->id;
+        return $examination->user_id == $user?->id;
     }
 
     /**
@@ -46,6 +46,6 @@ class ExaminationPolicy
      */
     public function delete(User $user, Examination $examination): bool
     {
-        return $examination->user_id == $user->id;
+        return $examination->user_id == $user?->id;
     }
 }

@@ -18,7 +18,7 @@ class ExaminationController extends Controller
     public function __construct()
     {
         $this->authorizeResource(Examination::class, 'examination');
-        Examination::addGlobalScope(new OwnerScope);
+        // Examination::addGlobalScope(new OwnerScope);
     }
 
     /**
