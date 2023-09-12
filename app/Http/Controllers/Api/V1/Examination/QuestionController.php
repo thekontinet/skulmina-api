@@ -31,6 +31,14 @@ class QuestionController extends Controller
     }
 
     /**
+     * get single question
+     */
+    public function show(Question $question): JsonResource
+    {
+        return new QuestionResource($question);
+    }
+
+    /**
      * add new question
      */
     public function store(QuestionFormRequest $request): JsonResource

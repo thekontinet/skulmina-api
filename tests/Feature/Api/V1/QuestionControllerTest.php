@@ -28,6 +28,21 @@ class QuestionControllerTest extends TestCase
         $response->assertSeeInOrder($questions->pluck('description')->toArray());
     }
 
+    public function test_can_show_question()
+    {
+        $this->loginAs(RoleEnum::TEACHER);
+        $exam = Examination::factory()->create([
+            'user_id' => $this->user->id
+        ]);
+        $question = Question::factory()->create();
+        $exam->questions()->attach($question);
+
+        $response = $this->get(route('questions.show', $question));
+
+        $response->assertSuccessful();
+        $response->assertSeeInOrder([$question->description]);
+    }
+
     public function test_can_add_new_question()
     {
         $exam = Examination::factory()->create([
