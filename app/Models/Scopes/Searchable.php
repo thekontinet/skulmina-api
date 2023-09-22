@@ -14,7 +14,7 @@ class Searchable implements Scope
 
         if (request()->input('fields')) {
             $userFields = explode(',', request()->input('fields'));
-            $filteredFields = array_filter($userFields, fn ($field) => in_array($field, $fields));
+            $filteredFields = $this->filterFields($userFields);
             if (count($filteredFields) > 0) {
                 $searchFields = $filteredFields;
             }
@@ -36,8 +36,9 @@ class Searchable implements Scope
             });
         }
 
-        if ($query = request()->input('sort_by')) {
+        if ($query = $this->filterFields(request()->input('sort_by'))[0] ?? null) {
             $direction = $this->parseSortDirection(request()->input('order'));
+
             $builder->orderBy($query, $direction);
         }
     }
@@ -49,5 +50,18 @@ class Searchable implements Scope
             'd' => 'desc',
             default => 'asc'
         };
+    }
+
+    private function filterFields($fields)
+    {
+        if (!$fields) {
+            return [];
+        }
+
+        if (is_string($fields)) {
+            $fields = explode(',', $fields);
+        }
+
+        return array_filter($fields, fn ($field) => in_array($field, $this->fields));
     }
 }

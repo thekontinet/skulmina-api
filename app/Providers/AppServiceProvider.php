@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Enums\RoleEnum;
+use App\Models\Scopes\Searchable;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -36,7 +37,10 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.config') !== 'production' && class_exists(\Knuckles\Scribe\Scribe::class)) {
             Scribe::beforeResponseCall(function (Request $request, ExtractedEndpointData $endpointData) {
                 // Customise the request however you want (e.g. custom authentication)
-                $token = User::where('email', 'admin@example.com')->first()->createToken('test')->plainTextToken;
+                $token = User::withoutGlobalScope(Searchable::class)
+                    ->where('email', 'admin@example.com')
+                    ->first()
+                    ->createToken('test')->plainTextToken;
 
                 $request->headers->set('Authorization', "Bearer $token");
                 // You also need to set the headers in $_SERVER

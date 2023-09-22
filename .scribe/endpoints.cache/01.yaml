@@ -12,8 +12,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List users'
-      description: ''
+      title: 'Get all users.'
+      description: '<small class="badge badge-green">Searchable</small>.'
       authenticated: true
       custom: []
     headers:
@@ -22,15 +22,49 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      q:
+        name: q
+        description: 'search query.'
+        required: false
+        example: repellat
+        type: string
+        custom: []
+      fields:
+        name: fields
+        description: 'comma separated list of fields to search. defaults is "code,description,title"'
+        required: false
+        example: sed
+        type: string
+        custom: []
+      sort_by:
+        name: sort_by
+        description: 'field to sort.'
+        required: false
+        example: sequi
+        type: string
+        custom: []
+      order:
+        name: order
+        description: |-
+          direction of sorting which can be one of:
+          'a' => 'ascending' or 'd' => descending. default is 'asc'
+        required: false
+        example: aut
+        type: string
+        custom: []
+    cleanQueryParameters:
+      q: repellat
+      fields: sed
+      sort_by: sequi
+      order: aut
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"id":1,"name":"Admin User","email":"admin@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"admin","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":2,"name":"Student User","email":"student@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"student","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":3,"name":"Teacher User","email":"teacher@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"teacher","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":8,"name":"Rolandmarvin","email":"kodekontinet@gmail.com","email_verified_at":null,"role":"teacher","created_at":"2023-09-20T15:59:39.000000Z","updated_at":"2023-09-20T15:59:39.000000Z"},{"id":10,"name":"Clotilde Botsford","email":"vicenta15@example.org","email_verified_at":"2023-09-21T05:42:15.000000Z","role":null,"created_at":"2023-09-21T05:42:15.000000Z","updated_at":"2023-09-21T05:42:15.000000Z"},{"id":11,"name":"Roberto Ward","email":"olson.jasper@example.net","email_verified_at":"2023-09-21T05:42:15.000000Z","role":null,"created_at":"2023-09-21T05:42:15.000000Z","updated_at":"2023-09-21T05:42:15.000000Z"},{"id":12,"name":"Maiya Stanton","email":"awuckert@example.org","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":13,"name":"Prof. Margarett Corwin","email":"tquigley@example.net","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":14,"name":"Trevor Thiel","email":"kade.swift@example.com","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":15,"name":"Penelope Metz V","email":"ytoy@example.com","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/users?page=1","last":"http:\/\/localhost\/api\/v1\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users","per_page":15,"to":10,"total":10}}'
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/users?page=1","last":"http:\/\/localhost\/api\/v1\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users","per_page":15,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -44,7 +78,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ehgv154facVb8kEd36aPZ6D'
+      - 'Bearer DadvekhZgc1EPab866V354f'
     controller: null
     method: null
     route: null
@@ -58,7 +92,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create new user'
+      title: 'Create new user.'
       description: ''
       authenticated: true
       custom: []
@@ -110,7 +144,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k4gD36vbdZf6Eh8Pea1Vac5'
+      - 'Bearer a6chVgaeP8E46135vDdkZbf'
     controller: null
     method: null
     route: null
@@ -124,7 +158,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get single user'
+      title: 'Get single user.'
       description: ''
       authenticated: true
       custom: []
@@ -137,11 +171,11 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 1
+        example: 14
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 14
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -150,7 +184,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"name":"Admin User","email":"admin@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"admin","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"}}'
+        content: '{"data":{"id":14,"name":"Trevor Thiel","email":"kade.swift@example.com","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -164,7 +198,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6EDPg134Z5adhfkc8bve6Va'
+      - 'Bearer 16a3gk5avchPbEf4DZeV8d6'
     controller: null
     method: null
     route: null
@@ -179,7 +213,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update user record'
+      title: 'Update user record.'
       description: ''
       authenticated: true
       custom: []
@@ -204,42 +238,42 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: ezng
+        example: yovldnut
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: giovani.pagac@example.net
+        example: alexandra49@example.net
         type: string
         custom: []
       role:
         name: role
         description: 'Must be one of <code>teacher</code> or <code>student</code>.'
         required: true
-        example: student
+        example: teacher
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: quidem
+        example: deleniti
         type: string
         custom: []
     cleanBodyParameters:
-      name: ezng
-      email: giovani.pagac@example.net
-      role: student
-      password: quidem
+      name: yovldnut
+      email: alexandra49@example.net
+      role: teacher
+      password: deleniti
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer k5ec4gdaEf6ZbPa6D8Vh3v1'
+      - 'Bearer 8hD6kZ4evEV1c3d6bf5gaaP'
     controller: null
     method: null
     route: null
@@ -253,7 +287,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete existing user record'
+      title: 'Delete existing user record.'
       description: ''
       authenticated: true
       custom: []
@@ -281,7 +315,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer EgdhfZ1c4beakVPDv8a3656'
+      - 'Bearer gZ8hP6e3ka14aEcbD6fVv5d'
     controller: null
     method: null
     route: null

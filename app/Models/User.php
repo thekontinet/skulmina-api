@@ -51,7 +51,7 @@ class User extends Authenticatable
     protected static function booted(): void
     {
         parent::boot();
-        static::addGlobalScope(new Searchable(['description']));
+        static::addGlobalScope(new Searchable(['email', 'name']));
     }
 
     public function examinations()
