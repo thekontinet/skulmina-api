@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\OwnerScope;
+use App\Models\Scopes\Searchable;
 use App\Observers\ExaminationObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,7 +36,8 @@ class Examination extends Model
     protected static function boot(): void
     {
         parent::boot();
-        static::addGlobalScope(new OwnerScope);
+        static::addGlobalScope(new OwnerScope());
+        static::addGlobalScope(new Searchable(['code', 'description', 'title']));
         static::observe(ExaminationObserver::class);
     }
 

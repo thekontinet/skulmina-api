@@ -26,8 +26,8 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://127.0.0.1:8000";
-        var useCsrf = Boolean();
+        var tryItOutBaseUrl = "http://localhost";
+        var useCsrf = Boolean(1);
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
     <script src="../docs/js/tryitout-4.22.0.js"></script>
@@ -88,19 +88,19 @@
                 </li>
                                     <ul id="tocify-subheader-examinations" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="examinations-GETapi-v1-examinations">
-                                <a href="#examinations-GETapi-v1-examinations">Get all examinations</a>
+                                <a href="#examinations-GETapi-v1-examinations">Get all examinations.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations">
-                                <a href="#examinations-POSTapi-v1-examinations">Create examination</a>
+                                <a href="#examinations-POSTapi-v1-examinations">Create examination.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-GETapi-v1-examinations--id-">
-                                <a href="#examinations-GETapi-v1-examinations--id-">Show single examination</a>
+                                <a href="#examinations-GETapi-v1-examinations--id-">Show single examination.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-PUTapi-v1-examinations--id-">
-                                <a href="#examinations-PUTapi-v1-examinations--id-">Update an examination</a>
+                                <a href="#examinations-PUTapi-v1-examinations--id-">Update an examination.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-DELETEapi-v1-examinations--id-">
-                                <a href="#examinations-DELETEapi-v1-examinations--id-">Delete an examination</a>
+                                <a href="#examinations-DELETEapi-v1-examinations--id-">Delete an examination.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="examinations-POSTapi-v1-examinations--examination_id--enroll">
                                 <a href="#examinations-POSTapi-v1-examinations--examination_id--enroll">Enroll student to exam</a>
@@ -124,6 +124,9 @@
                                                                             <li class="tocify-item level-3" data-unique="examinations-POSTapi-v1-questions">
                                             <a href="#examinations-POSTapi-v1-questions">add new question</a>
                                         </li>
+                                                                            <li class="tocify-item level-3" data-unique="examinations-GETapi-v1-questions--id-">
+                                            <a href="#examinations-GETapi-v1-questions--id-">get single question</a>
+                                        </li>
                                                                             <li class="tocify-item level-3" data-unique="examinations-PUTapi-v1-questions--id-">
                                             <a href="#examinations-PUTapi-v1-questions--id-">update question</a>
                                         </li>
@@ -138,7 +141,10 @@
                     <a href="#manage-user">Manage User</a>
                 </li>
                                     <ul id="tocify-subheader-manage-user" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="manage-user-POSTapi-v1-users">
+                                                    <li class="tocify-item level-2" data-unique="manage-user-GETapi-v1-users">
+                                <a href="#manage-user-GETapi-v1-users">List users</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="manage-user-POSTapi-v1-users">
                                 <a href="#manage-user-POSTapi-v1-users">Create new user</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="manage-user-GETapi-v1-users--id-">
@@ -161,7 +167,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 1, 2023</li>
+        <li>Last updated: September 22, 2023</li>
     </ul>
 </div>
 
@@ -170,7 +176,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://127.0.0.1:8000/api/v1</code>
+    <strong>Base URL</strong>: <code>http://localhost</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -199,7 +205,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/login',
+    'http://localhost/api/v1/login',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -217,7 +223,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/login"
+    "http://localhost/api/v1/login"
 );
 
 const headers = {
@@ -349,7 +355,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/user',
+    'http://localhost/api/v1/user',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -364,7 +370,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/user"
+    "http://localhost/api/v1/user"
 );
 
 const headers = {
@@ -382,7 +388,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-user">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -390,12 +396,22 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Admin User&quot;,
+        &quot;email&quot;: &quot;admin@example.com&quot;,
+        &quot;email_verified_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+        &quot;role&quot;: &quot;admin&quot;,
+        &quot;created_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -496,7 +512,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/logout',
+    'http://localhost/api/v1/logout',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -511,7 +527,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/logout"
+    "http://localhost/api/v1/logout"
 );
 
 const headers = {
@@ -615,13 +631,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="examinations-GETapi-v1-examinations">Get all examinations</h2>
+                                <h2 id="examinations-GETapi-v1-examinations">Get all examinations.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p><small class="badge badge-green">Searchable</small>.</p>
 
 <span id="example-requests-GETapi-v1-examinations">
 <blockquote>Example request:</blockquote>
@@ -630,12 +646,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations',
+    'http://localhost/api/v1/examinations',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'q' =&gt; 'reprehenderit',
+            'fields' =&gt; 'nulla',
+            'sort_by' =&gt; 'cum',
+            'order' =&gt; 'quia',
         ],
     ]
 );
@@ -645,8 +667,17 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations"
+    "http://localhost/api/v1/examinations"
 );
+
+const params = {
+    "q": "reprehenderit",
+    "fields": "nulla",
+    "sort_by": "cum",
+    "order": "quia",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
@@ -663,7 +694,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-examinations">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -671,12 +702,46 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/examinations?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/examinations?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/examinations?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/examinations&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 0
+    }
 }</code>
  </pre>
     </span>
@@ -760,9 +825,55 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="q"                data-endpoint="GETapi-v1-examinations"
+               value="reprehenderit"
+               data-component="query">
+    <br>
+<p>search query. Example: <code>reprehenderit</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>fields</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="fields"                data-endpoint="GETapi-v1-examinations"
+               value="nulla"
+               data-component="query">
+    <br>
+<p>comma separated list of fields to search. defaults is &quot;code,description,title&quot; Example: <code>nulla</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort_by</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sort_by"                data-endpoint="GETapi-v1-examinations"
+               value="cum"
+               data-component="query">
+    <br>
+<p>field to sort. Example: <code>cum</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>order</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="order"                data-endpoint="GETapi-v1-examinations"
+               value="quia"
+               data-component="query">
+    <br>
+<p>direction of sorting which can be one of:
+'a' =&gt; 'ascending' or 'd' =&gt; descending. default is 'asc' Example: <code>quia</code></p>
+            </div>
+                </form>
 
-                    <h2 id="examinations-POSTapi-v1-examinations">Create examination</h2>
+                    <h2 id="examinations-POSTapi-v1-examinations">Create examination.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -777,7 +888,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations',
+    'http://localhost/api/v1/examinations',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -785,12 +896,12 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'xdgf',
-            'description' =&gt; 'Ratione magni libero quia sequi ipsum quidem voluptatibus.',
-            'time_limit' =&gt; 57,
-            'published_at' =&gt; '2023-09-01T03:46:29',
+            'title' =&gt; 'jvnxnygodm',
+            'description' =&gt; 'Assumenda eligendi sed molestiae perspiciatis temporibus.',
+            'time_limit' =&gt; 41,
+            'published_at' =&gt; '2023-09-22T03:03:52',
             'question_ids' =&gt; [
-                'est',
+                'at',
             ],
         ],
     ]
@@ -801,7 +912,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations"
+    "http://localhost/api/v1/examinations"
 );
 
 const headers = {
@@ -811,12 +922,12 @@ const headers = {
 };
 
 let body = {
-    "title": "xdgf",
-    "description": "Ratione magni libero quia sequi ipsum quidem voluptatibus.",
-    "time_limit": 57,
-    "published_at": "2023-09-01T03:46:29",
+    "title": "jvnxnygodm",
+    "description": "Assumenda eligendi sed molestiae perspiciatis temporibus.",
+    "time_limit": 41,
+    "published_at": "2023-09-22T03:03:52",
     "question_ids": [
-        "est"
+        "at"
     ]
 };
 
@@ -917,10 +1028,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-examinations"
-               value="xdgf"
+               value="jvnxnygodm"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>xdgf</code></p>
+<p>Must not be greater than 255 characters. Example: <code>jvnxnygodm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -928,10 +1039,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-examinations"
-               value="Ratione magni libero quia sequi ipsum quidem voluptatibus."
+               value="Assumenda eligendi sed molestiae perspiciatis temporibus."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Ratione magni libero quia sequi ipsum quidem voluptatibus.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Assumenda eligendi sed molestiae perspiciatis temporibus.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
@@ -939,21 +1050,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="POSTapi-v1-examinations"
-               value="57"
+               value="41"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>57</code></p>
+<p>Must be at least 10. Example: <code>41</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="POSTapi-v1-examinations"
-               value="2023-09-01T03:46:29"
+               value="2023-09-22T03:03:52"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-09-01T03:46:29</code></p>
+<p>Must be a valid date. Example: <code>2023-09-22T03:03:52</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>question_ids</code></b>&nbsp;&nbsp;
@@ -970,7 +1081,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="examinations-GETapi-v1-examinations--id-">Show single examination</h2>
+                    <h2 id="examinations-GETapi-v1-examinations--id-">Show single examination.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -985,7 +1096,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/20',
+    'http://localhost/api/v1/examinations/11',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1000,7 +1111,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/20"
+    "http://localhost/api/v1/examinations/11"
 );
 
 const headers = {
@@ -1018,7 +1129,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-examinations--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1026,12 +1137,14 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 55
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Examination] 11&quot;
 }</code>
  </pre>
     </span>
@@ -1122,14 +1235,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-examinations--id-"
-               value="20"
+               value="11"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>20</code></p>
+<p>The ID of the examination. Example: <code>11</code></p>
             </div>
                     </form>
 
-                    <h2 id="examinations-PUTapi-v1-examinations--id-">Update an examination</h2>
+                    <h2 id="examinations-PUTapi-v1-examinations--id-">Update an examination.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1144,7 +1257,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/19',
+    'http://localhost/api/v1/examinations/14',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1152,12 +1265,12 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'rnocnkxrrzcntljvxbgy',
-            'description' =&gt; 'Iure dolore vero accusantium eligendi.',
-            'time_limit' =&gt; 31,
-            'published_at' =&gt; '2023-09-01T03:46:29',
+            'title' =&gt; 'xpazpzcufomnnqjnwulvuuphe',
+            'description' =&gt; 'Aliquid aperiam sed nihil.',
+            'time_limit' =&gt; 69,
+            'published_at' =&gt; '2023-09-22T03:03:52',
             'question_ids' =&gt; [
-                'cum',
+                'atque',
             ],
         ],
     ]
@@ -1168,7 +1281,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/19"
+    "http://localhost/api/v1/examinations/14"
 );
 
 const headers = {
@@ -1178,12 +1291,12 @@ const headers = {
 };
 
 let body = {
-    "title": "rnocnkxrrzcntljvxbgy",
-    "description": "Iure dolore vero accusantium eligendi.",
-    "time_limit": 31,
-    "published_at": "2023-09-01T03:46:29",
+    "title": "xpazpzcufomnnqjnwulvuuphe",
+    "description": "Aliquid aperiam sed nihil.",
+    "time_limit": 69,
+    "published_at": "2023-09-22T03:03:52",
     "question_ids": [
-        "cum"
+        "atque"
     ]
 };
 
@@ -1288,10 +1401,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="19"
+               value="14"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>19</code></p>
+<p>The ID of the examination. Example: <code>14</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1300,10 +1413,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="rnocnkxrrzcntljvxbgy"
+               value="xpazpzcufomnnqjnwulvuuphe"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>rnocnkxrrzcntljvxbgy</code></p>
+<p>Must not be greater than 255 characters. Example: <code>xpazpzcufomnnqjnwulvuuphe</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -1311,10 +1424,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="Iure dolore vero accusantium eligendi."
+               value="Aliquid aperiam sed nihil."
                data-component="body">
     <br>
-<p>Must not be greater than 5000 characters. Example: <code>Iure dolore vero accusantium eligendi.</code></p>
+<p>Must not be greater than 5000 characters. Example: <code>Aliquid aperiam sed nihil.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time_limit</code></b>&nbsp;&nbsp;
@@ -1322,21 +1435,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="time_limit"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="31"
+               value="69"
                data-component="body">
     <br>
-<p>Must be at least 10. Example: <code>31</code></p>
+<p>Must be at least 10. Example: <code>69</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>published_at</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="published_at"                data-endpoint="PUTapi-v1-examinations--id-"
-               value="2023-09-01T03:46:29"
+               value="2023-09-22T03:03:52"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-09-01T03:46:29</code></p>
+<p>Must be a valid date. Example: <code>2023-09-22T03:03:52</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>question_ids</code></b>&nbsp;&nbsp;
@@ -1353,7 +1466,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="examinations-DELETEapi-v1-examinations--id-">Delete an examination</h2>
+                    <h2 id="examinations-DELETEapi-v1-examinations--id-">Delete an examination.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1368,7 +1481,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/12',
+    'http://localhost/api/v1/examinations/17',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1383,7 +1496,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/12"
+    "http://localhost/api/v1/examinations/17"
 );
 
 const headers = {
@@ -1488,10 +1601,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-examinations--id-"
-               value="12"
+               value="17"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>12</code></p>
+<p>The ID of the examination. Example: <code>17</code></p>
             </div>
                     </form>
 
@@ -1510,7 +1623,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/7/enroll',
+    'http://localhost/api/v1/examinations/2/enroll',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1519,7 +1632,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'student_ids' =&gt; [
-                'laboriosam',
+                'tempore',
             ],
         ],
     ]
@@ -1530,7 +1643,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/7/enroll"
+    "http://localhost/api/v1/examinations/2/enroll"
 );
 
 const headers = {
@@ -1541,7 +1654,7 @@ const headers = {
 
 let body = {
     "student_ids": [
-        "laboriosam"
+        "tempore"
     ]
 };
 
@@ -1642,10 +1755,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="examination_id"                data-endpoint="POSTapi-v1-examinations--examination_id--enroll"
-               value="7"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the examination. Example: <code>7</code></p>
+<p>The ID of the examination. Example: <code>2</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1678,7 +1791,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/students/1/exams',
+    'http://localhost/api/v1/students/1/exams',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1693,7 +1806,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/students/1/exams"
+    "http://localhost/api/v1/students/1/exams"
 );
 
 const headers = {
@@ -1711,7 +1824,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-students--user_id--exams">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1719,12 +1832,46 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 52
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/students/1/exams?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/students/1/exams?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/students/1/exams?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/students/1/exams&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 0
+    }
 }</code>
  </pre>
     </span>
@@ -1837,7 +1984,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/8/questions',
+    'http://localhost/api/v1/examinations/17/questions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -1852,7 +1999,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/8/questions"
+    "http://localhost/api/v1/examinations/17/questions"
 );
 
 const headers = {
@@ -1870,7 +2017,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-examinations--examination--questions">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1878,12 +2025,14 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 51
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: []
 }</code>
  </pre>
     </span>
@@ -1974,10 +2123,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="examination"                data-endpoint="GETapi-v1-examinations--examination--questions"
-               value="8"
+               value="17"
                data-component="url">
     <br>
-<p>The examination. Example: <code>8</code></p>
+<p>The examination. Example: <code>17</code></p>
             </div>
                     </form>
 
@@ -1996,7 +2145,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/examinations/18/submit',
+    'http://localhost/api/v1/examinations/9/submit',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2005,7 +2154,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'answers' =&gt; [
-                'magnam',
+                'rerum',
             ],
         ],
     ]
@@ -2016,7 +2165,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/examinations/18/submit"
+    "http://localhost/api/v1/examinations/9/submit"
 );
 
 const headers = {
@@ -2027,7 +2176,7 @@ const headers = {
 
 let body = {
     "answers": [
-        "magnam"
+        "rerum"
     ]
 };
 
@@ -2128,10 +2277,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="examination"                data-endpoint="POSTapi-v1-examinations--examination--submit"
-               value="18"
+               value="9"
                data-component="url">
     <br>
-<p>The examination. Example: <code>18</code></p>
+<p>The examination. Example: <code>9</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2165,7 +2314,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions',
+    'http://localhost/api/v1/questions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2180,7 +2329,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions"
+    "http://localhost/api/v1/questions"
 );
 
 const headers = {
@@ -2198,7 +2347,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-questions">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2206,12 +2355,46 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 54
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/questions?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/questions?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/questions?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/questions&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 0
+    }
 }</code>
  </pre>
     </span>
@@ -2312,7 +2495,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions',
+    'http://localhost/api/v1/questions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2320,7 +2503,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'description' =&gt; 'nesciunt',
+            'description' =&gt; 'soluta',
             'options' =&gt; [],
             'answers' =&gt; [],
         ],
@@ -2332,7 +2515,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions"
+    "http://localhost/api/v1/questions"
 );
 
 const headers = {
@@ -2342,7 +2525,7 @@ const headers = {
 };
 
 let body = {
-    "description": "nesciunt",
+    "description": "soluta",
     "options": [],
     "answers": []
 };
@@ -2444,10 +2627,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-questions"
-               value="nesciunt"
+               value="soluta"
                data-component="body">
     <br>
-<p>Example: <code>nesciunt</code></p>
+<p>Example: <code>soluta</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="examination_id"                data-endpoint="POSTapi-v1-questions"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>options</code></b>&nbsp;&nbsp;
@@ -2473,6 +2667,167 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="examinations-GETapi-v1-questions--id-">get single question</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-questions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/v1/questions/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/questions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-questions--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 53
+access-control-allow-origin: http://localhost:3000
+access-control-allow-credentials: true
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Question] 1&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-questions--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-questions--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-questions--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-questions--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-questions--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-questions--id-" data-method="GET"
+      data-path="api/v1/questions/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-questions--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-questions--id-"
+                    onclick="tryItOut('GETapi-v1-questions--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-questions--id-"
+                    onclick="cancelTryOut('GETapi-v1-questions--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-questions--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/questions/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-questions--id-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-questions--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-questions--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-questions--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the question. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="examinations-PUTapi-v1-questions--id-">update question</h2>
 
 <p>
@@ -2488,7 +2843,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions/1',
+    'http://localhost/api/v1/questions/5',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2496,7 +2851,7 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'description' =&gt; 'consequatur',
+            'description' =&gt; 'nam',
             'options' =&gt; [],
             'answers' =&gt; [],
         ],
@@ -2508,7 +2863,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions/1"
+    "http://localhost/api/v1/questions/5"
 );
 
 const headers = {
@@ -2518,7 +2873,7 @@ const headers = {
 };
 
 let body = {
-    "description": "consequatur",
+    "description": "nam",
     "options": [],
     "answers": []
 };
@@ -2624,10 +2979,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-questions--id-"
-               value="1"
+               value="5"
                data-component="url">
     <br>
-<p>The ID of the question. Example: <code>1</code></p>
+<p>The ID of the question. Example: <code>5</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2636,10 +2991,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="PUTapi-v1-questions--id-"
-               value="consequatur"
+               value="nam"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>nam</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>examination_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="examination_id"                data-endpoint="PUTapi-v1-questions--id-"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>options</code></b>&nbsp;&nbsp;
@@ -2680,7 +3046,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/questions/1',
+    'http://localhost/api/v1/questions/20',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2695,7 +3061,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/questions/1"
+    "http://localhost/api/v1/questions/20"
 );
 
 const headers = {
@@ -2800,10 +3166,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-questions--id-"
-               value="1"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the question. Example: <code>1</code></p>
+<p>The ID of the question. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -2811,7 +3177,279 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="manage-user-POSTapi-v1-users">Create new user</h2>
+                                <h2 id="manage-user-GETapi-v1-users">List users</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://localhost/api/v1/users',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/users"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: http://localhost:3000
+access-control-allow-credentials: true
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Admin User&quot;,
+            &quot;email&quot;: &quot;admin@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;role&quot;: &quot;admin&quot;,
+            &quot;created_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Student User&quot;,
+            &quot;email&quot;: &quot;student@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;role&quot;: &quot;student&quot;,
+            &quot;created_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;name&quot;: &quot;Teacher User&quot;,
+            &quot;email&quot;: &quot;teacher@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;role&quot;: &quot;teacher&quot;,
+            &quot;created_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;name&quot;: &quot;Rolandmarvin&quot;,
+            &quot;email&quot;: &quot;kodekontinet@gmail.com&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;role&quot;: &quot;teacher&quot;,
+            &quot;created_at&quot;: &quot;2023-09-20T15:59:39.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-20T15:59:39.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;name&quot;: &quot;Clotilde Botsford&quot;,
+            &quot;email&quot;: &quot;vicenta15@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;name&quot;: &quot;Roberto Ward&quot;,
+            &quot;email&quot;: &quot;olson.jasper@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:15.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;name&quot;: &quot;Maiya Stanton&quot;,
+            &quot;email&quot;: &quot;awuckert@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;name&quot;: &quot;Prof. Margarett Corwin&quot;,
+            &quot;email&quot;: &quot;tquigley@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;name&quot;: &quot;Trevor Thiel&quot;,
+            &quot;email&quot;: &quot;kade.swift@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;name&quot;: &quot;Penelope Metz V&quot;,
+            &quot;email&quot;: &quot;ytoy@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;role&quot;: null,
+            &quot;created_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-09-21T05:42:16.000000Z&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/users?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/users?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/users?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/users&quot;,
+        &quot;per_page&quot;: 15,
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 10
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users" data-method="GET"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users"
+                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users"
+                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="manage-user-POSTapi-v1-users">Create new user</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2826,7 +3464,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://127.0.0.1:8000/api/v1/api/v1/users',
+    'http://localhost/api/v1/users',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -2847,7 +3485,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/users"
+    "http://localhost/api/v1/users"
 );
 
 const headers = {
@@ -3015,7 +3653,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    'http://localhost/api/v1/users/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -3030,7 +3668,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+    "http://localhost/api/v1/users/1"
 );
 
 const headers = {
@@ -3048,7 +3686,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -3056,12 +3694,22 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
 access-control-allow-origin: http://localhost:3000
 access-control-allow-credentials: true
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Admin User&quot;,
+        &quot;email&quot;: &quot;admin@example.com&quot;,
+        &quot;email_verified_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+        &quot;role&quot;: &quot;admin&quot;,
+        &quot;created_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-09-20T15:29:07.000000Z&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -3174,7 +3822,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;put(
-    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    'http://localhost/api/v1/users/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -3182,10 +3830,10 @@ $response = $client-&gt;put(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'name' =&gt; 'tqqghntodihfn',
-            'email' =&gt; 'cristian92@example.com',
-            'role' =&gt; 'teacher',
-            'password' =&gt; 'totam',
+            'name' =&gt; 'ezng',
+            'email' =&gt; 'giovani.pagac@example.net',
+            'role' =&gt; 'student',
+            'password' =&gt; 'quidem',
         ],
     ]
 );
@@ -3195,7 +3843,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+    "http://localhost/api/v1/users/1"
 );
 
 const headers = {
@@ -3205,10 +3853,10 @@ const headers = {
 };
 
 let body = {
-    "name": "tqqghntodihfn",
-    "email": "cristian92@example.com",
-    "role": "teacher",
-    "password": "totam"
+    "name": "ezng",
+    "email": "giovani.pagac@example.net",
+    "role": "student",
+    "password": "quidem"
 };
 
 fetch(url, {
@@ -3324,10 +3972,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-users--id-"
-               value="tqqghntodihfn"
+               value="ezng"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>tqqghntodihfn</code></p>
+<p>Must not be greater than 255 characters. Example: <code>ezng</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -3335,10 +3983,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-users--id-"
-               value="cristian92@example.com"
+               value="giovani.pagac@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>cristian92@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>giovani.pagac@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -3346,10 +3994,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="PUTapi-v1-users--id-"
-               value="teacher"
+               value="student"
                data-component="body">
     <br>
-<p>Must be one of <code>teacher</code> or <code>student</code>. Example: <code>teacher</code></p>
+<p>Must be one of <code>teacher</code> or <code>student</code>. Example: <code>student</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3357,10 +4005,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-v1-users--id-"
-               value="totam"
+               value="quidem"
                data-component="body">
     <br>
-<p>Example: <code>totam</code></p>
+<p>Example: <code>quidem</code></p>
         </div>
         </form>
 
@@ -3379,7 +4027,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://127.0.0.1:8000/api/v1/api/v1/users/1',
+    'http://localhost/api/v1/users/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_TOKEN}',
@@ -3394,7 +4042,7 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/api/v1/users/1"
+    "http://localhost/api/v1/users/1"
 );
 
 const headers = {

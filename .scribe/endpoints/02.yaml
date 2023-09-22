@@ -10,8 +10,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all examinations'
-      description: ''
+      title: 'Get all examinations.'
+      description: '<small class="badge badge-green">Searchable</small>.'
       authenticated: true
       custom: []
     headers:
@@ -20,18 +20,54 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      q:
+        name: q
+        description: 'search query.'
+        required: false
+        example: reprehenderit
+        type: string
+        custom: []
+      fields:
+        name: fields
+        description: 'comma separated list of fields to search. defaults is "code,description,title"'
+        required: false
+        example: nulla
+        type: string
+        custom: []
+      sort_by:
+        name: sort_by
+        description: 'field to sort.'
+        required: false
+        example: cum
+        type: string
+        custom: []
+      order:
+        name: order
+        description: |-
+          direction of sorting which can be one of:
+          'a' => 'ascending' or 'd' => descending. default is 'asc'
+        required: false
+        example: quia
+        type: string
+        custom: []
+    cleanQueryParameters:
+      q: reprehenderit
+      fields: nulla
+      sort_by: cum
+      order: quia
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/examinations?page=1","last":"http:\/\/localhost\/api\/v1\/examinations?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/examinations?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/examinations","per_page":15,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -40,7 +76,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer 6ZekDcvdf8VbaP5461ghEa3'
     controller: null
     method: null
     route: null
@@ -54,7 +90,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create examination'
+      title: 'Create examination.'
       description: 'Allows teachers to create examinations'
       authenticated: true
       custom: []
@@ -71,28 +107,28 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: xdgf
+        example: jvnxnygodm
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 5000 characters.'
         required: true
-        example: 'Ratione magni libero quia sequi ipsum quidem voluptatibus.'
+        example: 'Assumenda eligendi sed molestiae perspiciatis temporibus.'
         type: string
         custom: []
       time_limit:
         name: time_limit
         description: 'Must be at least 10.'
         required: true
-        example: 57
+        example: 41
         type: integer
         custom: []
       published_at:
         name: published_at
         description: 'Must be a valid date.'
-        required: true
-        example: '2023-09-01T03:46:29'
+        required: false
+        example: '2023-09-22T03:03:52'
         type: string
         custom: []
       question_ids:
@@ -100,23 +136,23 @@ endpoints:
         description: ''
         required: true
         example:
-          - est
+          - at
         type: 'string[]'
         custom: []
     cleanBodyParameters:
-      title: xdgf
-      description: 'Ratione magni libero quia sequi ipsum quidem voluptatibus.'
-      time_limit: 57
-      published_at: '2023-09-01T03:46:29'
+      title: jvnxnygodm
+      description: 'Assumenda eligendi sed molestiae perspiciatis temporibus.'
+      time_limit: 41
+      published_at: '2023-09-22T03:03:52'
       question_ids:
-        - est
+        - at
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer DacbhgZd1aEVfveP386645k'
     controller: null
     method: null
     route: null
@@ -130,7 +166,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show single examination'
+      title: 'Show single examination.'
       description: 'Allows teachers get single examinations'
       authenticated: true
       custom: []
@@ -143,11 +179,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 20
+        example: 11
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -155,11 +191,16 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Examination] 11"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -168,7 +209,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer gVkfad1bca34Z56vD8Eeh6P'
     controller: null
     method: null
     route: null
@@ -183,7 +224,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update an examination'
+      title: 'Update an examination.'
       description: 'Allows teachers update their examinations and questions'
       authenticated: true
       custom: []
@@ -196,11 +237,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 19
+        example: 14
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 19
+      id: 14
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -208,28 +249,28 @@ endpoints:
         name: title
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: rnocnkxrrzcntljvxbgy
+        example: xpazpzcufomnnqjnwulvuuphe
         type: string
         custom: []
       description:
         name: description
         description: 'Must not be greater than 5000 characters.'
         required: true
-        example: 'Iure dolore vero accusantium eligendi.'
+        example: 'Aliquid aperiam sed nihil.'
         type: string
         custom: []
       time_limit:
         name: time_limit
         description: 'Must be at least 10.'
         required: true
-        example: 31
+        example: 69
         type: integer
         custom: []
       published_at:
         name: published_at
         description: 'Must be a valid date.'
-        required: true
-        example: '2023-09-01T03:46:29'
+        required: false
+        example: '2023-09-22T03:03:52'
         type: string
         custom: []
       question_ids:
@@ -237,23 +278,23 @@ endpoints:
         description: ''
         required: true
         example:
-          - cum
+          - atque
         type: 'string[]'
         custom: []
     cleanBodyParameters:
-      title: rnocnkxrrzcntljvxbgy
-      description: 'Iure dolore vero accusantium eligendi.'
-      time_limit: 31
-      published_at: '2023-09-01T03:46:29'
+      title: xpazpzcufomnnqjnwulvuuphe
+      description: 'Aliquid aperiam sed nihil.'
+      time_limit: 69
+      published_at: '2023-09-22T03:03:52'
       question_ids:
-        - cum
+        - atque
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer Ebc8k6h43dVv56Z1aagPefD'
     controller: null
     method: null
     route: null
@@ -267,7 +308,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete an examination'
+      title: 'Delete an examination.'
       description: 'Allows teachers delete their examinations'
       authenticated: true
       custom: []
@@ -280,11 +321,11 @@ endpoints:
         name: id
         description: 'The ID of the examination.'
         required: true
-        example: 12
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 12
+      id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -295,7 +336,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer d614PaV6E3gfehZbvD5k8ca'
     controller: null
     method: null
     route: null
@@ -326,11 +367,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/questions?page=1","last":"http:\/\/localhost\/api\/v1\/questions?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/questions?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/questions","per_page":15,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -339,7 +382,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer daEe5Z6h836Vgk4fvD1bPac'
     controller: null
     method: null
     route: null
@@ -370,7 +413,14 @@ endpoints:
         name: description
         description: ''
         required: true
-        example: nesciunt
+        example: soluta
+        type: string
+        custom: []
+      examination_id:
+        name: examination_id
+        description: ''
+        required: false
+        example: null
         type: string
         custom: []
       options:
@@ -388,7 +438,7 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      description: nesciunt
+      description: soluta
       options: []
       answers: []
     fileParameters: []
@@ -397,7 +447,64 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer k8Vvafe3g4h6Dd5Za6cEbP1'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/questions/{id}'
+    metadata:
+      groupName: Examinations
+      groupDescription: ''
+      subgroup: 'Manage Questions'
+      subgroupDescription: ''
+      title: 'get single question'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the question.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Question] 1"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer d86a15g63bfckPZVDavh4eE'
     controller: null
     method: null
     route: null
@@ -425,11 +532,11 @@ endpoints:
         name: id
         description: 'The ID of the question.'
         required: true
-        example: 1
+        example: 5
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -437,7 +544,14 @@ endpoints:
         name: description
         description: ''
         required: true
-        example: consequatur
+        example: nam
+        type: string
+        custom: []
+      examination_id:
+        name: examination_id
+        description: ''
+        required: false
+        example: null
         type: string
         custom: []
       options:
@@ -455,7 +569,7 @@ endpoints:
         type: object
         custom: []
     cleanBodyParameters:
-      description: consequatur
+      description: nam
       options: []
       answers: []
     fileParameters: []
@@ -464,7 +578,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer hV8g4DZve6af5E6dkc13Pab'
     controller: null
     method: null
     route: null
@@ -491,11 +605,11 @@ endpoints:
         name: id
         description: 'The ID of the question.'
         required: true
-        example: 1
+        example: 20
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -506,7 +620,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer ZDa51b6V634agePvck8hdEf'
     controller: null
     method: null
     route: null
@@ -533,11 +647,11 @@ endpoints:
         name: examination_id
         description: 'The ID of the examination.'
         required: true
-        example: 7
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      examination_id: 7
+      examination_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -546,19 +660,19 @@ endpoints:
         description: ''
         required: true
         example:
-          - laboriosam
+          - tempore
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       student_ids:
-        - laboriosam
+        - tempore
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer 3b4VdkEfDZ66gaae518cvhP'
     controller: null
     method: null
     route: null
@@ -597,11 +711,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/students\/1\/exams?page=1","last":"http:\/\/localhost\/api\/v1\/students\/1\/exams?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/students\/1\/exams?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/students\/1\/exams","per_page":15,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -610,7 +726,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer kbav1eV8cEPhgDZd3f465a6'
     controller: null
     method: null
     route: null
@@ -637,11 +753,11 @@ endpoints:
         name: examination
         description: 'The examination.'
         required: true
-        example: 8
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      examination: 8
+      examination: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -649,11 +765,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":[]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -662,7 +780,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer 1436cZ6E5vgbDhfedka8aVP'
     controller: null
     method: null
     route: null
@@ -689,11 +807,11 @@ endpoints:
         name: examination
         description: 'The examination.'
         required: true
-        example: 18
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
-      examination: 18
+      examination: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -702,19 +820,19 @@ endpoints:
         description: ''
         required: true
         example:
-          - magnam
+          - rerum
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       answers:
-        - magnam
+        - rerum
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer 8vc6bfg3kVadE4D6hea1P5Z'
     controller: null
     method: null
     route: null

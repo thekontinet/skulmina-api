@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/127.0.0.1:8000\/api\/v1"
+            "value": "http:\/\/localhost"
         }
     ],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "5db4332f-a503-4e22-b507-b3f5b7b5d502",
+        "_postman_id": "2bee9279-68a9-4098-b8f7-d013ebb3aa4b",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -85,6 +85,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -93,8 +101,8 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"name\":\"Admin User\",\"email\":\"admin@example.com\",\"email_verified_at\":\"2023-09-20T15:29:07.000000Z\",\"role\":\"admin\",\"created_at\":\"2023-09-20T15:29:07.000000Z\",\"updated_at\":\"2023-09-20T15:29:07.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -131,13 +139,38 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get all examinations",
+                    "name": "Get all examinations.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
                             "path": "api\/v1\/examinations",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/examinations"
+                            "query": [
+                                {
+                                    "key": "q",
+                                    "value": "reprehenderit",
+                                    "description": "search query.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "fields",
+                                    "value": "nulla",
+                                    "description": "comma separated list of fields to search. defaults is \"code,description,title\"",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort_by",
+                                    "value": "cum",
+                                    "description": "field to sort.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "quia",
+                                    "description": "direction of sorting which can be one of:\n'a' => 'ascending' or 'd' => descending. default is 'asc'",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/v1\/examinations?q=reprehenderit&fields=nulla&sort_by=cum&order=quia"
                         },
                         "method": "GET",
                         "header": [
@@ -151,7 +184,7 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "<small class=\"badge badge-green\">Searchable<\/small>."
                     },
                     "response": [
                         {
@@ -165,6 +198,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -173,14 +214,14 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/examinations?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/examinations?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/examinations?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/examinations\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Create examination",
+                    "name": "Create examination.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -201,14 +242,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"xdgf\",\"description\":\"Ratione magni libero quia sequi ipsum quidem voluptatibus.\",\"time_limit\":57,\"published_at\":\"2023-09-01T03:46:29\",\"question_ids\":[\"est\"]}"
+                            "raw": "{\"title\":\"jvnxnygodm\",\"description\":\"Assumenda eligendi sed molestiae perspiciatis temporibus.\",\"time_limit\":41,\"published_at\":\"2023-09-22T03:03:52\",\"question_ids\":[\"at\"]}"
                         },
                         "description": "Allows teachers to create examinations"
                     },
                     "response": []
                 },
                 {
-                    "name": "Show single examination",
+                    "name": "Show single examination.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -219,7 +260,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "20",
+                                    "value": "11",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -250,6 +291,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -258,14 +307,14 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Examination] 11\"\n}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Update an examination",
+                    "name": "Update an examination.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -276,7 +325,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "19",
+                                    "value": "14",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -294,14 +343,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"rnocnkxrrzcntljvxbgy\",\"description\":\"Iure dolore vero accusantium eligendi.\",\"time_limit\":31,\"published_at\":\"2023-09-01T03:46:29\",\"question_ids\":[\"cum\"]}"
+                            "raw": "{\"title\":\"xpazpzcufomnnqjnwulvuuphe\",\"description\":\"Aliquid aperiam sed nihil.\",\"time_limit\":69,\"published_at\":\"2023-09-22T03:03:52\",\"question_ids\":[\"atque\"]}"
                         },
                         "description": "Allows teachers update their examinations and questions"
                     },
                     "response": []
                 },
                 {
-                    "name": "Delete an examination",
+                    "name": "Delete an examination.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -312,7 +361,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "17",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -372,6 +421,14 @@
                                             "value": "application\/json"
                                         },
                                         {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "54"
+                                        },
+                                        {
                                             "key": "access-control-allow-origin",
                                             "value": "http:\/\/localhost:3000"
                                         },
@@ -380,8 +437,8 @@
                                             "value": "true"
                                         }
                                     ],
-                                    "code": 401,
-                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "code": 200,
+                                    "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/questions?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/questions?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/questions?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/questions\",\"per_page\":15,\"to\":null,\"total\":0}}",
                                     "name": ""
                                 }
                             ]
@@ -408,11 +465,76 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"nesciunt\",\"options\":[],\"answers\":[]}"
+                                    "raw": "{\"description\":\"soluta\",\"options\":[],\"answers\":[]}"
                                 },
                                 "description": ""
                             },
                             "response": []
+                        },
+                        {
+                            "name": "get single question",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/questions\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/questions\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the question."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-limit",
+                                            "value": "60"
+                                        },
+                                        {
+                                            "key": "x-ratelimit-remaining",
+                                            "value": "53"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "http:\/\/localhost:3000"
+                                        },
+                                        {
+                                            "key": "access-control-allow-credentials",
+                                            "value": "true"
+                                        }
+                                    ],
+                                    "code": 404,
+                                    "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Question] 1\"\n}",
+                                    "name": ""
+                                }
+                            ]
                         },
                         {
                             "name": "update question",
@@ -426,7 +548,7 @@
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "1",
+                                            "value": "5",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -444,7 +566,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"description\":\"consequatur\",\"options\":[],\"answers\":[]}"
+                                    "raw": "{\"description\":\"nam\",\"options\":[],\"answers\":[]}"
                                 },
                                 "description": ""
                             },
@@ -462,7 +584,7 @@
                                         {
                                             "id": "id",
                                             "key": "id",
-                                            "value": "1",
+                                            "value": "20",
                                             "description": "The ID of the question."
                                         }
                                     ]
@@ -497,7 +619,7 @@
                                 {
                                     "id": "examination_id",
                                     "key": "examination_id",
-                                    "value": "7",
+                                    "value": "2",
                                     "description": "The ID of the examination."
                                 }
                             ]
@@ -515,7 +637,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"student_ids\":[\"laboriosam\"]}"
+                            "raw": "{\"student_ids\":[\"tempore\"]}"
                         },
                         "description": ""
                     },
@@ -564,6 +686,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "52"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -572,8 +702,8 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":[],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/students\\\/1\\\/exams?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/students\\\/1\\\/exams?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":null,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/students\\\/1\\\/exams?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/students\\\/1\\\/exams\",\"per_page\":15,\"to\":null,\"total\":0}}",
                             "name": ""
                         }
                     ]
@@ -590,7 +720,7 @@
                                 {
                                     "id": "examination",
                                     "key": "examination",
-                                    "value": "8",
+                                    "value": "17",
                                     "description": "The examination."
                                 }
                             ]
@@ -621,6 +751,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "51"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -629,8 +767,8 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":[]}",
                             "name": ""
                         }
                     ]
@@ -647,7 +785,7 @@
                                 {
                                     "id": "examination",
                                     "key": "examination",
-                                    "value": "18",
+                                    "value": "9",
                                     "description": "The examination."
                                 }
                             ]
@@ -665,7 +803,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"answers\":[\"magnam\"]}"
+                            "raw": "{\"answers\":[\"rerum\"]}"
                         },
                         "description": ""
                     },
@@ -677,6 +815,63 @@
             "name": "Manage User",
             "description": "",
             "item": [
+                {
+                    "name": "List users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http:\/\/localhost:3000"
+                                },
+                                {
+                                    "key": "access-control-allow-credentials",
+                                    "value": "true"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"Admin User\",\"email\":\"admin@example.com\",\"email_verified_at\":\"2023-09-20T15:29:07.000000Z\",\"role\":\"admin\",\"created_at\":\"2023-09-20T15:29:07.000000Z\",\"updated_at\":\"2023-09-20T15:29:07.000000Z\"},{\"id\":2,\"name\":\"Student User\",\"email\":\"student@example.com\",\"email_verified_at\":\"2023-09-20T15:29:07.000000Z\",\"role\":\"student\",\"created_at\":\"2023-09-20T15:29:07.000000Z\",\"updated_at\":\"2023-09-20T15:29:07.000000Z\"},{\"id\":3,\"name\":\"Teacher User\",\"email\":\"teacher@example.com\",\"email_verified_at\":\"2023-09-20T15:29:07.000000Z\",\"role\":\"teacher\",\"created_at\":\"2023-09-20T15:29:07.000000Z\",\"updated_at\":\"2023-09-20T15:29:07.000000Z\"},{\"id\":8,\"name\":\"Rolandmarvin\",\"email\":\"kodekontinet@gmail.com\",\"email_verified_at\":null,\"role\":\"teacher\",\"created_at\":\"2023-09-20T15:59:39.000000Z\",\"updated_at\":\"2023-09-20T15:59:39.000000Z\"},{\"id\":10,\"name\":\"Clotilde Botsford\",\"email\":\"vicenta15@example.org\",\"email_verified_at\":\"2023-09-21T05:42:15.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:15.000000Z\",\"updated_at\":\"2023-09-21T05:42:15.000000Z\"},{\"id\":11,\"name\":\"Roberto Ward\",\"email\":\"olson.jasper@example.net\",\"email_verified_at\":\"2023-09-21T05:42:15.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:15.000000Z\",\"updated_at\":\"2023-09-21T05:42:15.000000Z\"},{\"id\":12,\"name\":\"Maiya Stanton\",\"email\":\"awuckert@example.org\",\"email_verified_at\":\"2023-09-21T05:42:16.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:16.000000Z\",\"updated_at\":\"2023-09-21T05:42:16.000000Z\"},{\"id\":13,\"name\":\"Prof. Margarett Corwin\",\"email\":\"tquigley@example.net\",\"email_verified_at\":\"2023-09-21T05:42:16.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:16.000000Z\",\"updated_at\":\"2023-09-21T05:42:16.000000Z\"},{\"id\":14,\"name\":\"Trevor Thiel\",\"email\":\"kade.swift@example.com\",\"email_verified_at\":\"2023-09-21T05:42:16.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:16.000000Z\",\"updated_at\":\"2023-09-21T05:42:16.000000Z\"},{\"id\":15,\"name\":\"Penelope Metz V\",\"email\":\"ytoy@example.com\",\"email_verified_at\":\"2023-09-21T05:42:16.000000Z\",\"role\":null,\"created_at\":\"2023-09-21T05:42:16.000000Z\",\"updated_at\":\"2023-09-21T05:42:16.000000Z\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost\\\/api\\\/v1\\\/users\",\"per_page\":15,\"to\":10,\"total\":10}}",
+                            "name": ""
+                        }
+                    ]
+                },
                 {
                     "name": "Create new user",
                     "request": {
@@ -748,6 +943,14 @@
                                     "value": "application\/json"
                                 },
                                 {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
                                     "key": "access-control-allow-origin",
                                     "value": "http:\/\/localhost:3000"
                                 },
@@ -756,8 +959,8 @@
                                     "value": "true"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"name\":\"Admin User\",\"email\":\"admin@example.com\",\"email_verified_at\":\"2023-09-20T15:29:07.000000Z\",\"role\":\"admin\",\"created_at\":\"2023-09-20T15:29:07.000000Z\",\"updated_at\":\"2023-09-20T15:29:07.000000Z\"}}",
                             "name": ""
                         }
                     ]
@@ -792,7 +995,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"tqqghntodihfn\",\"email\":\"cristian92@example.com\",\"role\":\"teacher\",\"password\":\"totam\"}"
+                            "raw": "{\"name\":\"ezng\",\"email\":\"giovani.pagac@example.net\",\"role\":\"student\",\"password\":\"quidem\"}"
                         },
                         "description": ""
                     },
@@ -839,7 +1042,7 @@
         "bearer": [
             {
                 "key": "auth_token",
-                "value": "2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5",
+                "value": null,
                 "type": "string"
             }
         ]

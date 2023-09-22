@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Api\V1\Examination\QuestionController;
 use App\Http\Controllers\Api\V1\Examination\ExaminationController;
-use App\Http\Controllers\Api\V1\Examination\ExaminationProcessController;
 use App\Http\Controllers\Api\V1\Examination\ExaminationEnrollmentController;
+use App\Http\Controllers\Api\V1\Examination\ExaminationProcessController;
+use App\Http\Controllers\Api\V1\Examination\QuestionController;
 use App\Http\Controllers\Api\V1\Examination\RandomQuestionController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\AuthUserController;
@@ -17,7 +17,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', AuthUserController::class);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::apiResource('/users', UserController::class);
-
 
     // Teachers Exam Route
     Route::apiResource('examinations', ExaminationController::class);

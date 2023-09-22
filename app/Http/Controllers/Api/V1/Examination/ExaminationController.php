@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\V1\Examination;
 
-use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExaminationFormRequest;
 use App\Http\Resources\ExamResource;
@@ -22,22 +21,26 @@ class ExaminationController extends Controller
     }
 
     /**
-     * Get all examinations
+     * Get all examinations.
+     *<small class="badge badge-green">Searchable</small>.
      *
-     * @return JsonResource
+     * @queryParam q search query.
+     * @queryParam fields comma separated list of fields to search. defaults is "code,description,title"
+     * @queryParam sort_by field to sort.
+     * @queryParam order direction of sorting which can be one of:
+     * 'a' => 'ascending' or 'd' => descending. default is 'asc'
      */
     public function index(): JsonResource
     {
         $examinations = Examination::paginate();
+
         return ExamResource::collection($examinations);
     }
 
     /**
-     * Create examination
+     * Create examination.
      *
      * Allows teachers to create examinations
-     *
-     * @return JsonResource
      */
     public function store(ExaminationFormRequest $request): JsonResource
     {
@@ -47,7 +50,7 @@ class ExaminationController extends Controller
         $examination = Examination::create($data);
 
         // Add questions to exam if questions was sent
-        if($request->input('question_ids')){
+        if ($request->input('question_ids')) {
             $examination->questions()->sync($request->input('question_ids'));
         }
 
@@ -55,7 +58,7 @@ class ExaminationController extends Controller
     }
 
     /**
-     * Update an examination
+     * Update an examination.
      *
      * Allows teachers update their examinations and questions
      *
@@ -68,7 +71,7 @@ class ExaminationController extends Controller
         $examination->update($data);
 
         // Add questions to exam if questions was sent
-        if($request->input('question_ids')){
+        if ($request->input('question_ids')) {
             $examination->questions()->sync($request->input('question_ids'));
         }
 
@@ -76,7 +79,7 @@ class ExaminationController extends Controller
     }
 
     /**
-     * Show single examination
+     * Show single examination.
      *
      * Allows teachers get single examinations
      *
@@ -88,7 +91,7 @@ class ExaminationController extends Controller
     }
 
     /**
-     * Delete an examination
+     * Delete an examination.
      *
      * Allows teachers delete their examinations
      *
@@ -98,6 +101,7 @@ class ExaminationController extends Controller
     {
         $examination->questions()->detach();
         $examination->delete();
+
         return response()->noContent();
     }
 }

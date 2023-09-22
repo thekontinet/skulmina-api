@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\V1\Examination;
 
-use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionFormRequest;
 use App\Http\Resources\QuestionResource;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * @group Examinations
+ *
  * @subgroup Manage Questions
  */
 class QuestionController extends Controller
@@ -23,7 +23,14 @@ class QuestionController extends Controller
     }
 
     /**
-     * get all question
+     * Get all questions.
+     *<small class="badge badge-green">Searchable</small>.
+     *
+     * @queryParam q search query.
+     * @queryParam fields comma separated list of fields to search. defaults is "code,description,title"
+     * @queryParam sort_by field to sort.
+     * @queryParam order direction of sorting which can be one of:
+     * 'a' => 'ascending' or 'd' => descending. default is 'asc'
      */
     public function index(): JsonResource
     {
@@ -31,7 +38,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * get single question
+     * get single question.
      */
     public function show(Question $question): JsonResource
     {
@@ -39,19 +46,20 @@ class QuestionController extends Controller
     }
 
     /**
-     * add new question
+     * add new question.
      */
     public function store(QuestionFormRequest $request): JsonResource
     {
         $request->validated(['description', 'answers', 'options']);
 
-        $question = DB::transaction(function() use($request){
+        $question = DB::transaction(function () use ($request) {
             $question = Question::create($request->only('description'));
             $question->options()->createMany($request->getFormattedOptions());
+
             return $question;
         });
 
-        if($request->input('examination_id')){
+        if ($request->input('examination_id')) {
             $question->examinations()->sync([$request->input('examination_id')]);
         }
 
@@ -59,11 +67,11 @@ class QuestionController extends Controller
     }
 
     /**
-     * update question
+     * update question.
      */
     public function update(QuestionFormRequest $request, Question $question): JsonResource
     {
-        $question = DB::transaction(function() use($question, $request){
+        $question = DB::transaction(function () use ($question, $request) {
             $question->update($request->only('description'));
 
             // Delete existing options and add new ones
@@ -77,12 +85,13 @@ class QuestionController extends Controller
     }
 
     /**
-     * delete question
+     * delete question.
      */
     public function destroy(Question $question): Response
     {
         $question->examinations()->detach();
         $question->delete();
+
         return response()->noContent();
     }
 }

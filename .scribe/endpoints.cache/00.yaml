@@ -75,11 +75,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":{"id":1,"name":"Admin User","email":"admin@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"admin","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -88,7 +90,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer Dbg8e5VcPda4Ehvk6f1a63Z'
     controller: null
     method: null
     route: null
@@ -122,7 +124,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer Z8bd66efkvPVahD5a3E1cg4'
     controller: null
     method: null
     route: null

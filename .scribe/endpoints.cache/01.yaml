@@ -5,6 +5,52 @@ description: ''
 endpoints:
   -
     httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: 'Manage User'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List users'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"name":"Admin User","email":"admin@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"admin","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":2,"name":"Student User","email":"student@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"student","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":3,"name":"Teacher User","email":"teacher@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"teacher","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"},{"id":8,"name":"Rolandmarvin","email":"kodekontinet@gmail.com","email_verified_at":null,"role":"teacher","created_at":"2023-09-20T15:59:39.000000Z","updated_at":"2023-09-20T15:59:39.000000Z"},{"id":10,"name":"Clotilde Botsford","email":"vicenta15@example.org","email_verified_at":"2023-09-21T05:42:15.000000Z","role":null,"created_at":"2023-09-21T05:42:15.000000Z","updated_at":"2023-09-21T05:42:15.000000Z"},{"id":11,"name":"Roberto Ward","email":"olson.jasper@example.net","email_verified_at":"2023-09-21T05:42:15.000000Z","role":null,"created_at":"2023-09-21T05:42:15.000000Z","updated_at":"2023-09-21T05:42:15.000000Z"},{"id":12,"name":"Maiya Stanton","email":"awuckert@example.org","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":13,"name":"Prof. Margarett Corwin","email":"tquigley@example.net","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":14,"name":"Trevor Thiel","email":"kade.swift@example.com","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"},{"id":15,"name":"Penelope Metz V","email":"ytoy@example.com","email_verified_at":"2023-09-21T05:42:16.000000Z","role":null,"created_at":"2023-09-21T05:42:16.000000Z","updated_at":"2023-09-21T05:42:16.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/users?page=1","last":"http:\/\/localhost\/api\/v1\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/users","per_page":15,"to":10,"total":10}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ehgv154facVb8kEd36aPZ6D'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/v1/users
     metadata:
@@ -64,7 +110,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer k4gD36vbdZf6Eh8Pea1Vac5'
     controller: null
     method: null
     route: null
@@ -103,11 +149,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 200
+        content: '{"data":{"id":1,"name":"Admin User","email":"admin@example.com","email_verified_at":"2023-09-20T15:29:07.000000Z","role":"admin","created_at":"2023-09-20T15:29:07.000000Z","updated_at":"2023-09-20T15:29:07.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -116,7 +164,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer 6EDPg134Z5adhfkc8bve6Va'
     controller: null
     method: null
     route: null
@@ -156,42 +204,42 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: tqqghntodihfn
+        example: ezng
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: cristian92@example.com
+        example: giovani.pagac@example.net
         type: string
         custom: []
       role:
         name: role
         description: 'Must be one of <code>teacher</code> or <code>student</code>.'
         required: true
-        example: teacher
+        example: student
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: totam
+        example: quidem
         type: string
         custom: []
     cleanBodyParameters:
-      name: tqqghntodihfn
-      email: cristian92@example.com
-      role: teacher
-      password: totam
+      name: ezng
+      email: giovani.pagac@example.net
+      role: student
+      password: quidem
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer k5ec4gdaEf6ZbPa6D8Vh3v1'
     controller: null
     method: null
     route: null
@@ -233,7 +281,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 2|J10D0n2qEZA73vt6DoO856ip0rXEoPT13ZNoS3w5'
+      - 'Bearer EgdhfZ1c4beakVPDv8a3656'
     controller: null
     method: null
     route: null
