@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Exam;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ExaminationFormRequest extends FormRequest
@@ -22,7 +21,7 @@ class ExaminationFormRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:5000'],
             'time_limit' => ['required', 'integer', 'min:10'],
@@ -30,5 +29,11 @@ class ExaminationFormRequest extends FormRequest
             'question_ids' => ['sometimes', 'array'],
             'question_ids.*' => ['required', 'exists:questions,id'],
         ];
+
+        if ($this->route()->getName() === 'examinations.store') {
+            $data['course_id'] = ['required', 'exists:courses,id'];
+        }
+
+        return $data;
     }
 }

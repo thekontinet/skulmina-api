@@ -2,18 +2,28 @@
 
 namespace App\Models;
 
+use App\Enums\RoleEnum;
 use App\Models\Scopes\OwnerScope;
+use App\Models\Scopes\RelatedScope;
 use App\Models\Scopes\Searchable;
 use App\Observers\ExaminationObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 
 class Examination extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'code',
+        'time_limit',
+        'published_at',
+    ];
 
     protected $casts = [
         'published_at' => 'datetime',
@@ -36,7 +46,17 @@ class Examination extends Model
     protected static function boot(): void
     {
         parent::boot();
-        static::addGlobalScope(new OwnerScope());
+        /** @var User */
+        $user = Auth::user();
+
+        if ($user->hasRole(RoleEnum::TEACHER->value)) {
+            static::addGlobalScope(new OwnerScope($user));
+        }
+
+        if ($user->hasRole(RoleEnum::STUDENT->value)) {
+            static::addGlobalScope(new RelatedScope('students', $user));
+        }
+
         static::addGlobalScope(new Searchable(['code', 'description', 'title']));
         static::observe(ExaminationObserver::class);
     }
@@ -49,6 +69,11 @@ class Examination extends Model
     public function author()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function courses()
+    {
+        return $this->morphToMany(Course::class, 'modulable', 'course_modules');
     }
 
     public function submissions()

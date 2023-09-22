@@ -46,13 +46,10 @@ class ExaminationController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->id();
-        unset($data['question_ids']);
         $examination = Examination::create($data);
 
         // Add questions to exam if questions was sent
-        if ($request->input('question_ids')) {
-            $examination->questions()->sync($request->input('question_ids'));
-        }
+        $examination->questions()->attach($request->input('question_ids') ?? []);
 
         return new ExamResource($examination);
     }
@@ -66,9 +63,7 @@ class ExaminationController extends Controller
      */
     public function update(ExaminationFormRequest $request, Examination $examination)
     {
-        $data = $request->validated();
-        unset($data['question_ids']);
-        $examination->update($data);
+        $examination->update($request->validated());
 
         // Add questions to exam if questions was sent
         if ($request->input('question_ids')) {

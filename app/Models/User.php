@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Enums\RoleEnum;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,5 +58,14 @@ class User extends Authenticatable
     public function examinations()
     {
         return $this->belongsToMany(Examination::class);
+    }
+
+    public function courses()
+    {
+        if (auth()->user()?->hasRole(RoleEnum::STUDENT->value)) {
+            return $this->belongsToMany(Course::class, 'course_student', 'student_id');
+        }
+
+        return $this->hasMany(Course::class, 'teacher_id');
     }
 }

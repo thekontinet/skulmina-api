@@ -79,7 +79,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-remaining: '49'
           access-control-allow-origin: 'http://localhost:3000'
           access-control-allow-credentials: 'true'
         description: null
@@ -88,7 +88,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer E1akdfaDZcV3b4hPe6865vg'
+      - 'Bearer 564Z31VfP8adcEkh6gveDab'
     controller: null
     method: null
     route: null
@@ -122,7 +122,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Pk86Z4hVfgbda61c5eaED3v'
+      - 'Bearer ag3avkbdPVh5416EZcDf6e8'
     controller: null
     method: null
     route: null

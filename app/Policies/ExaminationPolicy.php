@@ -5,7 +5,6 @@ namespace App\Policies;
 use App\Enums\RoleEnum;
 use App\Models\Examination;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ExaminationPolicy
 {
@@ -14,7 +13,7 @@ class ExaminationPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole(RoleEnum::TEACHER->value);
+        return true;
     }
 
     /**
@@ -22,7 +21,7 @@ class ExaminationPolicy
      */
     public function view(User $user, Examination $examination): bool
     {
-        return $user?->id == $examination->user_id;
+        return true;
     }
 
     /**
